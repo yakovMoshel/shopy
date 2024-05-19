@@ -1,13 +1,12 @@
 import { connectToMongo } from '@/server/DL/connectToMongo';
-import { productModel } from '@/server/DL/productModel';
+import { productModel } from '@/server/DL/Models/productModel';
 import styles from "./style.module.scss"
 import BelieveLine from '@/Componnets/BelieveLine';
 import ProductItem from '@/Componnets/ProductItem';
-import { getAllProducts } from '@/server/BL/service';
+import { getAllProducts } from '@/server/BL/productService';
 
 const Home = async () => {
 
-  await connectToMongo();
 
   // דוגמת דאטה להעלאה ראשונית
 
