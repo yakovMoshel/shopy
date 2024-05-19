@@ -2,14 +2,15 @@ import React from 'react'
 import styles from './style.module.scss'
 import SideBar from '@/Componnets/SideBar';
 import PostItem from '@/Componnets/PostItem';
-import { getAllProducts } from '@/server/BL/service';
+import { getAllPosts } from '@/server/BL/postService';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 
 export default async function Blog() {
 
     await connectToMongo();
-    const products = await getAllProducts()
 
+    const posts = await getAllPosts();
+console.log({posts});
     return (
         <div className={styles.blog}>
             <SideBar />
@@ -17,9 +18,13 @@ export default async function Blog() {
             <div className={styles.content}>
                 <h2>מוצרים</h2>
                 <div className={styles.items}>
-                    {products.map((product) => (
-                        <PostItem key={product._id} product={product}  />
-                    ))}
+                    {posts&&
+                    posts?.map((post) => {
+
+                        console.log(post)
+                      return  <PostItem key={post._id} post={post}  />
+                    }
+                )}
                 </div>
             </div>
         </div>

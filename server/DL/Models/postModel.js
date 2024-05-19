@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const blogPostSchema = new mongoose.Schema({
+const PostSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -28,4 +28,5 @@ const blogPostSchema = new mongoose.Schema({
 });
 
 
-export const postModel = mongoose.models.Post || mongoose.model('BlogPost', blogPostSchema);
+export const postModel = mongoose.models.Post || mongoose.model('Post', PostSchema);
+
