@@ -14,9 +14,8 @@ console.log({posts});
     return (
         <div className={styles.blog}>
             <SideBar />
-            <h2>Blog</h2>
             <div className={styles.content}>
-                <h2>מוצרים</h2>
+            <h2>Blog</h2>
                 <div className={styles.items}>
                     {posts&&
                     posts?.map((post) => {
