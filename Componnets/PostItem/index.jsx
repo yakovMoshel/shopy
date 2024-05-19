@@ -2,33 +2,30 @@ import React from 'react'
 import styles from "./style.module.scss"
 import Link from 'next/link';
 
-export default function PostItem({ product }) {
+export default function PostItem({ post }) {
   const {
-    name,
-    description,
-    category,
-    image,
-    flavors,
-    createdAt
-  } = product;
+    title,
+    summary,
+    image,createdAt
+  } = post;
   return (
     <div className={styles.item}>
-      <img src={image} alt={name} />
+      <img src={image} alt={title} />
       <div className={styles.Details}>
         <div className={styles.createdAt}>
           {new Date(createdAt).toLocaleDateString()}
         </div>
         <div className={styles.productName}>
-          {name}
+          {title}
         </div>
         <div className={styles.description}>
-          {description}
+          {/* {description} */}
         </div>
         <div className={styles.category}>
-          קטגוריה: {category}
+          קטגוריה: {summary}
         </div>
         <div className={styles.flavors}>
-          טעמים: {flavors.join(', ')}
+          {/* טעמים: {flavors.join(', ')} */}
         </div>
 
       </div>
