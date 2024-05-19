@@ -1,5 +1,23 @@
-.main{
+.container {
+    display: flex;
+    flex-direction: column;
+
+  .mainFooter {
     width: 100%;
     height: 200px;
     background-color: #1a3771;
+  }
+
+
+  .active{
+    color: red;
+  }
+
+  .endFooter{
+    display: flex;
+    background-color: #efc4c5;
+    height: 80px;
+    justify-content: end;
+    align-items: center;
+  }
 }
