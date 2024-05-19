@@ -5,7 +5,6 @@ import Header from "@/Componnets/Header";
 export default function Home() {
   return (
   <>
-  <Header/>
   </>
   );
 }
