@@ -1,0 +1,55 @@
+.item {
+    height: 300px;
+    aspect-ratio: 2/3;
+    border-radius: 15px;
+    box-shadow: 0px 0px 50px -15px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font);
+    background-color: var(--mainColor);
+    color: var(--secColor);
+    img {
+        object-fit: fill;
+        width: 100%;
+        border-radius: 15px;
+        &:hover {
+            filter: brightness(80%);
+            cursor: pointer;
+        }
+    }
+
+    .productName {
+        font-size: 18px;
+            font-weight: 600;
+
+    }
+
+    .orderButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ff85b3;  // ורוד בהיר
+        color: white;
+        border: none;
+        border-radius: 8px; // קצוות עגולים יותר
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    
+        // הוספת צל לכפתור
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+        &:hover {
+            background-color: #ff70a6; // ורוד כהה יותר בעת העברת העכבר
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); // צל עמוק יותר בהובר
+        }
+    
+        &:active {
+            background-color: #ff5588; // ורוד עמוק יותר בלחיצה
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // צל רך יותר בלחיצה
+        }
+    }
+    
+
+}
