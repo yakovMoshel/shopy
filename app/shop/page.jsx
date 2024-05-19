@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './style.module.scss'
 import SideBar from '@/Componnets/SideBar'
 
-import ProductItem from '@/Componnets/ProoductItem';
+import ProductItem from '@/Componnets/ProductItem';
 import { getAllProducts } from '@/server/BL/service';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 
