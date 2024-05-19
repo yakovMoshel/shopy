@@ -9,9 +9,7 @@ import { connectToMongo } from '@/server/DL/connectToMongo';
 export default async function shop() {
 
     await connectToMongo();
-
     const products = await getAllProducts()
-
 
     return (
         <div className={styles.shop}>
