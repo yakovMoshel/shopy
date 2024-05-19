@@ -3,7 +3,7 @@ import styles from './style.module.scss'
 import SideBar from '@/Componnets/SideBar'
 
 import ProductItem from '@/Componnets/ProductItem';
-import { getAllProducts } from '@/server/BL/service';
+import { getAllProducts } from '@/server/BL/productService';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 
 export default async function shop() {
