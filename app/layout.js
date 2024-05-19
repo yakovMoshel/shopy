@@ -12,10 +12,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <Header/>
-      <body className={poppins.className}>{children}</body>
-      <Footer/>
+    <html lang="he">
+      <body className={poppins.className}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
