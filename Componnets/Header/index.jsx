@@ -36,7 +36,7 @@ export default function Header() {
                         </Link>
                     </li>
                 </ul>
-            <div className={styles.logo}>logo</div>
+            <div className={styles.logo}>AYALA</div>
             </div>
         </div >
     )
