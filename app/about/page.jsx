@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './style.module.scss'
-import BelieveLine from '@/Componnets/BelieveLine'
+import BelieveLine from '../../Componnets/BelieveLine'
 
 export default function about() {
   return (
