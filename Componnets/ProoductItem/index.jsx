@@ -11,9 +11,9 @@ export default function ProductItem({ product }) {
             </div>
             <div className={styles.image}>
                 <img src={image} alt={name} />
-
             </div>
             {price}
         </div>
     );
 }
+
