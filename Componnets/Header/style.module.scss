@@ -1,0 +1,28 @@
+.Header {
+    background-color: rgba(255, 0, 238, 0.633);
+    height: 50px;
+
+    .navMenu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+   
+       & >ul{
+        list-style: none;
+        display: flex;
+        li{
+            margin-right: 1rem; 
+                &> a {
+                    color: rgb(0, 0, 0);
+                    text-decoration: none;
+                    font-size: 1.2rem;
+                  }
+                  &:hover {
+                    text-decoration: underline;
+                  }
+            }
+        }
+
+        
+    }
+}
