@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-import React from 'react'
-
-export default function page() {
-  return (
-    <div>page</div>
-  )
-}
-=======
-import ProductItem from '@/Componnets/ProoductItem';
-import { getAllProducts } from '@/server/BL/service';
+import ProductItem from '@/Componnets/ProductItem';
+import Home from '@/app/page';
+import { getAllProducts } from '@/server/BL/productService';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 
 export default async function Refael() {
@@ -21,11 +13,12 @@ export default async function Refael() {
     <div>
       <h1>העוגות שלי</h1>
 
-      {products.map((product) => (
+      {/* {products.map((product) => (
         <div key={product._id}>
           <ProductItem product={product} />
           </div>
-      ))}
+      ))} */}
+      <Home/>
     </div>
 
   );

@@ -1,28 +1,90 @@
 .Header {
     background-color: var(--mainColor);
-    height: 50px;
+    height: 80px;
+    border-radius: 15px;
+    color: var(--secColor);
+    padding: 20px;
+    .logo{
+        font-size: 40px;
+    }
 
     .navMenu {
         display: flex;
         align-items: center;
         justify-content: space-between;
    
-       & >ul{
+       ul{
         list-style: none;
         display: flex;
         li{
             margin-right: 1rem; 
-                &> a {
+                 a {
                     color: rgb(0, 0, 0);
                     text-decoration: none;
                     font-size: 1.2rem;
+                    width: 75px;
+                    height: 25px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    border-radius: 10px;
+                    transition: transform 0.3s
+                }
+                a:hover {
+                    border-radius: 10px;
+                    background-color: var(--secColor);
+                    color: var(--mainColor);
                   }
-                  &:hover {
-                    text-decoration: underline;
+                  .active{
+                    background-color: var(--secColor);
+                    color: var(--mainColor);
+                    transform: translateY(-2px);
+
                   }
             }
         }
 
         
     }
+}
+
+
+@media (max-width: 768px) {
+    .Header {
+        background-color: var(--mainColor);
+        height: 80px;
+        border-radius: 15px;
+        color: var(--secColor);
+        padding: 20px;
+        width: 100%;
+        .logo{
+            font-size: 40px;
+        }
+    
+        .navMenu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+       
+           & >ul{
+            list-style: none;
+            display: flex;
+            li{
+                margin-right: 1rem; 
+                    &> a {
+                        color: rgb(0, 0, 0);
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                      }
+                      &:hover {
+                        text-decoration: underline;
+                      }
+                }
+            }
+    
+            
+        }
+    }
+
 }
