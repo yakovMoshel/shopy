@@ -1,4 +1,4 @@
-import { productModel } from "../productModel";
+import { productModel } from "../Models/productModel";
 
 export const getProducts =  () => productModel.find();
 

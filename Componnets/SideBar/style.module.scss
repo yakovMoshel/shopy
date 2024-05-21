@@ -2,18 +2,27 @@
 .sideBar {
     height: 100vh;
     width: 170px;
-    background-color: #d7d7d7;
+    background-color: var(--mainColor);
     padding: 20px;
     border-radius: 8px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 
+    padding-top: 20px;
+    
+    align-items: center;
+    justify-content: center;
+
     ul {
         list-style: none;
+
         li {
-            width: 140px;
+            width: 90%;
+            height: 27px;
             text-align: center;
-            margin-top: 20px;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 25px;
             font-size: 18px;
             
             &:hover {
