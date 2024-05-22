@@ -14,6 +14,11 @@ const productSchema = new mongoose.Schema({
     required: true
   },
   category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true
+  },
+  categorySlug: {
     type: String,
     required: true
   },
@@ -38,3 +43,8 @@ const productSchema = new mongoose.Schema({
 });
 
 export const productModel = mongoose.models.Product || mongoose.model('Product', productSchema);
+
+
+
+
+
