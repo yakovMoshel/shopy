@@ -1,23 +1,71 @@
 .container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
   .mainFooter {
     width: 100%;
-    height: 200px;
-    background-color: #1a3771;
-  }
-
-
-  .active{
-    color: red;
-  }
-
-  .endFooter{
+    // height: 200px;
     display: flex;
-    background-color: #efc4c5;
-    height: 80px;
-    justify-content: end;
+    flex-direction: column;
+    padding: 35px;
+    gap: 15px;
+    flex-wrap: wrap;
+    border-top: 2px solid black;
+    background-color: #f6e6e1;
+
+    .tital {
+      font-size: 30px;
+      text-decoration: underline;
+    }
+  }
+
+  .info {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    height: auto;
+    border-bottom: 2px solid black;
+    background-color: #f6e6e1;
+
+    .icon {
+      width: 80px;
+      height: 80px;
+      padding: 5px;
+      font-size: 70px;
+      text-align: center;
+      justify-content: center;
+      color: azure;
+      background-color: palevioletred;
+      // border: 1px solid rgb(255, 255, 255);
+      border-radius: 25px;
+
+      :hover {
+        // background-color: aqua;
+        font-weight: 900;
+      }
+    }
+  }
+
+  .noActive {
+    text-decoration: none;
+    font-size: larger;
+    font-weight: 800;
+    color: black;
+  }
+  .active {
+    text-decoration: none;
+    font-size: larger;
+    font-weight: 900;
+    color: rgb(183, 91, 91);
+  }
+
+  .endFooter {
+    display: flex;
+    background-color: #c4bfbf;
+    height: 50px;
+    justify-content: center;
     align-items: center;
   }
 }
