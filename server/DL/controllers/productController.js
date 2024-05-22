@@ -1,12 +1,15 @@
-<<<<<<< HEAD
-import { productModel } from "../productModel";
-import { Contact } from "../messageModel";
-=======
 import { productModel } from "../Models/productModel";
->>>>>>> 276b8455b0c3a2eb1f99751cd6629f008433eb24
+import { messageModel } from "../Models/messageModel";
 
-export const getProducts =  () => productModel.find();
 
-export const getOneProduct =  (id) => productModel.findById(id);
+export const getProducts = (category = null) => {
+  if (category) {
+    return productModel.find({ category: category });
+  }
+  return productModel.find();
+};
 
-export const creatMassge = (massge)=> Contact.create(massge);
+export const getOneProduct = (id) => productModel.findById(id);
+export const createMessage = (message) => messageModel.create(message);
+
+

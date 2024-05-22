@@ -2,7 +2,7 @@ import styles from './style.module.scss';
 
 // TODO - server side rendering
 import { connectToMongo } from '@/server/DL/connectToMongo';
-import { getProduct } from '@/server/BL/service';
+import { getProduct } from '@/server/BL/productService';
 
 export default async function Page({ params }) {
     // connect
