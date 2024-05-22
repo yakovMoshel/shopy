@@ -1,9 +1,10 @@
+
 import { connectToMongo } from '@/server/DL/connectToMongo';
 import { productModel } from '@/server/DL/Models/productModel';
 import styles from "./style.module.scss"
 import BelieveLine from '@/Componnets/BelieveLine';
 import ProductItem from '@/Componnets/ProductItem';
-import { getAllProducts } from '@/server/BL/productService';
+import { getAllProducts, getProductsByCategory } from '@/server/BL/productService';
 
 const Home = async () => {
 
@@ -18,6 +19,9 @@ const Home = async () => {
   //   const productsDb = await productModel.find().lean();
   await connectToMongo();
 
+
+  const productByCat=await getProductsByCategory("עוגת בנטו")
+  console.log(productByCat);
   const products = await getAllProducts()
   const limitedProducts = products.slice(0, 5);
 
