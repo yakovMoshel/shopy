@@ -1,18 +1,19 @@
+
+
 .item {
+  flex: 1 1 calc(20% - 40px);
+  max-width: calc(20% - 40px);
   padding: 20px;
   margin: 10px;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 2px 2px 4px rgba(157, 150, 150, 0.699);
-
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-
-  width: 350px;
-  height: 220px;
   transition: transform 0.3s, box-shadow 0.3s;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
   &:hover {
     transform: translateY(-5px);
@@ -20,32 +21,80 @@
     cursor: pointer;
   }
 
-  .productName {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  img {
-    width: 150px;
-    height: 150px;
+  .image {
+    width: 100%;
+    height: auto;
     border-radius: 10px;
+    margin-bottom: 15px;
   }
 
-  .description {
-    font-size: 16px;
-    color: #666;
-    margin: 10px 0;
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
   }
 
-  .category,
-  .price,
-  .stock,
-  .colors,
-  .flavors,
   .createdAt {
-    font-size: 16px;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secColor);
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .summary {
+    font-size: 1.1rem;
     color: #333;
-    margin: 5px 0;
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .readMoreButton {
+    padding: 10px 20px;
+    background-color: var(--secColor);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    align-self: flex-start;
+
+    &:hover {
+      background-color: #532d34;
+    }
+  }
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .item {
+    flex: 1 1 calc(100% - 40px);
+    max-width: calc(100% - 40px);
+    padding: 15px;
+    margin: 10px;
+
+    .title {
+      font-size: 1.3rem;
+    }
+
+    .summary {
+      font-size: 1rem;
+    }
+
+    .readMoreButton {
+      font-size: 0.9rem;
+    }
   }
 }
