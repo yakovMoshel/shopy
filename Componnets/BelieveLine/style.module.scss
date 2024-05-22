@@ -1,0 +1,22 @@
+.believeLine {
+    background-color:var(--secColor);
+    color: var(--mainColor);
+    width: 100%;
+    border-radius: 50px;
+    text-align: center;
+    padding: 10px;
+    .advantagesList {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        li {
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+}
