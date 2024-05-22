@@ -1,0 +1,70 @@
+.OrderSettings {
+  justify-content: center;
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  div {
+    margin-bottom: 10px;
+
+    label {
+      margin-left: 5px;
+      font-size: 1.1em;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+  }
+
+  .orderButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0069d9;
+    }
+  }
+
+  .quantity {
+    display: flex;
+    input {
+      width: 60px;
+      height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .buttonQuantity {
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      font-size: 0.9em;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0069d9;
+      }
+    }
+
+  }
+}
+.notes {
+  width: 250px;
+  height: 130px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+  font-size: 16px;
+}
