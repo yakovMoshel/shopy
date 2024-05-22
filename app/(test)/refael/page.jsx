@@ -1,6 +1,6 @@
 import ProductItem from '@/Componnets/ProductItem';
 import Home from '@/app/page';
-import { getAllProducts } from '@/server/BL/service';
+import { getAllProducts } from '@/server/BL/productService';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 
 export default async function Refael() {
@@ -23,3 +23,4 @@ export default async function Refael() {
 
   );
 }
+>>>>>>> 81bddfe4dd87236ee636ae8072aecc1b7222c3db
