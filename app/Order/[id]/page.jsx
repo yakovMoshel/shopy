@@ -24,7 +24,7 @@ export default async function Page({ params }) {
                     <p>במלאי: {product.stock}</p>
                     <img src={product.image} alt={product.name} />
                 </div>
-
+                
                 <div className={styles.productDetails}>
                     <SizeOptions product={product}/>
                 </div>

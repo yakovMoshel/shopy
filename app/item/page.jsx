@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function item() {
-
     const list = [
         pic[
         "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.getcake.co.il%2Fblog%2F%25D7%25A2%25D7%2595%25D7%2592%25D7%2595%25D7%25AA-%25D7%259E%25D7%25A2%25D7%2595%25D7%25A6%25D7%2591%25D7%2595%25D7%25AA-%25D7%259C%25D7%2599%25D7%259C%25D7%2593%25D7%2599%25D7%259D&psig=AOvVaw2X12elWgE5FLxG1KtxNttl&ust=1716398908322000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOjiua6in4YDFQAAAAAdAAAAABAE",
@@ -11,11 +10,8 @@ export default function item() {
         info[
         "עוגת יום הולדת בכל הגדלים ת לכל הגילאים ת בהזמנה אישית"
         ]
-
     ]
-
     return (
-
         <div>
             {list.map((p) => {
                 return (
