@@ -47,6 +47,7 @@ const orderSchema = new mongoose.Schema({
 
 export const OrderModel = mongoose.models.Order || mongoose.model('Order', orderSchema);
 
+<<<<<<< HEAD
 
 
 
@@ -89,3 +90,5 @@ export const OrderModel = mongoose.models.Order || mongoose.model('Order', order
 
 // createProduct();
 
+=======
+>>>>>>> 276b8455b0c3a2eb1f99751cd6629f008433eb24
