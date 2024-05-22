@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 export default function PostItem({ post }) {
   const {
+    _id,
     title,
     summary,
     image,createdAt
@@ -17,6 +18,8 @@ export default function PostItem({ post }) {
         </div>
         <div className={styles.productName}>
           {title}
+          <Link className={styles.orderButton}
+                 href={`/UniquePost/${_id}`}>המשך קריאה</Link>
         </div>
         <div className={styles.description}>
           {/* {description} */}

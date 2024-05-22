@@ -11,10 +11,17 @@ export default function Contact() {
   return (
     <div className={styles.contact}>
       <h2>יצירת קשר</h2>
-      <ContactDetails />
-      <ContactForm />
-      <SocialLinks />
-
+      <div className={styles.contactContent}>
+        <div className={styles.contactDetails}>
+          <ContactDetails />
+        </div>
+        <div className={styles.contactForm}>
+          <ContactForm />
+        </div>
+      </div>
+      <div className={styles.socialLinks}>
+        <SocialLinks />
+      </div>
     </div>
   );
 }
