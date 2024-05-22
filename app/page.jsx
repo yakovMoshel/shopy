@@ -3,7 +3,8 @@ import { productModel } from '@/server/DL/Models/productModel';
 import styles from "./style.module.scss"
 import BelieveLine from '@/Componnets/BelieveLine';
 import ProductItem from '@/Componnets/ProductItem';
-import { getAllProducts } from '@/server/BL/productService';
+import { getAllProducts, getProductsByCategory } from '@/server/BL/productService';
+import Testimonial from '@/Componnets/Testimonial/Index';
 
 const Home = async () => {
 
@@ -18,6 +19,8 @@ const Home = async () => {
   //   const productsDb = await productModel.find().lean();
   await connectToMongo();
 
+
+  const productByCat = await getProductsByCategory("עוגת בנטו")
   const products = await getAllProducts()
   const limitedProducts = products.slice(0, 5);
 
@@ -38,10 +41,18 @@ const Home = async () => {
       <h1>מוצרים נבחרים</h1>
       <div className={styles.topProducts}>
 
+        {/* {productByCat.map((product) => (
+          <li key={product._id}>
+            <img src={product.image} alt={product.name} />
+            <p>{product.name}</p>
+          </li>
+        ))} */}
+
         {limitedProducts.map((product) => (
           <ProductItem key={product._id} product={product} />
         ))}
       </div>
+      <Testimonial/>
     </div>
   );
 }
