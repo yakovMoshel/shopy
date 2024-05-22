@@ -11,17 +11,20 @@ export default function ProductItem({ product }) {
 
     return (
         <div className={styles.item}>
-            <div className={styles.productName}>
-                {name}
-            </div>
-            <div className={styles.image}>
-                <img src={image} alt={name} />
-            </div>
-            <div className={styles.footer}>
-             {/* TODO - Link */}
-                {price} <Link className={styles.orderButton}
-                 href={`/Order/${_id}`}>הזמנה</Link>
-            </div>
-        </div>
+            <Link href={`/ItemPage/${_id}`}>
+                <div className={styles.productName}>
+                    {name}
+                </div>
+                <div className={styles.image}>
+                    <img src={image} alt={name} />
+                </div>
+                <div className={styles.footer}>
+                </div>
+            </Link>
+            {/* TODO - Link */}
+            {price} <Link className={styles.orderButton}
+                href={`/Order/${_id}`}>הזמנה</Link>
+       
+        </div >
     );
 }
