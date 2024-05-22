@@ -12,7 +12,7 @@ export default function Header() {
                 <ul >
                     <li>
                         <Link href="/" className={path === '/' ? styles.active : ''} >
-                             בית
+                            בית
                         </Link>
                     </li>
                     <li>
@@ -21,7 +21,7 @@ export default function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/contact" className={path === '/contact' ? styles.active : ''}>
+                        <Link href="/Contact" className={path === '/Contact' ? styles.active : ''}>
                             צור קשר
                         </Link>
                     </li>
@@ -36,7 +36,7 @@ export default function Header() {
                         </Link>
                     </li>
                 </ul>
-            <div className={styles.logo}>AYALA</div>
+                <div className={styles.logo}>AYALA</div>
             </div>
         </div >
     )
