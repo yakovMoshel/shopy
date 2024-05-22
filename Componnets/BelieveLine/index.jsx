@@ -6,13 +6,17 @@ export default function BelieveLine() {
   return (
     <div className={styles.believeLine}>
       <ul className={styles.advantagesList}>
-        <li>יצירתיות באמנות האפייה<LuDessert />
+        <li>
+          <LuDessert />יצירתיות באמנות האפייה
         </li>
-        <li>טעמים מופלאים, אהבה וזמן<LuDessert />
+        <li>
+          <LuDessert />טעמים מופלאים, אהבה וזמן
         </li>
-        <li>חומרי גלם איכותיים וטריים<LuDessert />
+        <li>
+          <LuDessert />חומרי גלם איכותיים וטריים
         </li>
-        <li>מגוון רחב, מתאים לטעמים<LuDessert />
+        <li>
+          <LuDessert />מגוון רחב, מתאים לטעמים
         </li>
       </ul>
     </div>
