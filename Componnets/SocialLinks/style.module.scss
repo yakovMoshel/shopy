@@ -1,0 +1,37 @@
+.socialLinks {
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+
+      li {
+        display: flex;
+        align-items: center;
+
+        a {
+          text-decoration: none;
+          font-size: 1.1em;
+          color: #007bff;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        svg.icon {
+          width: 28px;
+          height: 28px;
+        }
+           .icon {
+        margin-left: 10px; // מרווח בין האייקון לשורה
+        font-size: 1.4em;
+        color: #007bff;
+      }
+      }
+    }
+  }
