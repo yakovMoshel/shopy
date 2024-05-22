@@ -17,7 +17,7 @@ export default async function Page({ params }) {
             <h1>{product.name}</h1>
             <div className={styles.optionsContainer}>
                 <div className={styles.productImage}>
-                    <img src={product.image} alt={product.name} />
+                    <img src={product?.image} alt={product.name} />
                     <p>Price: {product.price}₪</p>
                 </div>
                 <div className={styles.productDetails}>
