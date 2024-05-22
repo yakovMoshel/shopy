@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
 import styles from './style.module.scss';
 import Link from 'next/link';
 
@@ -10,8 +10,6 @@ import { CiTwitter } from "react-icons/ci";
 import { FaFacebookF } from "react-icons/fa";
 import { AiOutlineTikTok } from "react-icons/ai";
 
-
-
 export default function Footer() {
   const path = usePathname()
   const listNav = [
@@ -19,6 +17,8 @@ export default function Footer() {
     { name: "אודות", path: "/about" },
     { name: "דף מוצר", path: "/product" },
     { name: "חנות", path: "/shop" },
+  ];
+  const list2 = [
     { name: "בלוג", path: "/blog" },
     { name: "צור קשר", path: "/contact" },
     { name: "סל קניות", path: "/cart" },
@@ -81,9 +81,9 @@ export default function Footer() {
 {/* onclick  */}
 
       <div className={styles.endFooter}>
-        <h3>
-          כל הזכויות שמורות <FaRegCopyright />
-        </h3>
+        <p>
+          כל הזכויות שמורות <FaRegCopyright /> 2024
+        </p>
       </div>
     </div>
   );

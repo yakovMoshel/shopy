@@ -1,0 +1,19 @@
+
+  
+  .postPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 15px;
+    background-color: var(--mainColor);
+    border-radius: 20px;
+    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
+    font-family: var(--font);
+    color: var(--secColor);
+    text-align: right;
+  }
+  
