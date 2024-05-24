@@ -1,0 +1,19 @@
+.blog{
+    display: flex;
+        .content {
+        padding: 10px;
+        text-align: center;
+        justify-content: center;
+        .items {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            
+            .productItem {
+                // padding: 50px;
+            }
+        }
+    }
+}

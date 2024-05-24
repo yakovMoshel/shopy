@@ -1,0 +1,80 @@
+.contactForm {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--mainColor);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: var(--font);
+  direction: rtl; /* הגדרה של כיוון הטקסט לימין */
+
+  h3 {
+    margin-bottom: 20px;
+    color: var(--secColor);
+  }
+
+  .formRow {
+    display: flex;
+    justify-content: space-between;
+
+    .formGroup {
+      flex: 1;
+      &:first-child {
+        margin-left: 10px; /* שונה מ-margin-right לשפה RTL */
+      }
+    }
+  }
+
+  .formGroup {
+    margin-bottom: 15px;
+    text-align: right; /* יישור הטקסט לימין */
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--secColor);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      font-family: var(--font);
+      text-align: right; /* יישור הטקסט לימין */
+    }
+
+    textarea {
+      height: 100px;
+      resize: none;
+    }
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secColor);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: var(--font);
+
+    &:hover {
+      background-color: #532d34;
+        &:disabled {
+          cursor: not-allowed;
+          background-color: #013165;
+      }
+    }
+
+    // &:disabled {
+    //   background-color: #cccccc;
+    //   cursor: not-allowed;
+    // }
+  }
+}
