@@ -1,19 +1,22 @@
-.blog{
+.blog {
     display: flex;
-        .content {
-        padding: 10px;
-        text-align: center;
+  
+    .content {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+  
+      h2 {
+        margin-bottom: 20px;
+        color: var(--secColor);
+      }
+  
+      .items {
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        .items {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            
-            .productItem {
-                // padding: 50px;
-            }
-        }
+        gap: 20px;
+      }
     }
-}
+  }
+  

@@ -11,21 +11,17 @@ export default async function Blog() {
 
     const posts = await getAllPosts();
 console.log({posts});
-    return (
-        <div className={styles.blog}>
-            <SideBar />
-            <div className={styles.content}>
+return (
+    <div className={styles.blog}>
+        <SideBar />
+        <div className={styles.content}>
             <h2>Blog</h2>
-                <div className={styles.items}>
-                    {posts&&
-                    posts?.map((post) => {
-
-                        console.log(post)
-                      return  <PostItem key={post._id} post={post}  />
-                    }
-                )}
-                </div>
+            <div className={styles.items}>
+                {posts && posts.map((post) => (
+                    <PostItem key={post._id} post={post} />
+                ))}
             </div>
         </div>
-    )
+    </div>
+);
 }
