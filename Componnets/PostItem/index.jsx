@@ -1,39 +1,27 @@
-import React from 'react'
-import styles from "./style.module.scss"
+import React from 'react';
+import styles from './style.module.scss';
 import Link from 'next/link';
 
 export default function PostItem({ post }) {
-  const {
-    _id,
-    title,
-    summary,
-    image,createdAt
-  } = post;
+  const { _id, title, summary, image, createdAt } = post;
+
   return (
     <div className={styles.item}>
-      <img src={image} alt={title} />
-      <div className={styles.Details}>
+      {image && <img src={image} alt={title} className={styles.image} />}
+      <div className={styles.details}>
         <div className={styles.createdAt}>
           {new Date(createdAt).toLocaleDateString()}
         </div>
-        <div className={styles.productName}>
+        <div className={styles.title}>
           {title}
-          <Link className={styles.orderButton}
-                 href={`/UniquePost/${_id}`}>המשך קריאה</Link>
         </div>
-        <div className={styles.description}>
-          {/* {description} */}
+        <div className={styles.summary}>
+          {summary}
         </div>
-        <div className={styles.category}>
-          קטגוריה: {summary}
-        </div>
-        <div className={styles.flavors}>
-          {/* טעמים: {flavors.join(', ')} */}
-        </div>
-
+        <Link className={styles.readMoreButton} href={`/UniquePost/${_id}`}>
+          המשך קריאה
+        </Link>
       </div>
-
-{/* <Link href={product.id}/> */}
     </div>
   );
 }
