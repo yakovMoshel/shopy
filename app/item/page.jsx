@@ -9,25 +9,21 @@ export default function item() {
         ],
         info[
         "עוגת יום הולדת בכל הגדלים ת לכל הגילאים ת בהזמנה אישית"
-        ]
-    ]
+        ]    ]
     return (
         <div>
             {list.map((p) => {
                 return (
                     <div>
                         <div>
-                          <img src= {p.pic} about={p.info}/>
+                            <img src={p.pic} about={p.info} />
                         </div>
-
                         <div>
                             {p.info}
-                        </div>
                     </div>
-                )
+            </div>
+             )
             })}
-
-
             Item
         </div>
     )
