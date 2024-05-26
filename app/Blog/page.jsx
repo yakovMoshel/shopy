@@ -19,7 +19,6 @@ console.log({posts});
                 <div className={styles.items}>
                     {posts&&
                     posts?.map((post) => {
-
                         console.log(post)
                       return  <PostItem key={post._id} post={post}  />
                     }

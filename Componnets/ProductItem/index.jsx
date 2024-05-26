@@ -15,7 +15,7 @@ export default function ProductItem({ product }) {
                 {name}
             </div>
             <div className={styles.image}>
-                <img src={image} alt={name} />
+                <img src={image} alt={name}/>
             </div>
             <div className={styles.footer}>
              {/* TODO - Link */}
