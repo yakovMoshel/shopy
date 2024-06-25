@@ -3,51 +3,48 @@ import React, { useState } from 'react'
 import styles from './style.module.scss';
 import { creatFormAction } from '@/server/actions/from.action';
 
-
-export default function contactForm() {
+export default function ContactForm({ type = "line" }) {
 
   const [value, setValue] = useState('')
 
-// const handelSubmit = (e) => {
-// e.preventDefault()
-// console.log(e.target.value)
-// }
+  // קביעת ה-className בהתאם לפרופס type
+  const formClassName = type === "square" ? styles.squareForm : styles.lineForm;
 
-return (
-  <div className={styles.contactForm}>
-    <h3>כתבו לי</h3>
-    <form action={creatFormAction}>
-      <div className={styles.formRow}>
-        <div className={styles.formGroup}>
-          <label htmlFor="name">שם:</label>
-          <input 
-            type="text" 
-            id="name" 
-            name="name"  
-            onChange={e => setValue(e.target.value)} 
-            required 
-          />
+  return (
+    <div className={formClassName}>
+      <h3>כתבו לי</h3>
+      <form action={creatFormAction}>
+        <div className={styles.formRow}>
+          <div className={styles.formGroup}>
+            <input 
+              type="text" 
+              id="name" 
+              name="name"  
+              placeholder="שם" 
+              onChange={e => setValue(e.target.value)} 
+              required 
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              placeholder="טלפון" 
+              required 
+            />
+          </div>
         </div>
         <div className={styles.formGroup}>
-          <label htmlFor="phone">טלפון:</label>
-          <input 
-            type="tel" 
-            id="phone" 
-            name="phone" 
+          <textarea 
+            id="message" 
+            name="message" 
+            placeholder="הודעה"
             required 
-          />
+          ></textarea>
         </div>
-      </div>
-      <div className={styles.formGroup}>
-        <label htmlFor="message">הודעה:</label>
-        <textarea 
-          id="message" 
-          name="message" 
-          required 
-        ></textarea>
-      </div>
-      <button type="submit" disabled={!value}>שלח</button>
-    </form>
-  </div>
-);
+        <button type="submit" disabled={!value}>שלח</button>
+      </form>
+    </div>
+  );
 }
