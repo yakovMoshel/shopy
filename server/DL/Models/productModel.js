@@ -5,6 +5,10 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  subtitle:{
+    type: String,
+    required: false
+  },
   description: {
     type: String,
     required: true
@@ -16,14 +20,14 @@ const productSchema = new mongoose.Schema({
   category: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Category',
-    required: true
+    required: false
   },
   categorySlug: {
     type: String,
     required: true
   },
-  image: {
-    type: String,
+  images: {
+    type: Array,
     required: true
   },
   stock: {
