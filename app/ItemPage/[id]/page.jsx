@@ -1,36 +1,56 @@
-import React from 'react'
+import React from 'react';
 import styles from './style.module.scss';
 import Link from 'next/link';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 import { getProduct } from '@/server/BL/productService';
-
+import { FaShareAlt, FaRuler, FaIceCream, FaCheckCircle } from 'react-icons/fa';
+import ImageGallery from '@/Componnets/ImageGallery';
 
 export default async function ItemPage({ params }) {
+  await connectToMongo();
+  const item = await getProduct({ _id: params.id });
+  console.log(item);
+  const { _id, name, price, images, description, subtitle } = item;
 
-    await connectToMongo()
-    const item = await getProduct({ _id: params.id })
+  return (
+    <div className={styles.ItemPage}>
+            <div className={styles.rightSide}>
+                <div className={styles.name}>
+                    {name}
+                </div>
+                <div className={styles.details}>
+{description}
+                </div>
+                <div className={styles.additionalInfo}>
+                    <div className={styles.infoItem}>
+                        <FaRuler /> מידות
+                    </div>
+                    <div className={styles.infoItem}>
+                        <FaIceCream /> טעמים
+                    </div>
+                    <div className={styles.infoItem}>
+                        <FaCheckCircle /> אפשרי פרווה
+                    </div>
+                    <div className={styles.infoItem} >
+                        <FaShareAlt /> שיתוף
+                    </div>
 
-    console.log(item);
-    const { _id, name, price, image } = item;
+                    <div className={styles.colorCircle}>
+                </div>
+                <div className={styles.colorCircle2}>
+                </div>
+                <div className={styles.price}>
+                    {price} ₪
+                </div>
+                
+                </div>
+                <Link className={styles.orderButton} href={`/Order/${_id}`}>הזמנה</Link>
+   
 
-    return (
-        <div className={styles.ItemPage}>
-
-            <div className={styles.titel}>
-                {name}
             </div>
-
-            <div className={styles.pic}>
-                <img src={image} alt={_id} />
-            </div>
-
-            <div className={styles.price}>
-                {price}
-            </div>
-
-
-            <Link className={styles.orderButton}
-                href={`/Order/${_id}`}>הזמנה</Link>
-        </div>
-    )
+            <div className={styles.leftSide}>
+        <ImageGallery images={images} />
+      </div>
+    </div>
+  );
 }
