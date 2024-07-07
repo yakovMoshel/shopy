@@ -13,24 +13,41 @@ export default function contactForm() {
 // console.log(e.target.value)
 // }
 
-  return (
-    <div className={styles.contactForm}>
-    <h3> כתבו לי</h3>
+return (
+  <div className={styles.contactForm}>
+    <h3>כתבו לי</h3>
     <form action={creatFormAction}>
-      <div>
-        <label htmlFor="name">שם:</label>
-        <input type="text" id="name" name="name"  onChange={e=>setValue(e.target.value)} />
+      <div className={styles.formRow}>
+        <div className={styles.formGroup}>
+          <label htmlFor="name">שם:</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name"  
+            onChange={e => setValue(e.target.value)} 
+            required 
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label htmlFor="phone">טלפון:</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            name="phone" 
+            required 
+          />
+        </div>
       </div>
-      <div>
-        <label htmlFor="email">אימייל:</label>
-        <input type="email" id="email" name="email"/>
-      </div>
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="message">הודעה:</label>
-        <textarea id="message" name="message" ></textarea>
+        <textarea 
+          id="message" 
+          name="message" 
+          required 
+        ></textarea>
       </div>
       <button type="submit" disabled={!value}>שלח</button>
     </form>
   </div>
-  )
+);
 }

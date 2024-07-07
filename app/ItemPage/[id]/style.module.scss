@@ -1,0 +1,61 @@
+.ItemPage {
+  padding: 20px;
+  height: 500px;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+ 
+
+  .titel {
+    font-size: 40px;
+    font-weight: 500;
+    text-decoration: underline;
+    color: rgb(183, 91, 91);
+  }
+
+  img {
+    width: 350px;
+    height: 300px;
+    object-fit: fill;
+    border-radius: 15px;
+    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
+  }
+
+  .price{
+    font-size: 25px;
+    font-weight: 500;
+     color: rgb(183, 91, 91);
+  }
+
+  .orderButton {
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff85b3; // ורוד בהיר
+    color: white;
+    border: none;
+    border-radius: 8px; // קצוות עגולים יותר
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    // הוספת צל לכפתור
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: #ff70a6; // ורוד כהה יותר בעת העברת העכבר
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); // צל עמוק יותר בהובר
+    }
+
+    &:active {
+      background-color: #ff5588; // ורוד עמוק יותר בלחיצה
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // צל רך יותר בלחיצה
+    }
+  }
+}

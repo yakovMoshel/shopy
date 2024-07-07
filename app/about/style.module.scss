@@ -1,13 +1,57 @@
-.about{ text-align: center;
-        text-align:right ;
-    .bio{
-       
-        h2{
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        p{
-            font-size: 1.5rem;
-        }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--mainColor);
+    color: var(--secColor);
+    font-family: var(--font);
+    text-align: right;
+    margin: 50px;
+  
+    .bio {
+      max-width: 800px;
+      margin-bottom: 20px;
+      text-align: right;
+  
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--secColor);
+      }
+  
+      p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: var(--secColor);
+      }
     }
-}
+  
+    .image {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* רספונסיביות */
+  @media (max-width: 768px) {
+    .bio {
+      padding: 10px;
+  
+      h2 {
+        font-size: 2rem;
+      }
+  
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  
