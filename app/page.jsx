@@ -5,6 +5,8 @@ import BelieveLine from '@/Componnets/BelieveLine';
 import ProductItem from '@/Componnets/ProductItem';
 import { getAllProducts, getProductsByCategory } from '@/server/BL/productService';
 import Testimonial from '@/Componnets/Testimonial/Index';
+import ContactForm from '@/Componnets/ContactForm';
+
 
 const Home = async () => {
 
@@ -53,6 +55,8 @@ const Home = async () => {
         ))}
       </div>
       <Testimonial/>
+      <ContactForm />
+
     </div>
   );
 }

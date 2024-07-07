@@ -1,70 +1,95 @@
-.OrderSettings {
-  justify-content: center;
+
+
+.orderSettings {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--mainColor);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: right;
+  font-family: var(--font);
 
   h3 {
     margin-bottom: 10px;
+    color: var(--secColor);
   }
 
-  div {
+  .options {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 10px;
 
-    label {
-      margin-left: 5px;
-      font-size: 1.1em;
-    }
+    div {
+      margin-bottom: 10px;
 
-    input[type="radio"] {
-      margin-right: 5px;
+      label {
+        margin-right: 5px;
+        font-size: 1.1em;
+      }
+
+      input[type="radio"] {
+        margin-right: 5px;
+      }
     }
   }
 
   .orderButton {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: var(--secColor);
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 1.2em;
     cursor: pointer;
+    font-family: var(--font);
 
     &:hover {
-      background-color: #0069d9;
+      background-color: #532d34;
     }
   }
 
   .quantity {
     display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
     input {
       width: 60px;
       height: 40px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 10px;
       text-align: center;
+      margin: 0 10px;
+      font-family: var(--font);
     }
 
     .buttonQuantity {
       padding: 10px;
-      background-color: #007bff;
+      background-color: var(--secColor);
       color: #fff;
       border: none;
-      border-radius: 7px;
-      font-size: 0.9em;
+      border-radius: 10px;
+      font-size: 1.2em;
       cursor: pointer;
+      font-family: var(--font);
 
       &:hover {
-        background-color: #0069d9;
+        background-color: #532d34;
       }
     }
-
   }
-}
-.notes {
-  width: 250px;
-  height: 130px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  resize: none;
-  font-size: 16px;
+
+  .notes {
+    width: 100%;
+    height: 130px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    resize: none;
+    font-size: 16px;
+    font-family: var(--font);
+    margin-bottom: 20px;
+  }
 }

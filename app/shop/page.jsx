@@ -7,9 +7,7 @@ import { connectToMongo } from '@/server/DL/connectToMongo'
 
 export default async function Shop() {
   await connectToMongo();
-
   let productByCat = [];
-
   try {
       productByCat = await getProductsByCategory('עוגה מעוצבת');
   } catch (error) {
