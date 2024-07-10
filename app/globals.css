@@ -16,3 +16,8 @@
   margin: 0;
   font-family: var(--font);
 }
+body {
+  /* padding-top: 120px;  */
+  /* Adjust according to the header height */
+}
+
