@@ -3,15 +3,10 @@ import { messageModel } from "../Models/messageModel";
 import { categoryModel } from "../Models/categoryModel";
 
 export const getProducts = async (categoryName) => {
-  // if (categoryName) {
-  //   const category = await categoryModel.findOne({ name: categoryName });
-  //   if (!category) {
-  //     let error = ('Category not found');
-  //     error = 'CategoryNotFound';
-  //     throw error;
-  //   }
-  //   return productModel.find({ category: category._id });
-  // }
+  if (categoryName) {
+  const prodactsByCategory = await productModel.find({ category: categoryName });
+    return prodactsByCategory
+  }
   return productModel.find();
 };
 
