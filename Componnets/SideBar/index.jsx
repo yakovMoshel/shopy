@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './style.module.scss';
 import { SiCakephp } from "react-icons/si";
 import { FaCookie } from "react-icons/fa6";
@@ -7,7 +7,8 @@ import { LuCroissant } from "react-icons/lu";
 import { LuWheatOff } from "react-icons/lu";
 import SearchItem from '../SearchItem';
 
-export default function SideBar({ setCategory }) {
+export default function SideBar() {
+  const [category, setCategory] = useState('הכל');
   return (
     <div className={styles.sideBar}>
       <SearchItem/>
