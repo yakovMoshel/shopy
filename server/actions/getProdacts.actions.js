@@ -2,10 +2,10 @@
 import { connectToMongo } from "../DL/connectToMongo";
 import { getProductsByCategory } from '@/server/BL/productService';
 
-export const getProducts = async () => {
+export const getProducts = async (Category) => {
     try {
         await connectToMongo();
-        const productByCat = await getProductsByCategory('עוגות בנטו');
+        const productByCat = await getProductsByCategory(Category);
         // console.log(productByCat)
         return productByCat;
     } catch (error) {
