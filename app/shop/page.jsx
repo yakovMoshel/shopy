@@ -15,7 +15,9 @@ export default async function shop() {
         <div className={styles.shop}>
         <SideBar />
         <div className={styles.content}>
-          <h2>מוצרים</h2>
+        <div className={styles.title}>
+            העוגות שלי
+          </div>
           <div className={styles.items}>
             {products.map((product) => (
                 <ProductItem key={product._id} product={product} />

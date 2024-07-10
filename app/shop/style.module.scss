@@ -1,11 +1,13 @@
 .shop {
     display: flex;
     width: 100%;
-
     .content {
         padding: 10px;
         text-align: center;
         justify-content: center;
+        .title{
+            font-size: 36px;
+        }
         .items {
             display: flex;
             flex-direction: row;
