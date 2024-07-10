@@ -7,30 +7,82 @@ import { getAllProducts, getProductsByCategory } from '@/server/BL/productServic
 import Testimonial from '@/Componnets/Testimonial/Index';
 import ContactForm from '@/Componnets/ContactForm';
 
-
 const Home = async () => {
-
-
-  // דוגמת דאטה להעלאה ראשונית
-
-
-  // הוספת המוצרים
-  //   await productModel.insertMany(products);
-
-  //   קבלת כל המוצרים ממסד הנתונים   
-  //   const productsDb = await productModel.find().lean();
+  // התחברות למונגו
   await connectToMongo();
 
+  // דוגמת דאטה להעלאה ראשונית
+  const products = [
+    {
+      name: "עוגה מעוצבת",
+      subtitle: "עוגה בעיצוב אישי",
+      description: "עוגה מעוצבת בהתאמה אישית לכל אירוע, עם טעמים מגוונים ועיצובים מיוחדים.",
+      price: 200,
+      categorySlug: "cakes",
+      images: ["cake1.jpg", "cake2.jpg"],
+      stock: 10,
+      colors: ["אדום", "כחול", "ירוק"],
+      flavors: ["שוקולד", "וניל", "פירות יער"]
+    },
+    {
+      name: "עוגת בנטו",
+      subtitle: "עוגת מיני יפנית",
+      description: "עוגת בנטו קטנה ומקסימה במגוון טעמים ועיצובים, מושלמת כמתנה או כפינוק אישי.",
+      price: 150,
+      categorySlug: "bento-cakes",
+      images: ["bento1.jpg", "bento2.jpg"],
+      stock: 15,
+      colors: ["ורוד", "צהוב", "לבן"],
+      flavors: ["מאצ'ה", "תות", "שוקולד לבן"]
+    },
+    {
+      name: "מארז יום האהבה",
+      subtitle: "מארז מפנק לאוהבים",
+      description: "מארז מיוחד ליום האהבה המכיל עוגות, שוקולדים וממתקים במגוון טעמים.",
+      price: 300,
+      categorySlug: "valentines",
+      images: ["valentine1.jpg", "valentine2.jpg"],
+      stock: 20,
+      colors: ["אדום", "לבן", "ורוד"],
+      flavors: ["שוקולד", "פטל", "קרמל"]
+    },
+    {
+      name: "מארז יום הולדת",
+      subtitle: "מארז חגיגי",
+      description: "מארז מיוחד ליום הולדת המכיל עוגות קטנות, ממתקים וקישוטים.",
+      price: 250,
+      categorySlug: "birthday",
+      images: ["birthday1.jpg", "birthday2.jpg"],
+      stock: 12,
+      colors: ["כחול", "צהוב", "כתום"],
+      flavors: ["וניל", "לימון", "אוכמניות"]
+    },
+    {
+      name: "עוגת פרחים",
+      subtitle: "עוגה מעוטרת בפרחים אכילים",
+      description: "עוגה מעוטרת בפרחים אכילים במגוון טעמים ועיצובים מיוחדים.",
+      price: 220,
+      categorySlug: "flower-cakes",
+      images: ["flower1.jpg", "flower2.jpg"],
+      stock: 8,
+      colors: ["סגול", "ורוד", "כחול"],
+      flavors: ["פירות יער", "לימון", "שוקולד מריר"]
+    }
+  ];
+
+  // הוספת המוצרים (מוסתר כרגע)
+  // await productModel.insertMany(products);
+
+  // קבלת כל המוצרים ממסד הנתונים
+  // const productsDb = await productModel.find().lean();
 
   const productByCat = await getProductsByCategory("עוגת בנטו")
-  const products = await getAllProducts()
-  const limitedProducts = products.slice(0, 5);
+  const allProducts = await getAllProducts()
+  const limitedProducts = allProducts.slice(0, 5);
 
   return (
     <div className={styles.home}>
-
       <div className={styles.coverImage}>
-
         <img src="1.jpg" alt="" />
       </div>
       <div className={styles.about}>
@@ -42,21 +94,20 @@ const Home = async () => {
       <BelieveLine />
       <h1>מוצרים נבחרים</h1>
       <div className={styles.topProducts}>
-
-        {/* {productByCat.map((product) => (
-          <li key={product._id}>
-            <img src={product.image} alt={product.name} />
-            <p>{product.name}</p>
-          </li>
-        ))} */}
-
         {limitedProducts.map((product) => (
           <ProductItem key={product._id} product={product} />
         ))}
       </div>
-      <Testimonial/>
-      <ContactForm />
 
+      <div className={styles.testimonialContainer}>
+<Testimonial/>
+
+</div>
+
+<div className={styles.formContainer}>
+<ContactForm type="line"/>
+
+</div>
     </div>
   );
 }

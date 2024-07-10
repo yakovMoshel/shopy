@@ -1,9 +1,14 @@
+
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
+  },
+  subtitle:{
+    type: String,
+    required: false
   },
   description: {
     type: String,
@@ -14,16 +19,15 @@ const productSchema = new mongoose.Schema({
     required: true
   },
   category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category',
+    type: String,  // כאן אנחנו משנים למחרוזת
     required: true
   },
   categorySlug: {
     type: String,
     required: true
   },
-  image: {
-    type: String,
+  images: {
+    type: Array,
     required: true
   },
   stock: {
@@ -42,9 +46,4 @@ const productSchema = new mongoose.Schema({
   }
 });
 
-export const productModel = mongoose.models.Product || mongoose.model('Product', productSchema);
-
-
-
-
-
+export const productModel = mongoose.models.Product || mongoose.model('Product', productSchema);
