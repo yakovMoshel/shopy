@@ -1,7 +1,7 @@
 import styles from './style.module.scss';
 import SideBar from '@/Componnets/SideBar';
 import ProductList from '@/Componnets/ProdactsList';
-import { getProducts } from '@/server/actions/getprodacts.actions';
+import { getProducts } from '@/server/actions/getProdacts.actions';
 
 export default async function Shop() {
     const products = await getProducts();
