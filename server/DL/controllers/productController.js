@@ -2,7 +2,7 @@ import { productModel } from "../Models/productModel";
 import { messageModel } from "../Models/messageModel";
 import { categoryModel } from "../Models/categoryModel";
 
-export const getProducts = async (categoryName = null) => {
+export const getProducts = async (categoryName) => {
   // if (categoryName) {
   //   const category = await categoryModel.findOne({ name: categoryName });
   //   if (!category) {
@@ -14,8 +14,6 @@ export const getProducts = async (categoryName = null) => {
   // }
   return productModel.find();
 };
-
-
 
 export const getOneProduct = (id) => productModel.findById(id);
 export const createMessage = (message) => messageModel.create(message);

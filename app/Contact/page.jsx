@@ -16,7 +16,7 @@ export default function Contact() {
           <ContactDetails />
         </div>
         <div className={styles.contactForm}>
-          <ContactForm />
+          <ContactForm type="square" />
         </div>
       </div>
       <div className={styles.socialLinks}>

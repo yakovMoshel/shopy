@@ -1,45 +1,98 @@
 .ItemPage {
-  padding: 20px;
+  padding: 50px;
   height: 500px;
-  max-width: 800px;
   margin: auto;
   border-radius: 10px;
-  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.5s ease;
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  gap: 15px;
- 
+  gap: 20px;
 
-  .titel {
-    font-size: 40px;
-    font-weight: 500;
-    text-decoration: underline;
-    color: rgb(183, 91, 91);
+  .rightSide {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+    justify-content: start;
+
+.details{
+  width: 80%;
+  font-weight: 100;
+  color: var(--darkGrayColor);
+}
+    .additionalInfo {
+      background-color: var(--grayColor);
+      color: var(--darkGrayColor);
+      width: 100%;
+      border-radius: 20px;
+      text-align: right;
+      padding: 20px;
+      font-family: var(--font);
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      justify-content: center;
+
+      .infoItem {
+        font-size: 18px;
+      }
+
+      .price {
+        font-size: 25px;
+        font-weight: 500;
+        color: var(--secColor);
+      }
+
+
+      .colorCircle,
+      .colorCircle2 {
+        border-radius: 50%;
+        width: 20px;
+        /* הוסף רוחב */
+        height: 20px;
+        background-color: #ff5588;
+      }
+    }
+
+    .name {
+      font-size: 40px;
+      font-weight: 500;
+      color: var(--secColor);
+    }
+
   }
 
-  img {
-    width: 350px;
-    height: 300px;
-    object-fit: fill;
-    border-radius: 15px;
-    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
+  .leftSide {
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    img {
+      width: 350px;
+      height: 300px;
+      object-fit: fill;
+      border-radius: 15px;
+      box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
+    }
+
+    .pic2 img {
+      width: 100px;
+      height: 100px;
+    }
+
   }
 
-  .price{
-    font-size: 25px;
-    font-weight: 500;
-     color: rgb(183, 91, 91);
-  }
+
 
   .orderButton {
     text-decoration: none;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #ff85b3; // ורוד בהיר
-    color: white;
+    background-color:var(--secColor);
+    color: var(--mainColor);
     border: none;
     border-radius: 8px; // קצוות עגולים יותר
     cursor: pointer;
@@ -49,12 +102,12 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     &:hover {
-      background-color: #ff70a6; // ורוד כהה יותר בעת העברת העכבר
-      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); // צל עמוק יותר בהובר
+filter: brightness(120%);
+box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); // צל עמוק יותר בהובר
     }
 
     &:active {
-      background-color: #ff5588; // ורוד עמוק יותר בלחיצה
+      filter: brightness(120%);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // צל רך יותר בלחיצה
     }
   }
