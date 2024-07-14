@@ -1,29 +1,33 @@
-import React from 'react'
-import styles from './style.module.scss'
-import SideBar from '@/Componnets/SideBar'
+'use client'
+import { useState, useEffect } from 'react';
+import styles from './style.module.scss';
+import SideBar from '@/Componnets/SideBar';
+import ProductList from '@/Componnets/ProdactsList';
+import { getProducts } from '@/server/actions/getProdacts.actions';
 
-import ProductItem from '@/Componnets/ProductItem';
-import { getAllProducts } from '@/server/BL/productService';
-import { connectToMongo } from '@/server/DL/connectToMongo';
+export default function Shop() {
+    const [products, setProducts] = useState([]);
+    const [category, setCategory] = useState('');
 
-export default async function shop() {
+    useEffect(() => {
+        async function fetchProducts() {
+            const fetchedProducts = await getProducts('');
+            setProducts(fetchedProducts);
+        }
+        fetchProducts();
+    }, []);
 
-    await connectToMongo();
-    const products = await getAllProducts()
+    const filteredProducts = category 
+        ? products.filter(product => product.category === category)
+        : products;
 
     return (
         <div className={styles.shop}>
-        <SideBar />
-        <div className={styles.content}>
-        <div className={styles.title}>
-            העוגות שלי
-          </div>
-          <div className={styles.items}>
-            {products.map((product) => (
-                <ProductItem key={product._id} product={product} />
-            ))}
-          </div>
+            <SideBar setCategory={setCategory} />
+            <div className={styles.content}>
+                <h2>מוצרים</h2>
+                <ProductList productByCat={filteredProducts} />
+            </div>
         </div>
-      </div>
-    )
+    );
 }
