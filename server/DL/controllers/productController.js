@@ -11,4 +11,6 @@ export const getProducts = async (categoryName) => {
 };
 
 export const getOneProduct = (id) => productModel.findById(id);
+export const getSomeProducts = (ids) => productModel.find({ _id: { $in: ids } });
 export const createMessage = (message) => messageModel.create(message);
+
