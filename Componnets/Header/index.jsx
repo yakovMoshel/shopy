@@ -41,8 +41,9 @@ export default function Header() {
                         </Link>
                     </li>
                 </ul>
-                <div className={styles.logo}>AYALA</div>
+                <div className={styles.logo}><img src="AYALA CAKES LOGO.png" alt="" /></div>
             </div>
+            
         </div >
     )
 }
