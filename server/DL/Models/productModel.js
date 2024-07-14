@@ -18,9 +18,8 @@ const productSchema = new mongoose.Schema({
     required: true
   },
   category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category',
-    required: false
+    type: String,  // כאן אנחנו משנים למחרוזת
+    required: true
   },
   categorySlug: {
     type: String,
@@ -46,9 +45,4 @@ const productSchema = new mongoose.Schema({
   }
 });
 
-export const productModel = mongoose.models.Product || mongoose.model('Product', productSchema);
-
-
-
-
-
+export const productModel = mongoose.models.Product || mongoose.model('Product', productSchema);
