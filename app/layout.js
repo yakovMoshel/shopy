@@ -15,8 +15,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="he" dir="rtl">
       <body className={poppins.className}>
-
-
         <Header />
         {children}
         <Footer />

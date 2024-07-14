@@ -6,13 +6,16 @@ import { getProduct } from '@/server/BL/productService';
 import SizeOptions from '@/Componnets/OrderSettings';
 
 export default async function Page({ params }) {
+
     // connect
     await connectToMongo();
 
     // get one by id
     const product = await getProduct({ _id: params.id });
 
+    
     // render
+
     return (
         <div className={styles.OrderPage}>
             <div className={styles.optionsContainer}>
@@ -24,7 +27,7 @@ export default async function Page({ params }) {
                     <p>במלאי: {product.stock}</p>
                     <img src={product.image} alt={product.name} />
                 </div>
-
+                
                 <div className={styles.productDetails}>
                     <SizeOptions product={product}/>
                 </div>
