@@ -14,10 +14,10 @@ export default function SideBar({ setCategory }) {
       <SearchItem/>
       <ul>
         <li onClick={() => setCategory('')}>הכל</li>
-        <li onClick={() => setCategory('עוגות בנטו')}><SiCakephp /> עוגות</li>
-        <li onClick={() => setCategory('עוגיות')}><FaCookie />עוגיות</li>
-        <li onClick={() => setCategory('מאפים')}><LuCroissant /> מאפים</li>
-        <li onClick={() => setCategory('ללא גלוטן')}><LuWheatOff /> ללא גלוטן</li>
+        <li onClick={() => setCategory('עוגות בנטו')}><SiCakephp /> עוגת בנטו</li>
+        <li onClick={() => setCategory('עוגת מוס')}><FaCookie />עוגת מוס</li>
+        <li onClick={() => setCategory('מארזים')}><LuCroissant /> מארזים</li>
+        <li onClick={() => setCategory('עוגה מעוצבת')}><LuWheatOff />עוגה מעוצבת</li>
       </ul>
     </div>
   );

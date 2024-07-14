@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
     required: true
   },
   category: {
-    type: String,  // כאן אנחנו משנים למחרוזת
+    type: String,
     required: true
   },
   categorySlug: {
