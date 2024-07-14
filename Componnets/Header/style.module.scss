@@ -1,60 +1,67 @@
 .Header {
     background-color: var(--mainColor);
     height: 80px;
-    width: 100%;
-    border-radius: 15px;
+    width: calc(100% - 60px);
+    margin: 30px;
+    border-radius: 20px;
     color: var(--secColor);
-    padding: 20px;
-    padding-bottom: 50px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // padding-bottom: 50px;
     // position: fixed;
     // top: 0;
     // left: 0;
     // z-index: 1000;
-    .logo{
-        font-size: 40px;
+    .logo img {
+        height: 50px;
+        margin-left: 60px;
     }
 
     .navMenu {
         display: flex;
         align-items: center;
         justify-content: space-between;
-   
-       ul{
-        list-style: none;
-        display: flex;
-        li{
-            margin-right: 1rem; 
-                 a {
-                    color: rgb(0, 0, 0);
+        width: 100%;
+
+        ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+
+            /* יישור אנכי של הפריטים בתפריט */
+            li {
+                margin-right: 1rem;
+
+                a {
+                    color: var(--secColor);
                     text-decoration: none;
                     font-size: 1.2rem;
                     width: 85px;
-                    height: 25px;
+                    height: 30px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     text-align: center;
-                    border-radius: 10px;
-                    transition: transform 0.3s
+                    border-radius: 20px;
+                    transition: background-color 0.2s ease-in, color 0.2s ease-in, transform 0.3s ease-in;
                 }
-                a:hover {
-                    border-radius: 10px;
-                    background-color: var(--secColor);
-                    color: var(--mainColor);
-                  }
-                  .active{
-                    background-color: var(--secColor);
-                    color: var(--mainColor);
-                    transform: translateY(-2px);
 
-                  }
+                a:hover {
+                    border-radius: 20px;
+                    background-color: var(--midColor);
+                    color: var(--mainColor);
+                }
+
+                .active {
+                    background-color: var(--midColor);
+                    color: var(--mainColor);
+                }
             }
         }
-
-        
     }
 }
-
 
 @media (max-width: 768px) {
     .Header {
@@ -64,33 +71,40 @@
         color: var(--secColor);
         padding: 20px;
         width: 100%;
-        .logo{
+        display: flex;
+        align-items: center;
+
+        /* יישור אנכי למרכז */
+        .logo {
             font-size: 40px;
         }
-    
+
         .navMenu {
             display: flex;
             align-items: center;
             justify-content: space-between;
-       
-           & >ul{
-            list-style: none;
-            display: flex;
-            li{
-                margin-right: 1rem; 
-                    &> a {
+            width: 100%;
+
+            ul {
+                list-style: none;
+                display: flex;
+                align-items: center;
+
+                /* יישור אנכי של הפריטים בתפריט */
+                li {
+                    margin-right: 1rem;
+
+                    a {
                         color: rgb(0, 0, 0);
                         text-decoration: none;
                         font-size: 1.2rem;
-                      }
-                      &:hover {
+                    }
+
+                    &:hover {
                         text-decoration: underline;
-                      }
+                    }
                 }
             }
-    
-            
         }
     }
-
 }

@@ -1,5 +1,6 @@
 .shop {
     display: flex;
+    flex-direction: column;
     width: 100%;
     .content {
         padding: 10px;
