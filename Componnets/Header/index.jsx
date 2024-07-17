@@ -35,9 +35,15 @@ export default function Header() {
                             בלוג
                         </Link>
                     </li>
+                    <li>
+                        <Link href="/Favorites" className={path === '/favorites' ? styles.active : ''}>
+                            מועדפים
+                        </Link>
+                    </li>
                 </ul>
-                <div className={styles.logo}>AYALA</div>
+                <div className={styles.logo}><img src="AYALA CAKES LOGO.png" alt="" /></div>
             </div>
+            
         </div >
     )
 }
