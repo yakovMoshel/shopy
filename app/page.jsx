@@ -82,22 +82,36 @@ const Home = async () => {
 
   return (
     <div className={styles.home}>
-      <div className={styles.coverImage}>
-        <img src="1.jpg" alt="" />
+<div className={styles.top}>
+<div className={styles.image}>
+        <img src="aya.png" alt="" />
       </div>
-      <div className={styles.about}>
-        <h1>היי, ברוכים הבאים!</h1>
-        <p>
-          אני קונדיטורית מוכשרת ומנוסה, בעלת ידע עמוק בעולם המתוקים והאפייה. בסטודיו המרהיב שלי, אני מתמקדת ביצירת מנות קינוח ייחודיות ומושקעות, העשויות מחומרי גלם איכותיים ביותר. עם לקוחות מרחבי הארץ, אני מפגינה מחויבות לשירות אדיב ומקצועי, תוך שמירה על סטנדרטים גבוהים של חדשנות ועיצוב. בין אם אתם מחפשים עוגה מרשימה לאירוע מיוחד או מגוון של פצ'ווקים ופטיסריות לחגיגה קטנה, אשמח להפוך את החלומות שלכם למציאות מתוקה ומפתה.
-        </p>
-      </div>
-      <BelieveLine />
-      <h1>מוצרים נבחרים</h1>
-      <div className={styles.topProducts}>
+      <div className={styles.headTitle}>
+        אני יוצרת עוגות מדהימות שעושות את ההבדל
+        <div className={styles.subtext}>
+        הירשמו עכשיו לסדנאות שלי באפייה יוצרת מיוחדת, זה האתר הכי נדיר שבנינו ביחד, אז כדאי לכם להציץ        </div>
+        <div className={styles.btn}>
+  
+<button>לצפייה בעוגות</button>
+</div>      </div>
+</div>
+
+<div className={styles.title}>
+העוגות הפופולריות
+  </div>      <div className={styles.topProducts}>
         {limitedProducts.map((product) => (
           <ProductItem key={product._id} product={product} />
         ))}
       </div>
+      {/* <div className={styles.about}>
+        <h1>היי, ברוכים הבאים!</h1>
+        <p>
+          אני קונדיטורית מוכשרת ומנוסה, בעלת ידע עמוק בעולם המתוקים והאפייה. בסטודיו המרהיב שלי, אני מתמקדת ביצירת מנות קינוח ייחודיות ומושקעות, העשויות מחומרי גלם איכותיים ביותר. עם לקוחות מרחבי הארץ, אני מפגינה מחויבות לשירות אדיב ומקצועי, תוך שמירה על סטנדרטים גבוהים של חדשנות ועיצוב. בין אם אתם מחפשים עוגה מרשימה לאירוע מיוחד או מגוון של פצ'ווקים ופטיסריות לחגיגה קטנה, אשמח להפוך את החלומות שלכם למציאות מתוקה ומפתה.
+        </p>
+      </div> */}
+      <div className={styles.title}>
+הטעם שעושה את ההבדל  </div> 
+      <BelieveLine />
 
       <div className={styles.testimonialContainer}>
 <Testimonial/>
