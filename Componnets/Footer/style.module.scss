@@ -1,40 +1,49 @@
-
 @import '/app/mixins.scss';
 
 .container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--mainColor);
-  color: var(--secColor);
-  padding: 20px;
+  background-color: var(--secColor);
+  color: white;
+  padding: 50px;
   text-align: right;
   gap: 20px;
   border-radius: 20px;
   @include shadow;
-
 }
 
 .footerContent {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 40px; // מרווחים בין העמודות החיצוניות
   justify-content: space-between;
+  flex-wrap: wrap;
 
   .column {
-    flex: 1;
+    flex: 1; // מבטיח שכל עמודה תקבל מקום שווה
     min-width: 200px;
-    // margin: 10px;
     display: flex;
     flex-direction: column;
-
     gap: 10px;
+
+    .linkWrapper {
+      display: flex;
+      gap: 20px;
+
+      .linkColumn {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
   }
 }
 
 .title {
-  font-size: 18px;
-  font-weight: 600;
-  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--mainColor);
   margin-bottom: 10px;
 }
 
@@ -43,25 +52,23 @@
   text-decoration: none;
   font-size: larger;
   font-weight: 800;
-  color: var(--secColor);
-  font-size: 14px;
-  font-weight: 400;
-
+  color: var(--mainColor);
+  font-size: 16px;
+  font-weight: 300;
 
   &.active {
-    font-weight: 900;
-    color: #b75b5b;
+    font-weight: 400;
+    color: var(--mainColor);
   }
 
   &.noActive:hover {
-    color: #b75b5b;
+    color: var(--mainColor);
   }
 }
 
 .socialIcons {
   display: flex;
   gap: 15px;
-
 }
 
 .icon {
@@ -74,24 +81,30 @@
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: var(--secColor);
+  background-color: var(--midColor);
   border-radius: 50%;
   &:hover {
     font-weight: 900;
-    background-color: #532d34;
+    background-color: var(--mainColor);
   }
+}
+
+.formContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .endFooter {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:var(--secColor);
+  background-color: var(--secColor);
   height: 50px;
   font-size: 14px;
   color: var(--mainColor);
   border-radius: 20px;
-
 }
 
 /* רספונסיביות */
@@ -99,6 +112,7 @@
   .footerContent {
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px; // מרווחים קטנים יותר עבור מכשירים ניידים
   }
 
   .socialIcons {

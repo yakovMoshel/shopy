@@ -1,69 +1,60 @@
+.believeLine {
+  // background-color: var(--secColor);
+  color: var(--mainColor);
+  width: 100%;
+  border-radius: 20px;
+  text-align: right;
+  padding: 20px;
+  font-family: var(--font);
+  display: flex;
+  gap: 40px;
 
-  .believeLine {
-    background-color: var(--secColor);
-    color: var(--mainColor);
-    width: 100%;
-    border-radius: 20px;
-    text-align: right;
-    padding: 20px;
-    font-family: var(--font);
-
-  
-    .advantagesList {
-      list-style: none;
+    .advantageItem {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 0;
-      margin: 0;
-      gap: 20px;
-  
-      .advantageItem {
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      padding: 20px;
+      background-color:var(--secColor);
+      border-radius: 20px;
+
+      .icon {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+
+      .text {
         display: flex;
         flex-direction: column;
         align-items: center;
-        flex: 1;
-        padding: 20px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-  
-        .icon {
-          font-size: 3rem;
-          margin-bottom: 10px;
+        gap: 20px;
+
+        h4 {
+          font-size: 20px;
+          font-weight: 500;
+          color: var(--mainColor);
         }
-  
-        .text {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          h4 {
-            margin: 0;
-            font-size: 1.5rem;
-            color: var(--mainColor);
-          }
-  
-          p {
-            margin: 0;
-            font-size: 1rem;
-            color: var(--mainColor);
-          }
+
+        p {
+          font-size: 16px;
+          font-weight: 300;
+                    color: var(--mainColor);
+                    text-align: center;
         }
       }
     }
-  }
-  
-  /* רספונסיביות */
-  @media (max-width: 768px) {
-    .believeLine {
-      padding: 10px;
-  
-      .advantagesList {
-        flex-direction: column;
-  
-        .advantageItem {
-          margin: 10px 0;
-        }
+}
+
+@media (max-width: 768px) {
+  .believeLine {
+    padding: 10px;
+
+    .advantagesList {
+      flex-direction: column;
+
+      .advantageItem {
+        margin: 10px 0;
       }
     }
   }
-  
+}
