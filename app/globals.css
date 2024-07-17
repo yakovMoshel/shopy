@@ -4,6 +4,7 @@
 --font: 'Rubik', sans-serif;
 --mainColor: #f7e7e2;
 --secColor: #693743;
+--midColor: #AD8080;
 --grayColor: #f8f9fd;
 --darkGrayColor: #565656;
 
@@ -16,3 +17,16 @@
   margin: 0;
   font-family: var(--font);
 }
+body {
+  /* padding-top: 120px;  */
+  /* Adjust according to the header height */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    gap: 40px;
+
+}
+
