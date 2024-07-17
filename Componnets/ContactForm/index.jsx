@@ -12,7 +12,6 @@ export default function ContactForm({ type = "line" }) {
 
   return (
     <div className={formClassName}>
-      <h3>כתבו לי</h3>
       <form action={creatFormAction}>
         <div className={styles.formRow}>
           <div className={styles.formGroup}>
@@ -35,15 +34,17 @@ export default function ContactForm({ type = "line" }) {
             />
           </div>
         </div>
-        <div className={styles.formGroup}>
-          <textarea 
-            id="message" 
-            name="message" 
-            placeholder="הודעה"
-            required 
-          ></textarea>
+        <div className={styles.formRow}>
+          <div className={styles.formGroup}>
+            <textarea 
+              id="message" 
+              name="message" 
+              placeholder="הודעה"
+              required 
+            ></textarea>
+          </div>
+          <button type="submit" disabled={!value}>שלח</button>
         </div>
-        <button type="submit" disabled={!value}>שלח</button>
       </form>
     </div>
   );

@@ -14,9 +14,9 @@
     .testimonial {
       text-align: center;
       padding: 20px;
-      background: #f9f9f9;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background: var(--mainColor);
+      border-radius: 20px;
+      // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   
       .review {
         font-style: italic;
@@ -42,11 +42,11 @@
     }
   
     .leftArrow {
-      left: 10px;
+      left: 20px;
     }
   
     .rightArrow {
-      right: 10px;
+      right: 20px;
     }
   }
   
