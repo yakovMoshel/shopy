@@ -3,8 +3,9 @@ import ProductItem from '@/Componnets/ProductItem';
 import React from 'react'
 import styles from './style.module.scss'
 import { connectToMongo } from '@/server/DL/connectToMongo';
+import ProductsList from '@/Componnets/ProductsList';
 
-export default async function Shop() {
+export default async function Favorites() {
 
     await connectToMongo();
 
@@ -17,12 +18,8 @@ export default async function Shop() {
     return (
         <div className={styles.shop}>
         <div className={styles.content}>
-          <h2>מוצרים</h2>
-          <div className={styles.items}>
-            {favoritedProducts.map((product) => (
-                <ProductItem key={product._id} product={product} />
-            ))}
-          </div>
+          <h2>מוצרים שאהבתי</h2>
+          <ProductsList productByCat={favoritedProducts} />
         </div>
       </div>
     )
