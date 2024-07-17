@@ -5,7 +5,6 @@
     background-color: var(--mainColor);
     height: 80px;
     width: calc(100% - 60px);
-    // margin: 30px;
     border-radius: 20px;
     color: var(--secColor);
     padding: 10px 20px;
@@ -13,6 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    // margin: 30px;
     // padding-bottom: 50px;
     // position: fixed;
     // top: 0;
@@ -21,7 +21,10 @@
 @include shadow;
     .logo img {
         height: 50px;
-        margin-left: 60px;
+        margin-left: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .navMenu {

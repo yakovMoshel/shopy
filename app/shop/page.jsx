@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import styles from './style.module.scss';
 import SideBar from '@/Componnets/SideBar';
-import ProductList from '@/Componnets/ProdactsList';
+import ProductsList from '@/Componnets/ProductsList';
 import { getProducts } from '@/server/actions/getProdacts.actions';
 
 export default function Shop() {
@@ -26,7 +26,7 @@ export default function Shop() {
             <SideBar setCategory={setCategory} />
             <div className={styles.content}>
                 <h2>מוצרים</h2>
-                <ProductList productByCat={filteredProducts} />
+                <ProductsList productByCat={filteredProducts} />
             </div>
         </div>
     );
