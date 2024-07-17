@@ -1,6 +1,6 @@
 "use server";
 import { connectToMongo } from "../DL/connectToMongo";
-import { getProductsByCategory } from '@/server/BL/productService';
+import { getProduct, getProductsByCategory } from '@/server/BL/productService';
 
 export const getProducts = async (Category) => {
     try {
@@ -16,3 +16,5 @@ export const getProducts = async (Category) => {
         }
     }
 };
+
+

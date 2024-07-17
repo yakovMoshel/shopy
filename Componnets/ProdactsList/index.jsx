@@ -12,7 +12,7 @@ export default function ProductList({ productByCat }) {
 
   return (
     <div className={styles.items}>
-      {products?.map((product) => (
+      {products.map((product) => (
         <ProductItem key={product._id} product={product} />
       ))}
     </div>
