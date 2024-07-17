@@ -11,18 +11,17 @@ export default function BelieveLine() {
   ];
 
   return (
-    <div className={styles.believeLine}>
-      <ul className={styles.advantagesList}>
-        {advantages.map((advantage, index) => (
-          <li key={index} className={styles.advantageItem}>
-            <div className={styles.icon}>{advantage.icon}</div>
-            <div className={styles.text}>
-              <h4>{advantage.title}</h4>
-              <p>{advantage.description}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+<div className={styles.believeLine}>
+  {advantages.map((advantage, index) => (
+    <div key={index} className={styles.advantageItem}>
+      <div className={styles.icon}>{advantage.icon}</div>
+      <div className={styles.text}>
+        <h4>{advantage.title}</h4>
+        <p>{advantage.description}</p>
+      </div>
     </div>
+  ))}
+</div>
+
   );
 }
