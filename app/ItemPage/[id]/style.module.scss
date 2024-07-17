@@ -1,5 +1,5 @@
 .ItemPage {
-  padding: 50px;
+  padding: 50px 10vw;
   height: 500px;
   margin: auto;
   border-radius: 10px;
@@ -7,36 +7,54 @@
   align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
+  // padding-top: 150px; // Adjust according to the header height and padding
+
 
   .rightSide {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 50%;
-    justify-content: start;
+    justify-content: space-between;
 
 .details{
   width: 80%;
   font-weight: 100;
   color: var(--darkGrayColor);
 }
+
+.infoAndOrder{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
     .additionalInfo {
       background-color: var(--grayColor);
       color: var(--darkGrayColor);
       width: 100%;
+      height: 50px;
       border-radius: 20px;
       text-align: right;
-      padding: 20px;
+      padding: 10px;
       font-family: var(--font);
+      font-size: 18px;
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
+      align-items: center;
+      .circle{
+        background-color: #ff5588;
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+      }
 
       .infoItem {
-        font-size: 18px;
+        font-size: 16px;
       }
 
       .price {
@@ -46,11 +64,9 @@
       }
 
 
-      .colorCircle,
-      .colorCircle2 {
+      .colorCircle{
         border-radius: 50%;
         width: 20px;
-        /* הוסף רוחב */
         height: 20px;
         background-color: #ff5588;
       }
@@ -90,15 +106,17 @@
   .orderButton {
     text-decoration: none;
     padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
     font-size: 16px;
+    font-weight: 500;
     background-color:var(--secColor);
     color: var(--mainColor);
     border: none;
-    border-radius: 8px; // קצוות עגולים יותר
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
-
-    // הוספת צל לכפתור
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     &:hover {
