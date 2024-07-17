@@ -13,7 +13,6 @@ export default async function Blog() {
 console.log({posts});
 return (
     <div className={styles.blog}>
-        <SideBar />
         <div className={styles.content}>
             <h2>Blog</h2>
             <div className={styles.items}>

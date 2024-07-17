@@ -4,10 +4,10 @@ import { LuDessert } from "react-icons/lu";
 
 export default function BelieveLine() {
   const advantages = [
-    { icon: <LuDessert />, title: "יצירתיות באמנות האפייה", description: "אנו יוצרים אמנות עם כל עוגה." },
-    { icon: <LuDessert />, title: "טעמים מופלאים, אהבה וזמן", description: "הטעמים שלנו מגיעים מהלב." },
-    { icon: <LuDessert />, title: "חומרי גלם איכותיים וטריים", description: "אנו משתמשים רק בחומרים הטובים ביותר." },
-    { icon: <LuDessert />, title: "מגוון רחב, מתאים לטעמים", description: "מתאימים את המוצרים שלנו לכל טעם." },
+    
+    { icon: <LuDessert />, title: "טעם ועיצוב ייחודי", description: "חשוב לי שתהנו מעוגה שתהיה טעימה ולא רק יפה. לכן אני בוחרת חומרי גלם איכותיים שיבטיחו שכל החוגגים ייהנו מהעוגה, ומקפידה לאפות אותה בסמוך למועד ההזמנה" },
+    { icon: <LuDessert />, title: "עיצובים ייחודיים בהתאמה אישית", description: "אני לא רק אופה עוגות. חשוב לי לעצב בדיוק את העוגה שמתאימה לכם ולטעם האישי שלכם" },
+    { icon: <LuDessert />, title: "אווירה נעימה וחווייה אישית", description: "אני דואגת להעניק יחס אישי ואווירה נעימה לכל לקוחה ולקוח, עם ייעוץ וליווי מרגע ההזמנה ועד האיסוף" },
   ];
 
   return (
