@@ -7,10 +7,10 @@ import { LuCroissant } from "react-icons/lu";
 import { LuWheatOff } from "react-icons/lu";
 import SearchItem from '../SearchItem';
 
-export default function SideBar({ setCategory }) {
+export default function  SideBar({ setCategory, searchTerm,setSearchTerm}) {
   return (
     <div className={styles.sideBar}>
-      <SearchItem />
+      <SearchItem searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
       <ul>
         <li onClick={() => setCategory('')}>הכל</li>
         <li onClick={() => setCategory('עוגות בנטו')}><SiCakephp /> עוגת בנטו</li>
