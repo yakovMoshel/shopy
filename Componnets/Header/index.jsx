@@ -41,9 +41,10 @@ export default function Header() {
                         </Link>
                     </li>
                 </ul>
-                <div className={styles.logo}><img src="AYALA CAKES LOGO.png" alt="" /></div>
+                <Link href="/" className={path === '/' ? styles.active : ''} >
+                    <div className={styles.logo}><img src="AYALA CAKES LOGO.png" alt="" /></div>
+                </Link>
             </div>
-            
         </div >
     )
 }
