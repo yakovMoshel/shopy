@@ -9,7 +9,7 @@ import ImageGallery from '@/Componnets/ImageGallery';
 export default async function ItemPage({ params }) {
     await connectToMongo();
     const item = await getProduct({ _id: params.id });
-    console.log(item);
+    // console.log(item);
     const { _id, name, price, images, description, subtitle, colors } = item;
 
     const colorMap = {
