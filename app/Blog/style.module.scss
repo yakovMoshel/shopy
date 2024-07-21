@@ -1,8 +1,18 @@
+@import '/app/mixins.scss';
+
+
 .blog {
     display: flex;
     flex-direction: column;
-  
+    
+    .title{
+      
+      @include subtitle;
+    }
     .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       flex: 1;
       padding: 10px;
       text-align: center;
