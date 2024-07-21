@@ -91,7 +91,7 @@
 //         <div className={styles.subtext}>
 //         הירשמו עכשיו לסדנאות שלי באפייה יוצרת מיוחדת, זה האתר הכי נדיר שבנינו ביחד, אז כדאי לכם להציץ        </div>
 //         <div className={styles.btn}>
-  
+
 // <button>לצפייה בעוגות</button>
 // </div>      </div>
 // </div>
@@ -136,6 +136,8 @@ import ProductItem from '@/Componnets/ProductItem';
 import { getAllProducts, getProductsByCategory } from '@/server/BL/productService';
 import Testimonial from '@/Componnets/Testimonial/Index';
 import ContactForm from '@/Componnets/ContactForm';
+import Link from 'next/link';
+
 
 const Home = async () => {
   // התחברות למונגו
@@ -212,29 +214,32 @@ const Home = async () => {
 
   return (
     <div className={styles.home}>
-<div className={styles.top}>
-<div className={styles.image}>
-        <img src="aya.png" alt="" />
-      </div>
-      <div className={styles.headTitle}>
-        אני יוצרת עוגות מדהימות שעושות את ההבדל
-        <div className={styles.subtext}>
-        הירשמו עכשיו לסדנאות שלי באפייה יוצרת מיוחדת, זה האתר הכי נדיר שבנינו ביחד, אז כדאי לכם להציץ        </div>
-        <div className={styles.btn}>
-  
-<button>לצפייה בעוגות</button>
-</div>      </div>
-</div>
+      <div className={styles.top}>
+        <div className={styles.image}>
+          <img src="aya.png" alt="" />
+        </div>
+        <div className={styles.headTitle}>
+          אני יוצרת עוגות מדהימות שעושות את ההבדל
+          <div className={styles.subtext}>
+            הירשמו עכשיו לסדנאות שלי באפייה יוצרת מיוחדת, זה האתר הכי נדיר שבנינו ביחד, אז כדאי לכם להציץ        </div>
+          <div className={styles.btn}>
+          <Link href="/shop" passHref>
+          <button>לצפייה בעוגות</button>
+          </Link>
 
-<div className={styles.topProducts}>
-<div className={styles.sideTitle}>
-העוגות הפופולריות
-  </div>      <div className={styles.products}>
-        {limitedProducts.map((product) => (
-          <ProductItem key={product._id} product={product} />
-        ))}
+
+          </div>      </div>
       </div>
-</div>
+
+      <div className={styles.topProducts}>
+        <div className={styles.sideTitle}>
+          העוגות הפופולריות
+        </div>      <div className={styles.products}>
+          {limitedProducts.map((product) => (
+            <ProductItem key={product._id} product={product} />
+          ))}
+        </div>
+      </div>
       {/* <div className={styles.about}>
         <h1>היי, ברוכים הבאים!</h1>
         <p>
@@ -242,17 +247,17 @@ const Home = async () => {
         </p>
       </div> */}
       <div className={styles.title}>
-הטעם שעושה את ההבדל  </div> 
+        הטעם שעושה את ההבדל  </div>
       <BelieveLine />
 
       <div className={styles.testimonialContainer}>
-<Testimonial/>
+        <Testimonial />
         <div className={styles.sideTitle}>
-הלקוחות המרוצים  </div> 
+          הלקוחות המרוצים  </div>
 
-</div>
+      </div>
 
-{/* <div className={styles.formContainer}>
+      {/* <div className={styles.formContainer}>
 <ContactForm type="line"/>
 
 </div> */}

@@ -10,17 +10,22 @@ export default async function Blog() {
     await connectToMongo();
 
     const posts = await getAllPosts();
-console.log({posts});
-return (
-    <div className={styles.blog}>
-        <div className={styles.content}>
-            <h2>Blog</h2>
-            <div className={styles.items}>
-                {posts && posts.map((post) => (
-                    <PostItem key={post._id} post={post} />
-                ))}
+    // console.log({ posts });
+    return (
+        <div className={styles.blog}>
+            <div className={styles.content}>
+
+
+                <div className={styles.title}>
+                    טיפים, מתכונים ועוד
+                </div>
+
+                <div className={styles.items}>
+                    {posts && posts.map((post) => (
+                        <PostItem key={post._id} post={post} />
+                    ))}
+                </div>
             </div>
         </div>
-    </div>
-);
+    );
 }
