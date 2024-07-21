@@ -80,10 +80,9 @@
 
 .lineForm {
   width: 100%;
-  margin: 0 auto;
   padding: 20px;
-  background: var(--mainColor);
-  border-radius: 10px;
+  // background: var(--midColor);
+  border-radius: 20px;
   text-align: center;
   font-family: var(--font);
   direction: rtl; /* הגדרה של כיוון הטקסט לימין */
@@ -119,7 +118,7 @@
     textarea {
       width: 100%;
       padding: 10px;
-      border: 1px solid #ccc;
+      border: none;
       border-radius: 10px;
       box-sizing: border-box;
       font-family: var(--font);
