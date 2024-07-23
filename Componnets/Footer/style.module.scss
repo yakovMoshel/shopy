@@ -1,0 +1,126 @@
+@import '/app/mixins.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--secColor);
+  color: white;
+  padding: 50px;
+  text-align: right;
+  gap: 20px;
+  border-radius: 20px;
+  @include shadow;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: row;
+  gap: 40px; // מרווחים בין העמודות החיצוניות
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .column {
+    flex: 1; // מבטיח שכל עמודה תקבל מקום שווה
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .linkWrapper {
+      display: flex;
+      gap: 20px;
+
+      .linkColumn {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--mainColor);
+  margin-bottom: 10px;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  font-size: larger;
+  font-weight: 800;
+  color: var(--mainColor);
+  font-size: 16px;
+  font-weight: 300;
+
+  &.active {
+    font-weight: 400;
+    color: var(--mainColor);
+  }
+
+  &.noActive:hover {
+    color: var(--mainColor);
+  }
+}
+
+.socialIcons {
+  display: flex;
+  gap: 15px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: var(--midColor);
+  border-radius: 50%;
+  &:hover {
+    font-weight: 900;
+    background-color: var(--mainColor);
+  }
+}
+
+.formContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.endFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secColor);
+  height: 50px;
+  font-size: 14px;
+  color: var(--mainColor);
+  border-radius: 20px;
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px; // מרווחים קטנים יותר עבור מכשירים ניידים
+  }
+
+  .socialIcons {
+    justify-content: flex-start;
+  }
+
+  .endFooter {
+    text-align: center;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,33 @@
+@import '/app/mixins.scss';
+
+
+.blog {
+    display: flex;
+    flex-direction: column;
+    
+    .title{
+      
+      @include subtitle;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+  
+      h2 {
+        margin-bottom: 20px;
+        color: var(--secColor);
+      }
+  
+      .items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+    }
+  }
+  
