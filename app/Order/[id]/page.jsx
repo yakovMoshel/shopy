@@ -13,7 +13,7 @@ export default async function Page({ params }) {
     // get one by id
     const product = await getProduct({ _id: params.id });
 
-    
+    console.log(product)
     // render
 
     return (
@@ -25,7 +25,7 @@ export default async function Page({ params }) {
                     <p>מחיר: {product.price}₪</p>
                     <p>{product.description}</p>
                     <p>במלאי: {product.stock}</p>
-                    <img src={product.image} alt={product.name} />
+                    <img src={product.images[0]} alt={product.name} />
                 </div>
                 
                 <div className={styles.productDetails}>
