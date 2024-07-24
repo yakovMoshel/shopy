@@ -1,0 +1,81 @@
+.singlePost {
+  padding: 50px 10vw;
+  margin: auto;
+  border-radius: 10px;
+  animation: fadeIn 0.5s ease;
+  background-color: #fff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  max-width: 800px;
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--secColor);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .author {
+    font-size: 1rem;
+    color: var(--darkGrayColor);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .image {
+    width: 100%;
+    height: 250px;
+    border-radius: 15px;
+    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+
+  .summary {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #5f5f5f;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+
+  .content {
+    font-size: 1rem;
+    color: #333;
+    text-align: justify;
+
+    p {
+      margin-bottom: 20px; /* רווח בין הפסקאות */
+    }
+  }
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .singlePost {
+    padding: 15px;
+    max-width: 100%;
+
+    .title {
+      font-size: 1.8rem;
+    }
+
+    .author {
+      font-size: 0.9rem;
+    }
+
+    .summary {
+      font-size: 1rem;
+    }
+
+    .content {
+      font-size: 0.9rem;
+
+      p {
+        margin-bottom: 15px; /* רווח בין הפסקאות ברספונסיביות */
+      }
+    }
+  }
+}

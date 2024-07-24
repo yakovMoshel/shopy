@@ -1,0 +1,49 @@
+.sideBar {
+    background-color: var(--grayColor);
+    color: var(--darkGrayColor);
+    width: 100%;
+    height: 60px;
+    border-radius: 20px;
+    text-align: right;
+    padding: 10px;
+    font-family: var(--font);
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+
+  .categories {
+    display: flex; /* כדי להפוך את ה-container לאופקי */
+    flex-direction: row;
+gap: 10px;
+
+    .category{
+display: flex;
+flex-direction: row;
+gap: 5px;
+    }
+  
+    div {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 15px;
+      text-align: center;
+      font-size: 18px;
+  
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(194, 194, 194);
+        border-radius: 15px;
+        transition: background-color 0.3s ease-in-out;
+      }
+    }
+  }
+  

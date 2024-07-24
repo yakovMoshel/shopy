@@ -1,0 +1,14 @@
+.input {
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    padding: 20px;
+
+    transition: 0.4s;
+
+    &:focus {
+        outline: none;
+        outline-color: #f7f7f7;
+        transition: 0.5s;
+    }
+}
