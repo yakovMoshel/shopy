@@ -21,18 +21,18 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  categorySlug: {
-    type: String,
-    required: true
-  },
+  // categorySlug: {
+  //   type: String,
+  //   required: true
+  // },
   images: {
     type: Array,
     required: true
   },
-  stock: {
-    type: Number,
-    required: true
-  },
+  // stock: {
+  //   type: Number,
+  //   required: true
+  // },
   colors: [{
     type: String
   }],
@@ -42,6 +42,11 @@ const productSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  }
+  ,
+  isActive: {
+    type: Boolean,
+    default: true
   }
 });
 
