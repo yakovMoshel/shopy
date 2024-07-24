@@ -2,12 +2,12 @@
     background-color: var(--grayColor);
     color: var(--darkGrayColor);
     width: 100%;
-    height: 50px;
+    height: 60px;
     border-radius: 20px;
     text-align: right;
     padding: 10px;
     font-family: var(--font);
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -15,28 +15,34 @@
     justify-content: center;
     align-items: center;
   
-    ul {
-      list-style: none;
-      display: flex; /* כדי להפוך את ה-ul לאופקי */
-      flex-direction: row;
-      padding: 0;
-      margin: 0;
+  }
   
-      li {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 15px;
-        text-align: center;
-        font-size: 18px;
+
+  .categories {
+    display: flex; /* כדי להפוך את ה-container לאופקי */
+    flex-direction: row;
+gap: 10px;
+
+    .category{
+display: flex;
+flex-direction: row;
+gap: 5px;
+    }
   
-        &:hover {
-          cursor: pointer;
-          background-color: rgb(194, 194, 194);
-          border-radius: 15px;
-          transition: background-color 0.3s ease-in-out;
-        }
+    div {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 15px;
+      text-align: center;
+      font-size: 18px;
+  
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(194, 194, 194);
+        border-radius: 15px;
+        transition: background-color 0.3s ease-in-out;
       }
     }
   }

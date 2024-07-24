@@ -144,63 +144,19 @@ const Home = async () => {
   await connectToMongo();
 
   // דוגמת דאטה להעלאה ראשונית
-  const products = [
-    {
-      name: "עוגה מעוצבת",
-      subtitle: "עוגה בעיצוב אישי",
-      description: "עוגה מעוצבת בהתאמה אישית לכל אירוע, עם טעמים מגוונים ועיצובים מיוחדים.",
-      price: 200,
-      categorySlug: "cakes",
-      images: ["cake1.jpg", "cake2.jpg"],
-      stock: 10,
-      colors: ["אדום", "כחול", "ירוק"],
-      flavors: ["שוקולד", "וניל", "פירות יער"]
-    },
-    {
-      name: "עוגת בנטו",
-      subtitle: "עוגת מיני יפנית",
-      description: "עוגת בנטו קטנה ומקסימה במגוון טעמים ועיצובים, מושלמת כמתנה או כפינוק אישי.",
-      price: 150,
-      categorySlug: "bento-cakes",
-      images: ["bento1.jpg", "bento2.jpg"],
-      stock: 15,
-      colors: ["ורוד", "צהוב", "לבן"],
-      flavors: ["מאצ'ה", "תות", "שוקולד לבן"]
-    },
-    {
-      name: "מארז יום האהבה",
-      subtitle: "מארז מפנק לאוהבים",
-      description: "מארז מיוחד ליום האהבה המכיל עוגות, שוקולדים וממתקים במגוון טעמים.",
-      price: 300,
-      categorySlug: "valentines",
-      images: ["valentine1.jpg", "valentine2.jpg"],
-      stock: 20,
-      colors: ["אדום", "לבן", "ורוד"],
-      flavors: ["שוקולד", "פטל", "קרמל"]
-    },
-    {
-      name: "מארז יום הולדת",
-      subtitle: "מארז חגיגי",
-      description: "מארז מיוחד ליום הולדת המכיל עוגות קטנות, ממתקים וקישוטים.",
-      price: 250,
-      categorySlug: "birthday",
-      images: ["birthday1.jpg", "birthday2.jpg"],
-      stock: 12,
-      colors: ["כחול", "צהוב", "כתום"],
-      flavors: ["וניל", "לימון", "אוכמניות"]
-    },
-    {
-      name: "עוגת פרחים",
-      subtitle: "עוגה מעוטרת בפרחים אכילים",
-      description: "עוגה מעוטרת בפרחים אכילים במגוון טעמים ועיצובים מיוחדים.",
-      price: 220,
-      categorySlug: "flower-cakes",
-      images: ["flower1.jpg", "flower2.jpg"],
-      stock: 8,
-      colors: ["סגול", "ורוד", "כחול"],
-      flavors: ["פירות יער", "לימון", "שוקולד מריר"]
-    }
-  ];
+  // const products = [
+  //   {
+  //     name: "עוגה מעוצבת",
+  //     subtitle: "עוגה בעיצוב אישי",
+  //     description: "עוגה מעוצבת בהתאמה אישית לכל אירוע, עם טעמים מגוונים ועיצובים מיוחדים.",
+  //     price: 200,
+  //     categorySlug: "cakes",
+  //     images: ["cake1.jpg", "cake2.jpg"],
+  //     stock: 10,
+  //     colors: ["אדום", "כחול", "ירוק"],
+  //     flavors: ["שוקולד", "וניל", "פירות יער"]
+  //   }
+  // ];
 
   // הוספת המוצרים (מוסתר כרגע)
   // await productModel.insertMany(products);
@@ -219,9 +175,14 @@ const Home = async () => {
           <img src="aya.png" alt="" />
         </div>
         <div className={styles.headTitle}>
-          אני יוצרת עוגות מדהימות שעושות את ההבדל
-          <div className={styles.subtext}>
-            הירשמו עכשיו לסדנאות שלי באפייה יוצרת מיוחדת, זה האתר הכי נדיר שבנינו ביחד, אז כדאי לכם להציץ        </div>
+
+
+
+
+
+עוגה שהיא פשוט ואו          <div className={styles.subtext}>
+          היי, אני אילה, קונדיטורית מוסמכת ומעצבת עוגות, עם תשוקה ליצור עוגות ייחודיות וקסומות שיהפכו כל אירוע לחגיגה בלתי נשכחת
+          </div>
           <div className={styles.btn}>
           <Link href="/shop" passHref>
           <button>לצפייה בעוגות</button>

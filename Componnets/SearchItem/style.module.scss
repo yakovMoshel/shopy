@@ -2,19 +2,13 @@
     height: 40px;
     border-radius: 15px;
     border: none;
-//    width: 100%;
+    padding: 20px;
 
-box-shadow: 20px 20px 60px #e7e7e7,
--20px -20px 60px #ffffff;
-transition: 0.4s;
+    transition: 0.4s;
 
-&:focus {
-        font-size: 20px;
+    &:focus {
         outline: none;
         outline-color: #f7f7f7;
-         background: #f0f0f0;
-        box-shadow: inset 20px 20px 60px #eeeeee,
-            inset -20px -20px 60px #ffffff;
         transition: 0.5s;
     }
 }
