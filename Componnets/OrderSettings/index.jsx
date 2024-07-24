@@ -22,7 +22,7 @@ export default function OrderSettings({ product }) {
     const handleNameChange = (e) => setCustomerName(e.target.value);
     const handlePhoneChange = (e) => setPhoneNumber(e.target.value);
 
-    const sendWhatsAppMessage = async () => {
+    const sendEmailToManager = async () => {
         const orderDetails = {
             productName: product.name,
             size: selectedSize,
@@ -30,36 +30,68 @@ export default function OrderSettings({ product }) {
             flavor: selectedFlavor,
             quantity: quantity,
             notes: notes,
-            customerName: customerName
+            customerName: customerName,
+            phoneNumber: phoneNumber
         };
-
-        const message = `שלום ${customerName}! 
-        קיבלנו את הזמנתך:
-        מוצר: ${orderDetails.productName}
-        גודל: ${orderDetails.size}
-        צבע: ${orderDetails.color}
-        טעם: ${orderDetails.flavor}
-        כמות: ${orderDetails.quantity}
-        הערות: ${orderDetails.notes}
-        תודה שקנית אצלנו!`;
-
+    
         try {
-            // בקשת POST לשרת שלנו
-            const response = await axios.post('/api/sendWhatsapp', {
-                to: phoneNumber,
-                message: message
+            const response = await axios.post('/api/send-email', {
+                orderDetails: orderDetails
             });
-            const data = response.data;
-            if (data.success) {
-                alert('ההודעה נשלחה בהצלחה!');
+            if (response.data.success) {
+                console.log('Email sent successfully');
+                alert('ההזמנה נשלחה בהצלחה!');
             } else {
-                alert('שגיאה בשליחת ההודעה');
+                console.error('Failed to send email');
+                alert('שגיאה בשליחת ההזמנה');
             }
         } catch (error) {
-            console.error('Error:', error);
-            alert('שגיאה בשליחת ההודעה');
+            console.error('Error sending email:', error);
+            alert('שגיאה בשליחת ההזמנה');
         }
     };
+    // const sendWhatsAppMessage = async () => {
+    //     const orderDetails = {
+    //         productName: product.name,
+    //         size: selectedSize,
+    //         color: selectedColor,
+    //         flavor: selectedFlavor,
+    //         quantity: quantity,
+    //         notes: notes,
+    //         customerName: customerName,
+    //         phoneNumber: phoneNumber
+    //     };
+    
+    //     const message = `שלום ${customerName}! 
+    //     קיבלנו את הזמנתך:
+    //     מוצר: ${orderDetails.productName}
+    //     גודל: ${orderDetails.size}
+    //     צבע: ${orderDetails.color}
+    //     טעם: ${orderDetails.flavor}
+    //     כמות: ${orderDetails.quantity}
+    //     הערות: ${orderDetails.notes}
+    //     תודה שקנית אצלנו!`;
+    
+    //     try {
+    //         // שליחת הודעת WhatsApp
+    //         const response = await axios.post('/api/sendWhatsapp', {
+    //             to: phoneNumber,
+    //             message: message
+    //         });
+            
+    //         // // שליחת מייל למנהל
+    //         // await sendEmailToManager(orderDetails);
+    
+    //         if (response.data.success) {
+    //             alert('ההודעה נשלחה בהצלחה והמנהל קיבל התראה במייל!');
+    //         } else {
+    //             alert('שגיאה בשליחת ההודעה');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error:', error);
+    //         alert('שגיאה בשליחת ההודעה או המייל');
+    //     }
+    // };
 
     return (
         <div className={styles.orderSettings}>
@@ -141,7 +173,7 @@ export default function OrderSettings({ product }) {
             />
 
             <button className={styles.orderButton}
-                onClick={sendWhatsAppMessage}>
+               onClick={sendEmailToManager}>
                 שלח הזמנה
             </button>
         </div>
