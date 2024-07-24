@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from 'react';
 import axios from 'axios'; // ייבוא axios
+import PopUp from '@/Componnets/popUp'; // ייבוא קומפוננטת הפופ-אפ
+
 import styles from './style.module.scss';
 
 export default function OrderSettings({ product }) {
@@ -12,6 +14,8 @@ export default function OrderSettings({ product }) {
 
     const [customerName, setCustomerName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [popupMessage, setPopupMessage] = useState(''); // מצב לפופ-אפ
+
 
     const handleSizeChange = (e) => setSelectedSize(e.target.value);
     const handleColorChange = (e) => setSelectedColor(e.target.value);
@@ -33,23 +37,25 @@ export default function OrderSettings({ product }) {
             customerName: customerName,
             phoneNumber: phoneNumber
         };
-    
+
         try {
             const response = await axios.post('/api/send-email', {
                 orderDetails: orderDetails
             });
             if (response.data.success) {
-                console.log('Email sent successfully');
-                alert('ההזמנה נשלחה בהצלחה!');
+                setPopupMessage('ההזמנה נשלחה בהצלחה!'); // הצגת הפופ-אפ
             } else {
-                console.error('Failed to send email');
-                alert('שגיאה בשליחת ההזמנה');
+                setPopupMessage('שגיאה בשליחת ההזמנה'); // הצגת הפופ-אפ
             }
         } catch (error) {
             console.error('Error sending email:', error);
             alert('שגיאה בשליחת ההזמנה');
         }
     };
+
+
+    const closePopup = () => setPopupMessage(''); // סגירת הפופ-אפ
+
     // const sendWhatsAppMessage = async () => {
     //     const orderDetails = {
     //         productName: product.name,
@@ -61,7 +67,7 @@ export default function OrderSettings({ product }) {
     //         customerName: customerName,
     //         phoneNumber: phoneNumber
     //     };
-    
+
     //     const message = `שלום ${customerName}! 
     //     קיבלנו את הזמנתך:
     //     מוצר: ${orderDetails.productName}
@@ -71,17 +77,17 @@ export default function OrderSettings({ product }) {
     //     כמות: ${orderDetails.quantity}
     //     הערות: ${orderDetails.notes}
     //     תודה שקנית אצלנו!`;
-    
+
     //     try {
     //         // שליחת הודעת WhatsApp
     //         const response = await axios.post('/api/sendWhatsapp', {
     //             to: phoneNumber,
     //             message: message
     //         });
-            
+
     //         // // שליחת מייל למנהל
     //         // await sendEmailToManager(orderDetails);
-    
+
     //         if (response.data.success) {
     //             alert('ההודעה נשלחה בהצלחה והמנהל קיבל התראה במייל!');
     //         } else {
@@ -95,6 +101,8 @@ export default function OrderSettings({ product }) {
 
     return (
         <div className={styles.orderSettings}>
+
+            <PopUp message={popupMessage} onClose={closePopup} />
             <h3>בחר גודל:</h3>
             <div className={styles.options}>
                 <div>
@@ -173,7 +181,7 @@ export default function OrderSettings({ product }) {
             />
 
             <button className={styles.orderButton}
-               onClick={sendEmailToManager}>
+                onClick={sendEmailToManager}>
                 שלח הזמנה
             </button>
         </div>
