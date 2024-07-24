@@ -1,12 +1,36 @@
-import React from 'react';
+"use client"
+import React, { useState } from 'react';
 import styles from './style.module.scss';
 import Link from 'next/link';
+import axios from 'axios';
+import EditPostModal from '../EditPostModal';
 
 export default function PostItem({ post }) {
   const { _id, title, summary, image, createdAt } = post;
 
+  // משתנה שמייצג את מצב החיבור של המשתמש (ברירת המחדל: מחובר)
+  const isLoggedIn = true;
+
+  // משתנה לניהול המצב של המודאל
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
+
+  const handleDeactivate = async () => {
+    const confirmation = window.confirm("האם אתה בטוח שברצונך למחוק פוסט זה?");
+    if (confirmation) {
+      try {
+        const response = await axios.delete(`/api/post/${_id}`);
+        if (response.data.success) {
+          setIsDeleted(true);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+  };
+
   return (
-    <div className={styles.item}>
+    <div className={`${styles.item} ${isDeleted ? styles.deleted : ''}`}>
       <Link href={`/UniquePost/${_id}`} legacyBehavior>
         <a className={styles.imageLink}>
           {image && <img src={image} alt={title} className={styles.image} />}
@@ -27,7 +51,16 @@ export default function PostItem({ post }) {
         <Link className={styles.readMoreButton} href={`/UniquePost/${_id}`}>
           המשך קריאה
         </Link>
+        {isLoggedIn && (
+          <div className={styles.buttonContainer}>
+            <button onClick={handleDeactivate} className={styles.deactivateButton}>מחק פוסט</button>
+            <button onClick={() => setIsModalOpen(true)} className={styles.editButton}>ערוך פוסט</button>
+          </div>
+        )}
       </div>
+      {isModalOpen && (
+        <EditPostModal post={post} closeModal={() => setIsModalOpen(false)} />
+      )}
     </div>
   );
 }
