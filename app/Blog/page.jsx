@@ -14,12 +14,9 @@ export default async function Blog() {
     return (
         <div className={styles.blog}>
             <div className={styles.content}>
-
-
                 <div className={styles.title}>
                     טיפים, מתכונים ועוד
                 </div>
-
                 <div className={styles.items}>
                     {posts && posts.map((post) => (
                         <PostItem key={post._id} post={post} />

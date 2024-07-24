@@ -20,11 +20,11 @@ export default function Header() {
                             אודות
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link href="/Contact" className={path === '/Contact' ? styles.active : ''}>
                             צור קשר
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link href="/shop" className={path === '/shop' ? styles.active : ''}>
                             חנות
@@ -38,6 +38,11 @@ export default function Header() {
                     <li>
                         <Link href="/Favorites" className={path === '/favorites' ? styles.active : ''}>
                             מועדפים
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/admin" className={path === '/admin' ? styles.active : ''}>
+                            ניהול
                         </Link>
                     </li>
                 </ul>

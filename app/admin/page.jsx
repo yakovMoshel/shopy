@@ -4,22 +4,23 @@ import React from 'react'
 import styles from './style.module.scss'
 import { connectToMongo } from '@/server/DL/connectToMongo';
 import ProductsList from '@/Componnets/ProductsList';
+import AddProductForm from '@/Componnets/AddProductForm';
+import { getAllCategories } from '@/server/BL/categoryService';
+// import EditProductForm from '@/Componnets/EditProductModal/Index';
 
-export default async function Favorites() {
+export default async function Admin() {
 
     await connectToMongo();
 
-    const savedFavs =["667ae015768e568b84ad49fe","667ae015768e568b84ad4a01","6679b3d48ffd63d10840c2d4"];
-        
-    // קריאה לפונקציה עם המזהים
-    const favoritedProducts = await getProductsByIds(savedFavs)
-        
+
+    const categories = await getAllCategories();
 
     return (
         <div className={styles.shop}>
         <div className={styles.content}>
-          <h2>מוצרים שאהבתי</h2>
-          <ProductsList productByCat={favoritedProducts} ת/>
+          <h2>ממשק ניהול</h2>
+          <AddProductForm categories={categories}/>
+          {/* <EditProductForm/> */}
         </div>
       </div>
     )
