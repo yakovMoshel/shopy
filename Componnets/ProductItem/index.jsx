@@ -48,7 +48,7 @@ export default function ProductItem({ product }) {
                     </div>
                 </div>
                 <div className={styles.favoriteIcon}>
-                    <FavButton id={_id}/>
+                    <FavButton productId={product._id}/>
                 </div>
             </div>
             {isLoggedIn && (
