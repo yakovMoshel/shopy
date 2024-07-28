@@ -1,0 +1,45 @@
+$form-width: 300px;
+$form-padding: 20px;
+$input-margin: 10px 0;
+$button-bg-color: #ec0ef8;
+$button-text-color: white;
+
+.form {
+  width: $form-width;
+  margin: 0 auto;
+  padding: $form-padding;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+
+  label {
+    display: block;
+    margin-bottom: $input-margin;
+    font-weight: bold;
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: $button-bg-color;
+    color: $button-text-color;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+
+    &:hover {
+      background-color: darken($button-bg-color, 10%);
+    }
+  }
+}
