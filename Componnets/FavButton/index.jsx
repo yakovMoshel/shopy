@@ -6,7 +6,7 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa';
 export default function FavButton({ productId }) {
     const [isFav, setIsFav] = useState(false);
 
-    useEffect(() => {
+    useEffect (() => {
         const favorites = JSON.parse(localStorage.getItem('favProducts')) || [];
         setIsFav(favorites.includes(productId));
       }, [productId]);
