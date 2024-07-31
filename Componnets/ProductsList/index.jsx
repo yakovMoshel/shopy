@@ -4,10 +4,7 @@ import ProductItem from '../ProductItem';
 import styles from './style.module.scss';
 
 export default function ProductsList({ productByCat }) {
-  
-  
   const [products, setProducts] = useState(productByCat);
-
   useEffect(() => {
     setProducts(productByCat);
   }, [productByCat]);

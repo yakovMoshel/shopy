@@ -11,9 +11,9 @@ import { getAllCategories } from '@/server/BL/categoryService';
 export default async function Admin() {
 
     await connectToMongo();
-
-
     const categories = await getAllCategories();
+
+    console.log("Categories in Admin: ", categories)
 
     return (
         <div className={styles.shop}>
