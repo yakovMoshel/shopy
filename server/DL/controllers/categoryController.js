@@ -5,3 +5,9 @@ export const getCategories = async () => {
     console.log("Categories in Controller:", categories); // הדפסת התוצאות
     return categories;
 }
+
+export const createCategory = async (categoryData) => {
+    const newCategory = new categoryModel(categoryData);
+    await newCategory.save();
+    return newCategory;
+}
