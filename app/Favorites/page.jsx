@@ -1,26 +1,40 @@
-import { getProductsByIds } from '@/server/BL/productService';
+"use client";
+import { useState, useEffect } from 'react';
 import ProductItem from '@/Componnets/ProductItem';
-import React from 'react'
-import styles from './style.module.scss'
-import { connectToMongo } from '@/server/DL/connectToMongo';
+import styles from './style.module.scss';
 import ProductsList from '@/Componnets/ProductsList';
 
-export default async function Favorites() {
+export default function Favorites() {
+  const [favoritedProducts, setFavoritedProducts] = useState([]);
 
-    await connectToMongo();
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      const savedFavs = JSON.parse(localStorage.getItem('favProducts')) || [];
+      if (savedFavs.length > 0) {
+        const res = await fetch('/api/favoriteProducts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ids: savedFavs }),
+        });
 
-    const savedFavs =["667ae015768e568b84ad49fe","667ae015768e568b84ad4a01","6679b3d48ffd63d10840c2d4"];
-        
-    // קריאה לפונקציה עם המזהים
-    const favoritedProducts = await getProductsByIds(savedFavs)
-        
+        if (res.ok) {
+          const products = await res.json();
+          setFavoritedProducts(products);
+        }
+      }
+    };
 
-    return (
-        <div className={styles.shop}>
-        <div className={styles.content}>
-          <h2>מוצרים שאהבתי</h2>
-          <ProductsList productByCat={favoritedProducts} ת/>
-        </div>
+    fetchFavorites();
+  }, []);
+
+  return (
+    <div className={styles.shop}>
+      <div className={styles.content}>
+        <h2>מוצרים שאהבתי</h2>
+        <ProductsList productByCat={favoritedProducts} />
       </div>
-    )
+    </div>
+  );
 }

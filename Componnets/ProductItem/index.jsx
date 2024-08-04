@@ -6,12 +6,14 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import FavButton from '../FavButton';
 import axios from 'axios';
 import EditProductModal from '../EditProductModal';
+import useStore from '../../useStore'; // ודא שהנתיב נכון
+
 
 export default function ProductItem({ product }) {
     const { _id, name, subtitle, images } = product;
 
-    // משתנה שמייצג את מצב החיבור של המשתמש (ברירת המחדל: מחובר)
-    const isLoggedIn = true;
+    const isAuthenticated = useStore((state) => state.isAuthenticated);
+
 
     // משתנה לניהול המצב של המודאל
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,10 +50,10 @@ export default function ProductItem({ product }) {
                     </div>
                 </div>
                 <div className={styles.favoriteIcon}>
-                    <FavButton id={_id}/>
+                    <FavButton productId={product._id}/>
                 </div>
             </div>
-            {isLoggedIn && (
+            {isAuthenticated && (
                 <div className={styles.buttonContainer}>
                     <button onClick={handleDeactivate} className={styles.deactivateButton}>מחק מוצר</button>
                     <button onClick={() => setIsModalOpen(true)} className={styles.editButton}>עריכת מוצר</button>

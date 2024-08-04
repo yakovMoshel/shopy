@@ -7,7 +7,7 @@ export async function GET() {
 
     try {
         const categories = await getAllCategories();
-        console.log("Categories in API:", categories); // הדפסת התוצאות
+        console.log("Categories in API:", categories);
         return NextResponse.json({ success: true, data: categories });
     } catch (error) {
         return NextResponse.json({ success: false, error: error.message }, { status: 400 });

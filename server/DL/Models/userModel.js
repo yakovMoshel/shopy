@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
   email: {
     type: String,
     required: true,
@@ -13,18 +8,16 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
+    required: true,
+    select: false
   },
   role: {
     type: String,
-    enum: ['customer', 'admin'],
+    enum: ['admin', 'customer'],
+    required: true,
     default: 'customer'
   }
 });
 
-
-export const userModel = mongoose.models.User || mongoose.model('User', userSchema);
+const User = mongoose.models.User || mongoose.model('User', userSchema);
+module.exports = User;

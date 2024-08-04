@@ -4,12 +4,14 @@ import styles from './style.module.scss';
 import Link from 'next/link';
 import axios from 'axios';
 import EditPostModal from '../EditPostModal';
+import useStore from '../../useStore';
 
 export default function PostItem({ post }) {
   const { _id, title, summary, image, createdAt } = post;
 
-  // משתנה שמייצג את מצב החיבור של המשתמש (ברירת המחדל: מחובר)
-  const isLoggedIn = true;
+  const isAuthenticated = useStore((state) => state.isAuthenticated);
+
+
 
   // משתנה לניהול המצב של המודאל
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -51,7 +53,7 @@ export default function PostItem({ post }) {
         <Link className={styles.readMoreButton} href={`/UniquePost/${_id}`}>
           המשך קריאה
         </Link>
-        {isLoggedIn && (
+        {isAuthenticated && (
           <div className={styles.buttonContainer}>
             <button onClick={handleDeactivate} className={styles.deactivateButton}>מחק פוסט</button>
             <button onClick={() => setIsModalOpen(true)} className={styles.editButton}>ערוך פוסט</button>

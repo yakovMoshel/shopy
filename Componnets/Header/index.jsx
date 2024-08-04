@@ -3,8 +3,12 @@ import React from 'react'
 import styles from './style.module.scss'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import useStore from '../../useStore';
 
 export default function Header() {
+
+    const isAuthenticated = useStore((state) => state.isAuthenticated);
+
     const path = usePathname()
     return (
         <div className={styles.Header}>
@@ -41,9 +45,11 @@ export default function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/admin" className={path === '/admin' ? styles.active : ''}>
-                            ניהול
-                        </Link>
+                       {isAuthenticated && (
+                            <Link href="/admin" className={path === '/admin' ? styles.active : ''}>
+                                ניהול
+                            </Link>
+                        )}
                     </li>
                 </ul>
                 <Link href="/" className={path === '/' ? styles.active : ''} >
