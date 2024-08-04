@@ -6,6 +6,7 @@ import { connectToMongo } from '@/server/DL/connectToMongo';
 import ProductsList from '@/Componnets/ProductsList';
 import AddProductForm from '@/Componnets/AddProductForm';
 import { getAllCategories } from '@/server/BL/categoryService';
+import AddPostForm from '@/Componnets/AddPostForm';
 import AddCategoryForm from '@/Componnets/AddCategoryForm';
 // import EditProductForm from '@/Componnets/EditProductModal/Index';
 
@@ -21,7 +22,8 @@ export default async function Admin() {
         <div className={styles.content}>
           <h2>ממשק ניהול</h2>
           <AddProductForm categories={categories}/>
-          {/* <EditProductForm/> */}
+          <AddPostForm/>
+                    {/* <EditProductForm/> */}
           <AddCategoryForm/>
 
         </div>

@@ -1,0 +1,88 @@
+@import '/app/mixins.scss';
+
+.topPosts {
+  background-color: var(--mainColor);
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 50px;
+  width: 100%;
+  border-radius: 20px;
+
+  .sideTitle {
+    @include subtitle;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .formContainer {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    flex: 1;
+    @include shadow;
+  }
+
+  .form {
+    width: 100%;
+    text-align: center;
+    font-family: var(--font);
+    direction: rtl;
+
+    .formRow {
+      display: flex;
+      justify-content: space-between;
+
+      .formGroup {
+        flex: 1;
+        &:first-child {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .formGroup {
+      margin-bottom: 15px;
+      text-align: right;
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--mainColor);
+        border-radius: 10px;
+        box-sizing: border-box;
+        font-family: var(--font);
+        text-align: right;
+      }
+
+      textarea {
+        height: 150px; /* Increase the height of the content textarea */
+        resize: none;
+      }
+    }
+
+    .submitButton {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--secColor);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-family: var(--font);
+
+      &:hover {
+        background-color: #532d34;
+        &:disabled {
+          cursor: not-allowed;
+          background-color: #013165;
+        }
+      }
+    }
+  }
+}
