@@ -40,7 +40,7 @@ export default function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/Favorites" className={path === '/favorites' ? styles.active : ''}>
+                        <Link href="/Favorites" className={path === '/Favorites' ? styles.active : ''}>
                             מועדפים
                         </Link>
                     </li>
