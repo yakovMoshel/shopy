@@ -6,6 +6,12 @@ export const getCategories = async () => {
     return categories;
 }
 
+export const getCategory = async (id) => {
+    const category = await categoryModel.findById( {_id: id});
+    console.log("Category in Controller:", category); // הדפסת התוצאות
+    return category;
+}
+
 export const createCategory = async (categoryData) => {
     const newCategory = new categoryModel(categoryData);
     await newCategory.save();
