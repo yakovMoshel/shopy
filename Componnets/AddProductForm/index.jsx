@@ -16,6 +16,8 @@ export default function AddProductForm({ categories }) {
     isActive: true
   });
 
+  // console.log(categories)
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
