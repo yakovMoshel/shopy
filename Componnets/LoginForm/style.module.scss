@@ -1,0 +1,85 @@
+.squareForm {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--mainColor);
+  border-radius: 10px;
+  text-align: center;
+  font-family: var(--font);
+  direction: rtl; /* RTL text direction */
+
+  .formRow {
+    display: flex;
+    flex-direction: column; /* Change to column for login form */
+    align-items: flex-start; /* Align items to the start */
+
+    .formGroup {
+      width: 100%; /* Full width for login form */
+      margin-bottom: 15px;
+      text-align: right; /* RTL text alignment */
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--secColor);
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-sizing: border-box;
+        font-family: var(--font);
+        text-align: right; /* RTL text alignment */
+      }
+    }
+  }
+
+  .errorMessage {
+    color: red;
+    margin-bottom: 15px;
+  }
+
+  .successMessage {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secColor);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: var(--font);
+
+    &:hover {
+      background-color: #532d34;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: #013165;
+    }
+  }
+
+  .loader {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}
