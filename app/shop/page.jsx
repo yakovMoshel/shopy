@@ -33,7 +33,6 @@ export default function Shop() {
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm} />
             <div className={styles.content}>
-                <h2>מוצרים</h2>
                 <ProductsList productByCat={filteredProducts} />
             </div>
         </div>

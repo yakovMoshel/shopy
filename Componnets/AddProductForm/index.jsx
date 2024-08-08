@@ -13,10 +13,11 @@ export default function AddProductForm({ categories }) {
     images: '',
     colors: '',
     flavors: '',
-    isActive: true
+    isActive: true,
+    glutenContent: '',
+    dairyContent: '',
+    measurements: ''
   });
-
-  // console.log(categories)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +35,10 @@ export default function AddProductForm({ categories }) {
       images: formData.images.split(','),
       colors: formData.colors.split(','),
       flavors: formData.flavors.split(','),
-      isActive: formData.isActive === 'true'
+      isActive: formData.isActive === 'true',
+      glutenContent: formData.glutenContent,
+      dairyContent: formData.dairyContent,
+      measurements: formData.measurements
     };
 
     try {
@@ -154,6 +158,44 @@ export default function AddProductForm({ categories }) {
                   <option value="false">לא</option>
                 </select>
               </label>
+            </div>
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <select
+                name="glutenContent"
+                value={formData.glutenContent}
+                onChange={handleChange}
+                required
+              >
+                <option value="">מכיל גלוטן?</option>
+                <option value="מכיל גלוטן">מכיל גלוטן</option>
+                <option value="ללא גלוטן">ללא גלוטן</option>
+              </select>
+            </div>
+            <div className={styles.formGroup}>
+              <select
+                name="dairyContent"
+                value={formData.dairyContent}
+                onChange={handleChange}
+                required
+              >
+                <option value="">חלבי?</option>
+                <option value="חלבי">חלבי</option>
+                <option value="פרווה">פרווה</option>
+              </select>
+            </div>
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <input
+                type="text"
+                name="measurements"
+                value={formData.measurements}
+                placeholder="מידות"
+                onChange={handleChange}
+                required
+              />
             </div>
           </div>
           <button type="submit" className={styles.submitButton}>הוסף מוצר</button>

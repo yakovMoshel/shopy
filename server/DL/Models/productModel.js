@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  subtitle:{
+  subtitle: {
     type: String,
     required: false
   },
@@ -21,18 +21,10 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  // categorySlug: {
-  //   type: String,
-  //   required: true
-  // },
   images: {
     type: Array,
     required: true
   },
-  // stock: {
-  //   type: Number,
-  //   required: true
-  // },
   colors: [{
     type: String
   }],
@@ -42,12 +34,25 @@ const productSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
-  ,
+  },
   isActive: {
     type: Boolean,
     default: true
+  },
+  glutenContent: {
+    type: String,
+    enum: ['מכיל גלוטן', 'ללא גלוטן'],
+    required: true
+  },
+  dairyContent: {
+    type: String,
+    enum: ['חלבי', 'פרווה'],
+    required: true
+  },
+  measurements: {
+    type: String,
+    required: true
   }
 });
 
-export const productModel = mongoose.models.Product || mongoose.model('Product', productSchema);
+export const productModel = mongoose.models.Product || mongoose.model('Product', productSchema);

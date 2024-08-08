@@ -7,16 +7,19 @@ export const GET =async ()=>{
 }
 
 export async function POST(req) {
-    await connectToMongo();
-    const data = await req.json();
-  
+  await connectToMongo();
+  const data = await req.json();
+
+  console.log("Data received:", data);  // הוסף שורת הדפסה זו
+
   try {
-    const product = await productModel.create(data);
-    return NextResponse.json({ success: true, data: product });
+      const product = await productModel.create(data);
+      return NextResponse.json({ success: true, data: product });
   } catch (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 400 });
+      return NextResponse.json({ success: false, error: error.message }, { status: 400 });
   }
 }
+
 
 
 

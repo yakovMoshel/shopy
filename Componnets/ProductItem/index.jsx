@@ -35,11 +35,12 @@ export default function ProductItem({ product }) {
 
     return (
         <div className={`${styles.item} ${isDeleted ? styles.deleted : ''}`}>
-            <Link href={`/ItemPage/${_id}`} legacyBehavior>
-                <a className={styles.imageLink}>
-                    <img src={images[0]} alt={name} className={styles.image} />
-                </a>
-            </Link>
+<Link href={`/ItemPage/${_id}`} legacyBehavior>
+    <a className={styles.imageLink}>
+        <img src={images[0]} alt={name} className={styles.image} />
+    </a>
+</Link>
+
             <div className={styles.content}>
                 <div className={styles.textContainer}>
                     <div className={styles.productName}>
