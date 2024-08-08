@@ -30,3 +30,12 @@ body {
 
 }
 
+@media (max-width: 768px) {
+
+  body {
+      padding: 20px;
+      gap: 20px;
+  
+  } 
+}
+
