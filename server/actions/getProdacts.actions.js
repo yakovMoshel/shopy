@@ -6,7 +6,6 @@ export const getProducts = async (Category) => {
     try {
         await connectToMongo();
         const productByCat = await getProductsByCategory(Category);
-        // console.log(productByCat)
         return productByCat;
     } catch (error) {
         if (error.name === 'CategoryNotFound') {

@@ -36,7 +36,6 @@ export default function EditProductModal({ product, closeModal }) {
 
     try {
       const response = await axios.put(`/api/product/${product._id}`, formattedData);
-      console.log(response.data);
       closeModal();
     } catch (error) {
       console.error('Error:', error);

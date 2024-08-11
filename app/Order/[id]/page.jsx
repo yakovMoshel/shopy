@@ -13,9 +13,6 @@ export default async function Page({ params }) {
     // get one by id
     const product = await getProduct({ _id: params.id });
 
-    console.log(product)
-    // render
-
     return (
         <div className={styles.OrderPage}>
             <div className={styles.optionsContainer}>
