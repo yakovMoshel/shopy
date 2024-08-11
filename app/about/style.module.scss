@@ -2,7 +2,7 @@
 
 .about {
   p {
-    margin-bottom: 20px; /* רווח בין הפסקאות */
+    margin-bottom: 20px;
   }
 
   .topProducts {
@@ -26,12 +26,11 @@
       padding: 50px;
       width: 70%;
       font-size: 16px;
-    font-weight: 400;
-    color: var(--secColor);
-    background-color: white;
-    border-radius: 20px;
-    @include shadow;
-
+      font-weight: 400;
+      color: var(--secColor);
+      background-color: white;
+      border-radius: 20px;
+      @include shadow;
     }
   }
 
@@ -44,16 +43,27 @@
   }
 }
 
-/* רספונסיביות */
 @media (max-width: 768px) {
   .about {
+    .top {
+      justify-content: center;
+    }
+
     .topProducts {
       flex-direction: column;
       padding: 20px;
-      
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
       .sideTitle {
         justify-content: center;
         padding: 10px;
+      }
+
+      .text {
+        padding: 20px;
+        width: 100%;
       }
 
       .products {

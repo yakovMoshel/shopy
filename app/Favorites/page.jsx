@@ -32,7 +32,6 @@ export default function Favorites() {
   return (
     <div className={styles.shop}>
       <div className={styles.content}>
-        <h2>מוצרים שאהבתי</h2>
         <ProductsList productByCat={favoritedProducts} />
       </div>
     </div>

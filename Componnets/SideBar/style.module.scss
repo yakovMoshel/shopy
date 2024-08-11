@@ -1,49 +1,109 @@
+@import '/app/mixins.scss';
+
 .sideBar {
-    background-color: var(--grayColor);
+  background-color: var(--grayColor);
+  color: var(--darkGrayColor);
+  width: 100%;
+  height: 60px;
+  border-radius: 20px;
+  text-align: right;
+  padding: 10px;
+  font-family: var(--font);
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  .burgerButton {
+    display: none; /* יוסתר בדסקטופ */
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
     color: var(--darkGrayColor);
-    width: 100%;
-    height: 60px;
-    border-radius: 20px;
-    text-align: right;
     padding: 10px;
-    font-family: var(--font);
-    font-size: 16px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-  
-  }
-  
-
-  .categories {
-    display: flex; /* כדי להפוך את ה-container לאופקי */
-    flex-direction: row;
-gap: 10px;
-
-    .category{
-display: flex;
-flex-direction: row;
-gap: 5px;
+    &:hover {
+      color: var(--mainColor);
     }
-  
-    div {
-      height: 100%;
+  }
+
+  .menu {
+    display: none; /* יוסתר בדסקטופ */
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+
+    .categories {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 15px;
-      text-align: center;
-      font-size: 18px;
-  
-      &:hover {
+      flex-direction: column;
+      gap: 10px;
+
+      .category {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 10px;
+        text-align: center;
+        font-size: 18px;
         cursor: pointer;
-        background-color: rgb(194, 194, 194);
-        border-radius: 15px;
         transition: background-color 0.3s ease-in-out;
+        border-radius: 15px;
+
+        &:hover {
+          background-color: rgb(194, 194, 194);
+        }
       }
     }
   }
-  
+
+  .categoriesDesktop {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .category {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 10px;
+      text-align: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      border-radius: 15px;
+      flex-shrink: 0;
+
+      &:hover {
+        background-color: rgb(194, 194, 194);
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .sideBar {
+    height: auto;
+
+    .burgerButton {
+      display: block; 
+    }
+
+    .menu {
+      display: none;
+      &.open {
+        display: flex;
+      }
+    }
+
+    .categoriesDesktop {
+      display: none;
+    }
+  }
+}
