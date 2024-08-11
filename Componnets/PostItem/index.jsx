@@ -11,9 +11,6 @@ export default function PostItem({ post }) {
 
   const isAuthenticated = useStore((state) => state.isAuthenticated);
 
-
-
-  // משתנה לניהול המצב של המודאל
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
 

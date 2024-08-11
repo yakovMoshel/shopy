@@ -9,8 +9,6 @@ export default async function Page({ params }) {
 
   // get post by id
   const post = await getPost({ _id: params.id });
-
-  // render
   return (
     <div className={styles.postPage}>
       <SinglePost post={post} />

@@ -9,9 +9,6 @@ export const GET = async () => {
 export async function POST(req) {
   await connectToMongo();
   const data = await req.json();
-  
-  // בדוק את הנתונים שהתקבלו
-  console.log('Received Data:', data);
 
   try {
     const post = await postModel.create(data);

@@ -10,7 +10,6 @@ export default async function Blog() {
     await connectToMongo();
 
     const posts = await getAllPosts();
-    // console.log({ posts });
     return (
         <div className={styles.blog}>
             <div className={styles.content}>

@@ -54,51 +54,7 @@ export default function OrderSettings({ product }) {
     };
 
 
-    const closePopup = () => setPopupMessage(''); // סגירת הפופ-אפ
-
-    // const sendWhatsAppMessage = async () => {
-    //     const orderDetails = {
-    //         productName: product.name,
-    //         size: selectedSize,
-    //         color: selectedColor,
-    //         flavor: selectedFlavor,
-    //         quantity: quantity,
-    //         notes: notes,
-    //         customerName: customerName,
-    //         phoneNumber: phoneNumber
-    //     };
-
-    //     const message = `שלום ${customerName}! 
-    //     קיבלנו את הזמנתך:
-    //     מוצר: ${orderDetails.productName}
-    //     גודל: ${orderDetails.size}
-    //     צבע: ${orderDetails.color}
-    //     טעם: ${orderDetails.flavor}
-    //     כמות: ${orderDetails.quantity}
-    //     הערות: ${orderDetails.notes}
-    //     תודה שקנית אצלנו!`;
-
-    //     try {
-    //         // שליחת הודעת WhatsApp
-    //         const response = await axios.post('/api/sendWhatsapp', {
-    //             to: phoneNumber,
-    //             message: message
-    //         });
-
-    //         // // שליחת מייל למנהל
-    //         // await sendEmailToManager(orderDetails);
-
-    //         if (response.data.success) {
-    //             alert('ההודעה נשלחה בהצלחה והמנהל קיבל התראה במייל!');
-    //         } else {
-    //             alert('שגיאה בשליחת ההודעה');
-    //         }
-    //     } catch (error) {
-    //         console.error('Error:', error);
-    //         alert('שגיאה בשליחת ההודעה או המייל');
-    //     }
-    // };
-
+    const closePopup = () => setPopupMessage('');  
     return (
         <div className={styles.orderSettings}>
 

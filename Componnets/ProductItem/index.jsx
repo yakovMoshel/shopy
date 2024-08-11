@@ -14,8 +14,6 @@ export default function ProductItem({ product }) {
 
     const isAuthenticated = useStore((state) => state.isAuthenticated);
 
-
-    // משתנה לניהול המצב של המודאל
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isDeleted, setIsDeleted] = useState(false);
 

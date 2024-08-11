@@ -10,7 +10,6 @@ export async function POST(req) {
   await connectToMongo();
   const data = await req.json();
 
-  console.log("Data received:", data);  // הוסף שורת הדפסה זו
 
   try {
       const product = await productModel.create(data);

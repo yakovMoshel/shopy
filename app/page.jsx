@@ -176,17 +176,13 @@ const Home = async () => {
         </div>
         <div className={styles.headTitle}>
 
-
-
-
-
-עוגה שהיא פשוט ואו          <div className={styles.subtext}>
-          היי, אני אילה, קונדיטורית מוסמכת ומעצבת עוגות, עם תשוקה ליצור עוגות ייחודיות וקסומות שיהפכו כל אירוע לחגיגה בלתי נשכחת
+          עוגה שהיא פשוט ואו          <div className={styles.subtext}>
+            היי, אני אילה, קונדיטורית מוסמכת ומעצבת עוגות, עם תשוקה ליצור עוגות ייחודיות וקסומות שיהפכו כל אירוע לחגיגה בלתי נשכחת
           </div>
           <div className={styles.btn}>
-          <Link href="/shop" passHref>
-          <button>לצפייה בעוגות</button>
-          </Link>
+            <Link href="/shop" passHref>
+              <button>לצפייה בעוגות</button>
+            </Link>
 
 
           </div>      </div>

@@ -41,7 +41,6 @@ export default function AddPostForm() {
       });
   
       if (response.data.success) {
-        // console.log('Post created successfully:', response.data);
       } else {
         console.error('Error creating post:', response.data.error);
       }
