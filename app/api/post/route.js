@@ -14,7 +14,6 @@ export async function POST(req) {
     const post = await postModel.create(data);
     return NextResponse.json({ success: true, data: post });
   } catch (error) {
-    console.error('Error creating post:', error);
     return NextResponse.json({ success: false, error: error.message }, { status: 400 });
   }
 }

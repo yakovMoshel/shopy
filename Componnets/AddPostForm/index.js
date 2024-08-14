@@ -40,10 +40,8 @@ export default function AddPostForm() {
   
       if (response.data.success) {
       } else {
-        console.error('Error creating post:', response.data.error);
       }
     } catch (error) {
-      console.error('Error:', error.response ? error.response.data : error.message);
     }
   };
 

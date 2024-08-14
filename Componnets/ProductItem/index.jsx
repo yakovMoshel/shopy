@@ -26,7 +26,6 @@ export default function ProductItem({ product }) {
                     setIsDeleted(true);
                 }
             } catch (error) {
-                console.error('Error:', error);
             }
         }
     };
