@@ -6,7 +6,7 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import FavButton from '../FavButton';
 import axios from 'axios';
 import EditProductModal from '../EditProductModal';
-import useStore from '../../useStore'; // ודא שהנתיב נכון
+import useStore from '../../useStore';
 
 
 export default function ProductItem({ product }) {
@@ -33,11 +33,11 @@ export default function ProductItem({ product }) {
 
     return (
         <div className={`${styles.item} ${isDeleted ? styles.deleted : ''}`}>
-<Link href={`/ItemPage/${_id}`} legacyBehavior>
-    <a className={styles.imageLink}>
-        <img src={images[0]} alt={name} className={styles.image} />
-    </a>
-</Link>
+            <Link href={`/ItemPage/${_id}`} legacyBehavior>
+                <a className={styles.imageLink}>
+                    <img src={images[0]} alt={name} className={styles.image} />
+                </a>
+            </Link>
 
             <div className={styles.content}>
                 <div className={styles.textContainer}>
@@ -49,7 +49,7 @@ export default function ProductItem({ product }) {
                     </div>
                 </div>
                 <div className={styles.favoriteIcon}>
-                    <FavButton productId={product._id}/>
+                    <FavButton productId={product._id} />
                 </div>
             </div>
             {isAuthenticated && (

@@ -1,16 +1,13 @@
 import styles from './style.module.scss';
 
-// TODO - server side rendering
 import { connectToMongo } from '@/server/DL/connectToMongo';
 import { getProduct } from '@/server/BL/productService';
 import SizeOptions from '@/Componnets/OrderSettings';
 
 export default async function Page({ params }) {
 
-    // connect
     await connectToMongo();
 
-    // get one by id
     const product = await getProduct({ _id: params.id });
 
     return (
@@ -24,9 +21,9 @@ export default async function Page({ params }) {
                     <p>במלאי: {product.stock}</p>
                     <img src={product.images[0]} alt={product.name} />
                 </div>
-                
+
                 <div className={styles.productDetails}>
-                    <SizeOptions product={product}/>
+                    <SizeOptions product={product} />
                 </div>
             </div>
         </div>

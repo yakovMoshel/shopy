@@ -50,12 +50,12 @@
       .icon {
         font-size: 2.5rem;
         margin-left: 10px;
-        color: var(--secColor); /* עדכון צבע האייקונים */
+        color: var(--secColor);
       }
 
       .text {
         font-size: 1.2rem;
-        color: var(--secColor); /* עדכון צבע הטקסט */
+        color: var(--secColor);
       }
     }
   }
@@ -74,7 +74,7 @@
 
     .icon {
       font-size: 2rem;
-      color: var(--secColor); /* עדכון צבע האייקונים */
+      color: var(--secColor);
 
       &:hover {
         color: #532d34;
@@ -83,7 +83,6 @@
   }
 }
 
-/* רספונסיביות */
 @media (max-width: 768px) {
   .contact {
     padding: 10px;
