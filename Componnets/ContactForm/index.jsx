@@ -7,7 +7,6 @@ export default function ContactForm({ type = "line" }) {
 
   const [value, setValue] = useState('')
 
-  // קביעת ה-className בהתאם לפרופס type
   const formClassName = type === "square" ? styles.squareForm : styles.lineForm;
 
   return (
@@ -15,32 +14,32 @@ export default function ContactForm({ type = "line" }) {
       <form action={creatFormAction}>
         <div className={styles.formRow}>
           <div className={styles.formGroup}>
-            <input 
-              type="text" 
-              id="name" 
-              name="name"  
-              placeholder="שם" 
-              onChange={e => setValue(e.target.value)} 
-              required 
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="שם"
+              onChange={e => setValue(e.target.value)}
+              required
             />
           </div>
           <div className={styles.formGroup}>
-            <input 
-              type="tel" 
-              id="phone" 
-              name="phone" 
-              placeholder="טלפון" 
-              required 
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="טלפון"
+              required
             />
           </div>
         </div>
         <div className={styles.formRow}>
           <div className={styles.formGroup}>
-            <textarea 
-              id="message" 
-              name="message" 
+            <textarea
+              id="message"
+              name="message"
               placeholder="הודעה"
-              required 
+              required
             ></textarea>
           </div>
           <button type="submit" disabled={!value}>שלח</button>

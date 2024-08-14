@@ -4,9 +4,4 @@ export const getPosts = async  () => {
     const posts = await postModel.find();
    return posts
 }
-
-
-
-
-
 export const getOnePost = (id) => postModel.findById(id);

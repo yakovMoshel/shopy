@@ -8,25 +8,20 @@ import AddProductForm from '@/Componnets/AddProductForm';
 import { getAllCategories } from '@/server/BL/categoryService';
 import AddPostForm from '@/Componnets/AddPostForm';
 import AddCategoryForm from '@/Componnets/AddCategoryForm';
-// import EditProductForm from '@/Componnets/EditProductModal/Index';
 
 export default async function Admin() {
 
-    await connectToMongo();
-    const categories = await getAllCategories();
-
-    console.log("Categories in Admin: ", categories)
-
-    return (
-        <div className={styles.shop}>
-        <div className={styles.content}>
-          <h2>ממשק ניהול</h2>
-          <AddProductForm categories={categories}/>
-          <AddPostForm/>
-                    {/* <EditProductForm/> */}
-          <AddCategoryForm/>
-
-        </div>
+  await connectToMongo();
+  const categories = await getAllCategories();
+  
+  return (
+    <div className={styles.shop}>
+      <div className={styles.content}>
+        <h2>ממשק ניהול</h2>
+        <AddProductForm categories={categories} />
+        <AddPostForm />
+        <AddCategoryForm />
       </div>
-    )
+    </div>
+  )
 }

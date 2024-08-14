@@ -30,9 +30,7 @@ export default function AddPostForm() {
         .join(''),
       image: formData.image.trim(),
     };
-  
-    // console.log('Formatted Data:', formattedData);
-  
+    
     try {
       const response = await axios.post('/api/post', formattedData, {
         headers: {

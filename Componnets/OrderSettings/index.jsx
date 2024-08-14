@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import axios from 'axios'; // ייבוא axios
-import PopUp from '@/Componnets/popUp'; // ייבוא קומפוננטת הפופ-אפ
+import axios from 'axios';
+import PopUp from '@/Componnets/popUp';
 
 import styles from './style.module.scss';
 
@@ -14,7 +14,7 @@ export default function OrderSettings({ product }) {
 
     const [customerName, setCustomerName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [popupMessage, setPopupMessage] = useState(''); // מצב לפופ-אפ
+    const [popupMessage, setPopupMessage] = useState(''); 
 
 
     const handleSizeChange = (e) => setSelectedSize(e.target.value);
@@ -43,9 +43,9 @@ export default function OrderSettings({ product }) {
                 orderDetails: orderDetails
             });
             if (response.data.success) {
-                setPopupMessage('ההזמנה נשלחה בהצלחה!'); // הצגת הפופ-אפ
+                setPopupMessage('ההזמנה נשלחה בהצלחה!');
             } else {
-                setPopupMessage('שגיאה בשליחת ההזמנה'); // הצגת הפופ-אפ
+                setPopupMessage('שגיאה בשליחת ההזמנה');
             }
         } catch (error) {
             console.error('Error sending email:', error);

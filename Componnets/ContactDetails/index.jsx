@@ -9,13 +9,13 @@ export default function ContactDetails() {
     <div className={styles.details}>
     <h3>פרטי יצירת קשר</h3>
     <p>
-      <FaPhone className={styles.icon} /> טלפון: 123-456-7890
+      <FaPhone className={styles.icon} /> טלפון: 058-7995083
     </p>
     <p>
-      <MdEmail className={styles.icon} /> אימייל: contact@example.com
+      <MdEmail className={styles.icon} /> אימייל: Ayalapastry@gmail.com
     </p>
     <p>
-      <FaLocationDot className={styles.icon} /> כתובת: רחוב הכרמל 123, תל אביב
+      <FaLocationDot className={styles.icon} /> כתובת: קרית אתא
     </p>
   </div>
   )
