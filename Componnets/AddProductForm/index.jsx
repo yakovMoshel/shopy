@@ -44,7 +44,6 @@ export default function AddProductForm({ categories }) {
     try {
       const response = await axios.post('/api/product', formattedData);
     } catch (error) {
-      console.error('Error:', error);
     }
   };
 

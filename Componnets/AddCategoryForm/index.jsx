@@ -40,7 +40,6 @@ export default function AddCategoryForm() {
             });
             alert('Category added successfully!');
         } catch (error) {
-            console.error(error);
             alert('An error occurred while adding the category');
         }
     };

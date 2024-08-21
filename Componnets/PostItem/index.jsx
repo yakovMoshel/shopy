@@ -23,7 +23,6 @@ export default function PostItem({ post }) {
           setIsDeleted(true);
         }
       } catch (error) {
-        console.error('Error:', error);
       }
     }
   };

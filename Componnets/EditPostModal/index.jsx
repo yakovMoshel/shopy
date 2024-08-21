@@ -26,7 +26,6 @@ export default function EditPostModal({ post, closeModal }) {
         closeModal();
       }
     } catch (error) {
-      console.error('Error:', error);
     }
   };
 

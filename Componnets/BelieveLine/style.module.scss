@@ -46,7 +46,8 @@
 
 @media (max-width: 768px) {
   .believeLine {
-    padding: 10px;
+    padding: 0;
+    gap: 20px;
     flex-direction: column;
 
     .advantagesList {

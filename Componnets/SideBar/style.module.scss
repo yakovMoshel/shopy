@@ -27,7 +27,7 @@
     padding: 10px;
 
     &:hover {
-      color: var(--mainColor);
+      color: var(--darkGrayColor);
     }
   }
 
@@ -94,6 +94,7 @@
 
     .burgerButton {
       display: block;
+      color: var(--darkGrayColor);
     }
 
     .menu {
@@ -101,6 +102,8 @@
 
       &.open {
         display: flex;
+        color: var(--darkGrayColor);
+
       }
     }
 

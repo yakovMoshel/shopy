@@ -12,7 +12,6 @@ export async function POST(req) {
 
     return NextResponse.json({ success: true, token, message: 'Login successful' });
   } catch (error) {
-    console.error('Server error:', error);
     return NextResponse.json({ success: false, message: 'Server error' });
   }
 }

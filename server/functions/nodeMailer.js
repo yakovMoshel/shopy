@@ -25,9 +25,7 @@ export const sendEmail = async ({ MemberMail, subject = "", message = "" }) => {
 
     try {
         const info = await transporter.sendMail(mailOptions);
-        console.log("Email sent: " + info.response);
     } catch (error) {
-        console.error("Error sending email: ", error);
         throw error;
     }
 };

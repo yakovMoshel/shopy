@@ -48,7 +48,6 @@ export default function OrderSettings({ product }) {
                 setPopupMessage('שגיאה בשליחת ההזמנה');
             }
         } catch (error) {
-            console.error('Error sending email:', error);
             alert('שגיאה בשליחת ההזמנה');
         }
     };

@@ -53,3 +53,35 @@
     right: 20px;
   }
 }
+
+@media (max-width: 768px) {
+
+  .testimonialCarousel {
+    width: 100%;
+
+    .testimonial {
+      padding: 15px;
+
+      .review {
+        font-size: 14px;
+      }
+
+      .customer {
+        font-size: 14px;
+      }
+    }
+
+    .leftArrow,
+    .rightArrow {
+      font-size: 1.5rem;
+    }
+
+    .leftArrow {
+      left: 10px;
+    }
+
+    .rightArrow {
+      right: 10px;
+    }
+  }
+}
