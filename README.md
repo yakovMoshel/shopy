@@ -24,15 +24,28 @@ The website is built using the following modern technologies:
 - [Node.js](https://nodejs.org/)
 - [Mongoose](https://mongoosejs.com/)
 
-### Getting Started
 
-To start the project:
+### Live Demo
+For a quick and easy way to explore the website, you can view the live demo without any installation or setup by visiting [here](https://ayala-cakes.vercel.app/).
+### Installation
 
-```bash
-npm run dev
-```
+If you prefer to run the project locally, you can follow these steps:
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application in action.
+1. Clone the repository and navigate to the project directory.
+
+2. Install the dependencies:
+
+    ```bash
+    npm install
+    ```
+
+3. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application in action.
 
 ### Contact Us
 
