@@ -1,62 +1,87 @@
 .testimonialCarousel {
-    position: relative;
-    width: 50%;
-    margin: 0 auto;
-    overflow: hidden;
-  
-    .slide {
-      display: none;
-      &.active {
-        display: block;
-      }
-    }
-  
-    .testimonial {
-      text-align: center;
-      padding: 20px;
-      background: var(--mainColor);
-      border-radius: 20px;
-      // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
-      .review {
-        font-style: italic;
-        // margin-bottom: 10px;
-        font-size: 16px;
-        font-weight: 300;
-                  // color: var(--mainColor);
-                  text-align: center;
-      }
-  
-      .customer {
-        color: #333;
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  overflow: hidden;
 
+  .slide {
+    display: none;
 
-
-        font-size: 16px;
-        font-weight: 400;
-                  // color: var(--mainColor);
-                  text-align: center;
-      }
-    }
-  
-    .leftArrow,
-    .rightArrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      user-select: none;
-    }
-  
-    .leftArrow {
-      left: 20px;
-    }
-  
-    .rightArrow {
-      right: 20px;
+    &.active {
+      display: block;
     }
   }
-  
+
+  .testimonial {
+    text-align: center;
+    padding: 20px;
+    background: var(--mainColor);
+    border-radius: 20px;
+
+    .review {
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .customer {
+      color: #333;
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+    }
+  }
+
+  .leftArrow,
+  .rightArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .leftArrow {
+    left: 20px;
+  }
+
+  .rightArrow {
+    right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .testimonialCarousel {
+    width: 100%;
+
+    .testimonial {
+      padding: 15px;
+
+      .review {
+        font-size: 14px;
+      }
+
+      .customer {
+        font-size: 14px;
+      }
+    }
+
+    .leftArrow,
+    .rightArrow {
+      font-size: 1.5rem;
+    }
+
+    .leftArrow {
+      left: 10px;
+    }
+
+    .rightArrow {
+      right: 10px;
+    }
+  }
+}

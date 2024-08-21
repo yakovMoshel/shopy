@@ -18,20 +18,21 @@
   align-items: center;
 
   .burgerButton {
-    display: none; /* יוסתר בדסקטופ */
+    display: none;
     background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
     color: var(--darkGrayColor);
     padding: 10px;
+
     &:hover {
-      color: var(--mainColor);
+      color: var(--darkGrayColor);
     }
   }
 
   .menu {
-    display: none; /* יוסתר בדסקטופ */
+    display: none;
     flex-direction: column;
     gap: 10px;
     width: 100%;
@@ -92,13 +93,17 @@
     height: auto;
 
     .burgerButton {
-      display: block; 
+      display: block;
+      color: var(--darkGrayColor);
     }
 
     .menu {
       display: none;
+
       &.open {
         display: flex;
+        color: var(--darkGrayColor);
+
       }
     }
 

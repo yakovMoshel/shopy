@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import axios from 'axios'; // ייבוא axios
-import PopUp from '@/Componnets/popUp'; // ייבוא קומפוננטת הפופ-אפ
+import axios from 'axios';
+import PopUp from '@/Componnets/popUp';
 
 import styles from './style.module.scss';
 
@@ -14,7 +14,7 @@ export default function OrderSettings({ product }) {
 
     const [customerName, setCustomerName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [popupMessage, setPopupMessage] = useState(''); // מצב לפופ-אפ
+    const [popupMessage, setPopupMessage] = useState(''); 
 
 
     const handleSizeChange = (e) => setSelectedSize(e.target.value);
@@ -43,62 +43,17 @@ export default function OrderSettings({ product }) {
                 orderDetails: orderDetails
             });
             if (response.data.success) {
-                setPopupMessage('ההזמנה נשלחה בהצלחה!'); // הצגת הפופ-אפ
+                setPopupMessage('ההזמנה נשלחה בהצלחה!');
             } else {
-                setPopupMessage('שגיאה בשליחת ההזמנה'); // הצגת הפופ-אפ
+                setPopupMessage('שגיאה בשליחת ההזמנה');
             }
         } catch (error) {
-            console.error('Error sending email:', error);
             alert('שגיאה בשליחת ההזמנה');
         }
     };
 
 
-    const closePopup = () => setPopupMessage(''); // סגירת הפופ-אפ
-
-    // const sendWhatsAppMessage = async () => {
-    //     const orderDetails = {
-    //         productName: product.name,
-    //         size: selectedSize,
-    //         color: selectedColor,
-    //         flavor: selectedFlavor,
-    //         quantity: quantity,
-    //         notes: notes,
-    //         customerName: customerName,
-    //         phoneNumber: phoneNumber
-    //     };
-
-    //     const message = `שלום ${customerName}! 
-    //     קיבלנו את הזמנתך:
-    //     מוצר: ${orderDetails.productName}
-    //     גודל: ${orderDetails.size}
-    //     צבע: ${orderDetails.color}
-    //     טעם: ${orderDetails.flavor}
-    //     כמות: ${orderDetails.quantity}
-    //     הערות: ${orderDetails.notes}
-    //     תודה שקנית אצלנו!`;
-
-    //     try {
-    //         // שליחת הודעת WhatsApp
-    //         const response = await axios.post('/api/sendWhatsapp', {
-    //             to: phoneNumber,
-    //             message: message
-    //         });
-
-    //         // // שליחת מייל למנהל
-    //         // await sendEmailToManager(orderDetails);
-
-    //         if (response.data.success) {
-    //             alert('ההודעה נשלחה בהצלחה והמנהל קיבל התראה במייל!');
-    //         } else {
-    //             alert('שגיאה בשליחת ההודעה');
-    //         }
-    //     } catch (error) {
-    //         console.error('Error:', error);
-    //         alert('שגיאה בשליחת ההודעה או המייל');
-    //     }
-    // };
-
+    const closePopup = () => setPopupMessage('');  
     return (
         <div className={styles.orderSettings}>
 

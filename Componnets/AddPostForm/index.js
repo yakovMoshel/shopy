@@ -30,9 +30,7 @@ export default function AddPostForm() {
         .join(''),
       image: formData.image.trim(),
     };
-  
-    // console.log('Formatted Data:', formattedData);
-  
+    
     try {
       const response = await axios.post('/api/post', formattedData, {
         headers: {
@@ -41,12 +39,9 @@ export default function AddPostForm() {
       });
   
       if (response.data.success) {
-        // console.log('Post created successfully:', response.data);
       } else {
-        console.error('Error creating post:', response.data.error);
       }
     } catch (error) {
-      console.error('Error:', error.response ? error.response.data : error.message);
     }
   };
 

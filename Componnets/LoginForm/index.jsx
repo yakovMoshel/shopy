@@ -27,9 +27,7 @@ export default function LoginForm() {
     const data = await res.json();
     setLoading(false);
     if (data.success) {
-      // שמירת טוקן הסשן ב-LocalStorage
-      localStorage.setItem('sessionToken', data.token); // ודא שאתה משתמש בשם הנכון עבור הטוקן שמתקבל מהשרת
-      // עדכון מצב ההתחברות בחנות Zustand
+      localStorage.setItem('sessionToken', data.token);
       setAuthenticated(true);
       setSuccessMessage('Login successful');
       setTimeout(() => {

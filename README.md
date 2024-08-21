@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ayala Cakes - Portfolio and Order Management System
 
-## Getting Started
+### Overview
 
-First, run the development server:
+**Ayala Cakes** is a sophisticated online portfolio and order management system designed specifically for a professional confectioner. This Full-Stack project allows customers to browse through a visually appealing catalog of unique and custom-made cakes, view detailed product descriptions, and place orders directly on the site. In addition to customer-facing features, the platform includes a comprehensive admin dashboard that enables the confectioner to manage every aspect of their business online.
+
+This entire project was crafted with a clean and intuitive UX/UI design, built completely from scratch without the use of any pre-made components. Every element was carefully designed and developed to meet the specific needs of the project, ensuring a seamless user experience.
+
+### Key Features
+
+- **Product Catalog**: Users can explore a wide range of cakes and other products, access detailed product pages, and place orders directly through the site.
+- **Product Ordering**: Customers can personalize their cake orders by selecting parameters such as color, flavor, size, and more. Once an order is placed, the administrator receives all the order details, including customer contact information, to process and fulfill the order efficiently.
+- **Admin Dashboard**: Administrators can log in to manage the product catalog, including adding new products, editing existing ones, and removing items that are no longer available.
+- **Blog Management**: Admins can also create, edit, and delete blog posts to engage with customers and showcase their work.
+- **Responsive Design**: The website is fully responsive, offering a smooth user experience across desktop and mobile devices.
+- **MongoDB Integration**: All product and order data is securely stored and managed using MongoDB, with Mongoose as the ODM.
+
+### Technologies Used
+
+The website is built using the following modern technologies:
+
+- [Next.js](https://nextjs.org/)
+- [React.js](https://reactjs.org/)
+- [Node.js](https://nodejs.org/)
+- [Mongoose](https://mongoosejs.com/)
+
+### Getting Started
+
+To start the project:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application in action.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Contact Us
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feel free to connect with us on LinkedIn: [Yakov](https://il.linkedin.com/in/yakov-moshel-1a110b283) | [Refael](https://www.linkedin.com/in/refaelbz/)

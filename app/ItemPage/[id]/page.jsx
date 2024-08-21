@@ -1,4 +1,3 @@
-// pages/ItemPage/[id]/page.jsx
 import React from 'react';
 import styles from './style.module.scss';
 import Link from 'next/link';
@@ -9,15 +8,15 @@ import ImageGallery from '@/Componnets/ImageGallery';
 
 export default async function ItemPage({ params }) {
     await connectToMongo();
-    
+
     const productId = params.id;
-    
+
     if (!productId.match(/^[0-9a-fA-F]{24}$/)) {
         return <div>Invalid product ID</div>;
     }
-    
+
     const item = await getProduct({ _id: productId });
-    
+
     if (!item) {
         return <div>Product not found</div>;
     }
@@ -73,9 +72,10 @@ export default async function ItemPage({ params }) {
                             {price} ₪
                         </div>
                     </div>
-<div className={styles.orderButton}>
-<Link  href={`/Order/${_id}`}>הזמנה</Link>
-</div>                </div>
+                    <div className={styles.orderButton}>
+                        <Link href={`/Order/${_id}`}>הזמנה</Link>
+                    </div>
+                </div>
             </div>
         </div>
     );

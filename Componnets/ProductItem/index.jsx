@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import FavButton from '../FavButton';
 import axios from 'axios';
-import EditProductModal from '../EditProductModal';
-import useStore from '../../useStore'; // ודא שהנתיב נכון
+import useStore from '../../useStore';
+import EditProductModal from '../EditProductModal/Index';
 
 
 export default function ProductItem({ product }) {
@@ -14,8 +14,6 @@ export default function ProductItem({ product }) {
 
     const isAuthenticated = useStore((state) => state.isAuthenticated);
 
-
-    // משתנה לניהול המצב של המודאל
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isDeleted, setIsDeleted] = useState(false);
 
@@ -28,18 +26,17 @@ export default function ProductItem({ product }) {
                     setIsDeleted(true);
                 }
             } catch (error) {
-                console.error('Error:', error);
             }
         }
     };
 
     return (
         <div className={`${styles.item} ${isDeleted ? styles.deleted : ''}`}>
-<Link href={`/ItemPage/${_id}`} legacyBehavior>
-    <a className={styles.imageLink}>
-        <img src={images[0]} alt={name} className={styles.image} />
-    </a>
-</Link>
+            <Link href={`/ItemPage/${_id}`} legacyBehavior>
+                <a className={styles.imageLink}>
+                    <img src={images[0]} alt={name} className={styles.image} />
+                </a>
+            </Link>
 
             <div className={styles.content}>
                 <div className={styles.textContainer}>
@@ -51,7 +48,7 @@ export default function ProductItem({ product }) {
                     </div>
                 </div>
                 <div className={styles.favoriteIcon}>
-                    <FavButton productId={product._id}/>
+                    <FavButton productId={product._id} />
                 </div>
             </div>
             {isAuthenticated && (
