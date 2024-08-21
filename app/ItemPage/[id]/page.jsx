@@ -5,6 +5,8 @@ import { connectToMongo } from '@/server/DL/connectToMongo';
 import { getProduct } from '@/server/BL/productService';
 import { FaShareAlt, FaRuler, FaIceCream, FaCheckCircle } from 'react-icons/fa';
 import ImageGallery from '@/Componnets/ImageGallery';
+import OrderSettings from '@/Componnets/OrderSettings';
+import OrderButton from '@/Componnets/OrderButton';
 
 export default async function ItemPage({ params }) {
     await connectToMongo();
@@ -72,10 +74,9 @@ export default async function ItemPage({ params }) {
                             {price} ₪
                         </div>
                     </div>
-                    <div className={styles.orderButton}>
-                        <Link href={`/Order/${_id}`}>הזמנה</Link>
-                    </div>
+                   <OrderButton item={item} />
                 </div>
+                
             </div>
         </div>
     );
