@@ -1,13 +1,15 @@
 "use client"
 import React, { useState } from 'react';
 import styles from './style.module.scss';
+import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
+
 
 const Testimonial = () => {
   const testimonials = [
     {
       id: 1,
       name: 'רותי לוי',
-      review: 'היה מדהים! העוגה היתה מדהימה ואני ממליצה עליו בחום.',
+      review: 'היה מדהים! העוגה היתה מדהימה ואני ממליצה על אילה בחום.',
     },
     {
       id: 2,
@@ -38,8 +40,12 @@ const Testimonial = () => {
 
   return (
     <div className={styles.testimonialCarousel}>
-      <button className={styles.leftArrow} onClick={prevSlide}>&#10094;</button>
-      <button className={styles.rightArrow} onClick={nextSlide}>&#10095;</button>
+      <button className={styles.leftArrow} onClick={prevSlide}>
+        <BiChevronLeft />
+      </button>
+      <button className={styles.rightArrow} onClick={nextSlide}>
+        <BiChevronRight />
+      </button>
       {testimonials.map((testimonial, index) => (
         <div
           className={index === current ? `${styles.slide} ${styles.active}` : styles.slide}
