@@ -19,6 +19,10 @@ const Home = async () => {
         <div className={styles.image}>
           <img src="aya.png" alt="" />
         </div>
+        <div className={styles.mobileImage}>
+        <img src="aya.png" alt="" />
+
+        </div>
         <div className={styles.headTitle}>
           עוגה שהיא פשוט ואו          <div className={styles.subtext}>
             היי, אני אילה, קונדיטורית מוסמכת ומעצבת עוגות, עם תשוקה ליצור עוגות ייחודיות וקסומות שיהפכו כל אירוע לחגיגה בלתי נשכחת
