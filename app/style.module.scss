@@ -1,5 +1,38 @@
 @import 'mixins.scss';
 
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .home {
   display: flex;
   flex-direction: column;
@@ -13,6 +46,7 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
+    animation: fadeInUp 1s ease;
 
     .headTitle {
       display: flex;
@@ -21,6 +55,7 @@
       gap: 20px;
       @include title;
       padding: 50px;
+      animation: fadeInRight 1s ease;
 
       .btn button {
         border: none;
@@ -30,25 +65,30 @@
         border-radius: 20px;
         text-decoration: none;
         font-size: 16px;
-        @include shadow;
-
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      
         &:hover {
           cursor: pointer;
-          background-color: var(--secColor);
+          background-color: var(--midColorHover);
           box-shadow: none;
         }
-
-
+      
+        &:active {
+          transform: scale(0.95);
+        }
       }
+      
 
       .subtext {
         font-size: 20px;
-        color: var(--midColor);
+        color: var(--text-color);
       }
     }
 
     .image {
       width: 40%;
+      animation: fadeInLeft 1s ease;
 
       img {
         height: 60vh;
@@ -58,18 +98,20 @@
         object-fit: cover;
       }
     }
-  }
 
+    .mobileImage {
+      display: none;
+      width: 100%;
+      animation: fadeInLeft 1s ease;
 
-  .about {
-    padding: 50px;
-    font-weight: 300;
-    width: 60%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
+      img {
+        width: calc(100vw - 50px);
+        height: 35vh;
+        object-fit: cover;
+        background-color: var(--midColor);
+        border-radius: 20px;
+      }
+    }
   }
 
   .topProducts {
@@ -80,9 +122,9 @@
     padding: 50px;
     width: 100%;
     border-radius: 20px;
+    animation: fadeInUp 1.2s ease;
 
     .sideTitle {
-
       @include subtitle;
       display: flex;
       justify-content: right;
@@ -94,18 +136,16 @@
       display: flex;
       flex-direction: row;
       gap: 20px;
-
     }
-
   }
 
   .title {
-
     @include subtitle;
     display: flex;
     justify-content: right;
     align-items: center;
     padding: 20px;
+    animation: fadeInRight 1.4s ease;
   }
 
   .testimonialContainer {
@@ -113,17 +153,12 @@
     width: 100%;
     border-radius: 20px;
     background-color: var(--mainColor);
-
-
     display: flex;
     flex-direction: row;
     gap: 20px;
-    padding: 50px;
-    width: 100%;
-    border-radius: 20px;
+    animation: fadeInLeft 1.6s ease;
 
     .sideTitle {
-
       @include subtitle;
       display: flex;
       justify-content: right;
@@ -140,34 +175,43 @@
 @media (max-width: 768px) {
   .home {
     padding: 20px;
-    gap: 20px;
+    gap: 30px;
 
     .top {
       flex-direction: column;
       text-align: center;
       gap: 20px;
-      padding: 20px;
+      padding: 0;
 
       .headTitle {
         width: 100%;
-        padding: 20px;
+        padding: 0;
+        animation: fadeInUp 1s ease;
       }
 
       .image {
-        width: 100%;
+        display: none;
+      }
+
+      .mobileImage {
+        display: block;
+        animation: fadeInUp 1s ease;
 
         img {
-          height: 40vh;
-          width: 100%;
+          width: calc(100vw - 50px);
+          height: 35vh;
+          object-fit: cover;
+          background-color: var(--midColor);
+          border-radius: 20px;
         }
       }
     }
 
     .topProducts {
       flex-direction: column;
-      padding: 20px;
       align-items: center;
-
+      animation: fadeInUp 1.2s ease;
+      width: 100%;
       .sideTitle {
         justify-content: center;
         padding: 10px;
@@ -175,23 +219,40 @@
 
       .products {
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
       }
     }
 
     .title {
       justify-content: center;
       padding: 10px;
+      animation: fadeInUp 1.4s ease;
     }
 
     .testimonialContainer {
       flex-direction: column;
       padding: 20px;
+      animation: fadeInUp 1.6s ease;
 
       .sideTitle {
         justify-content: center;
         padding: 10px;
+        order: -1;
       }
+
+      .testimonial {
+        order: 1;
+      }
+    }
+  }
+
+  @media (min-width: 769px) {
+    .mobileImage {
+      display: none;
+    }
+
+    .image {
+      display: block;
     }
   }
 }

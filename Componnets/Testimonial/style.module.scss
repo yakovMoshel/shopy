@@ -13,6 +13,9 @@
   }
 
   .testimonial {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     text-align: center;
     padding: 20px;
     background: var(--mainColor);
@@ -23,11 +26,12 @@
       font-size: 16px;
       font-weight: 300;
       text-align: center;
+      color: var(--secColor);
     }
 
     .customer {
-      color: #333;
-      font-size: 16px;
+      color: var(--text-color);
+      font-size: 14px;
       font-weight: 400;
       text-align: center;
     }
@@ -43,6 +47,7 @@
     border: none;
     cursor: pointer;
     user-select: none;
+    color: var(--midColor)
   }
 
   .leftArrow {
@@ -51,5 +56,37 @@
 
   .rightArrow {
     right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .testimonialCarousel {
+    width: 100%;
+
+    .testimonial {
+      padding: 15px;
+
+      .review {
+        font-size: 14px;
+      }
+
+      .customer {
+        font-size: 14px;
+      }
+    }
+
+    .leftArrow,
+    .rightArrow {
+      font-size: 1.5rem;
+    }
+
+    .leftArrow {
+      left: 10px;
+    }
+
+    .rightArrow {
+      right: 10px;
+    }
   }
 }

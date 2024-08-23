@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import FavButton from '../FavButton';
 import axios from 'axios';
-import EditProductModal from '../EditProductModal';
 import useStore from '../../useStore';
+import EditProductModal from '../EditProductModal/Index';
 
 
 export default function ProductItem({ product }) {
