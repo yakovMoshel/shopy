@@ -60,6 +60,7 @@ export default async function ItemPage({ params }) {
                         <div className={styles.infoItem}>
                             <FaCheckCircle /> חלבי
                         </div>
+                        <div className={styles.separator}></div>
                         <div className={styles.colorsContainer}>
                             {colors.map((color, index) => {
                                 const backgroundColor = colorMap[color] || '#ffffff';
@@ -68,6 +69,8 @@ export default async function ItemPage({ params }) {
                                 );
                             })}
                         </div>
+                        <div className={styles.separator}></div>
+
                         <div className={styles.price}>
                             {price} ₪
                         </div>

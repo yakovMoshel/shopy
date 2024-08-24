@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   gap: 20px;
+  position: relative;
 
   .mainImage {
     img {
@@ -10,6 +11,11 @@
       object-fit: cover;
       border-radius: 15px;
       box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      &:hover {
+        box-shadow: none;
+      }
     }
   }
 
@@ -17,7 +23,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-
+    height: 350px;
+    justify-content: space-between;
     .thumbnail {
       img {
         width: 100px;
@@ -25,12 +32,31 @@
         object-fit: cover;
         border-radius: 15px;
         cursor: pointer;
-        transition: transform 0.2s;
-
+        transition: box-shadow 0.3s ease, transform 0.2s ease;
         &:hover {
-          transform: scale(1.05);
+          box-shadow: none;
+
         }
       }
+    }
+  }
+
+  .enlargedView {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
     }
   }
 }
@@ -39,7 +65,6 @@
   .gallery {
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     width: 100%;
 
     .mainImage {
@@ -57,22 +82,27 @@
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        border-radius: 15px;
-        box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
       }
     }
 
     .thumbnails {
       flex-direction: row;
-      gap: 10px;
+      flex-wrap: wrap;
       justify-content: center;
+      width: 100%;
 
       .thumbnail {
         img {
           width: 80px;
           height: 80px;
         }
+      }
+    }
+
+    .enlargedView {
+      img {
+        max-width: 100%;
+        max-height: 100%;
       }
     }
   }

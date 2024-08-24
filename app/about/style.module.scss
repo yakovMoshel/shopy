@@ -1,8 +1,42 @@
 @import '/app/mixins.scss';
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .about {
   p {
     margin-bottom: 20px;
+    animation: fadeInUp 1s ease;
   }
 
   .topProducts {
@@ -13,6 +47,7 @@
     padding: 50px;
     width: 100%;
     border-radius: 20px;
+    animation: fadeInUp 1.2s ease;
 
     .sideTitle {
       @include subtitle;
@@ -20,9 +55,10 @@
       justify-content: right;
       align-items: center;
       padding: 20px;
+      animation: fadeInLeft 1.2s ease;
     }
 
-    .text{
+    .text {
       padding: 50px;
       width: 70%;
       font-size: 16px;
@@ -31,6 +67,7 @@
       background-color: white;
       border-radius: 20px;
       @include shadow;
+      animation: fadeInRight 1.4s ease;
     }
   }
 
@@ -40,6 +77,7 @@
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
+    animation: fadeInUp 1s ease;
   }
 }
 
@@ -59,22 +97,20 @@
       .sideTitle {
         justify-content: center;
         padding: 10px;
+        animation: fadeInUp 1.2s ease;
       }
 
       .text {
         padding: 20px;
         width: 100%;
-      }
-
-      .products {
-        flex-direction: column;
-        gap: 10px;
+        animation: fadeInUp 1.4s ease;
       }
     }
 
     .image {
       width: 100%;
       margin-bottom: 10px;
+      animation: fadeInUp 1s ease;
     }
   }
 }

@@ -1,11 +1,12 @@
 "use client";
 import { useState, useEffect } from 'react';
-import ProductItem from '@/Componnets/ProductItem';
 import styles from './style.module.scss';
 import ProductsList from '@/Componnets/ProductsList';
 
 export default function Favorites() {
   const [favoritedProducts, setFavoritedProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // הוספת מצב טעינה
+  const [hasFavorites, setHasFavorites] = useState(true); // מצב לבדוק אם יש מוצרים מועדפים
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -22,8 +23,16 @@ export default function Favorites() {
         if (res.ok) {
           const products = await res.json();
           setFavoritedProducts(products);
+          if (products.length === 0) {
+            setHasFavorites(false);
+          }
+        } else {
+          setHasFavorites(false);
         }
+      } else {
+        setHasFavorites(false);
       }
+      setIsLoading(false);
     };
 
     fetchFavorites();
@@ -32,7 +41,13 @@ export default function Favorites() {
   return (
     <div className={styles.shop}>
       <div className={styles.content}>
-        <ProductsList productByCat={favoritedProducts} />
+        {isLoading ? (
+          <ProductsList isLoading={isLoading} />
+        ) : hasFavorites ? (
+          <ProductsList productByCat={favoritedProducts} />
+        ) : (
+          <div className={styles.noFavorites}>לא נוספו מוצרים מועדפים</div>
+        )}
       </div>
     </div>
   );

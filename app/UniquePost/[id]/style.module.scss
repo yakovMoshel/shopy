@@ -1,5 +1,5 @@
 .postPage {
-  padding: 50px 10vw;
+  // padding: 50px;
   margin: auto;
   border-radius: 10px;
   animation: fadeIn 0.5s ease;
@@ -76,12 +76,11 @@
   }
 }
 
-/* רספונסיביות */
 @media (max-width: 768px) {
   .postPage {
     flex-direction: column;
     max-width: 100%;
-    padding: 15px;
+    // padding: 15px;
 
     .leftSide {
       width: 100%;

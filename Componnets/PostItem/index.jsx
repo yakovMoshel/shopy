@@ -14,7 +14,9 @@ export default function PostItem({ post }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
 
-  const handleDeactivate = async () => {
+  const handleDeactivate = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     const confirmation = window.confirm("האם אתה בטוח שברצונך למחוק פוסט זה?");
     if (confirmation) {
       try {
@@ -28,37 +30,48 @@ export default function PostItem({ post }) {
   };
 
   return (
-    <div className={`${styles.item} ${isDeleted ? styles.deleted : ''}`}>
-      <Link href={`/UniquePost/${_id}`} legacyBehavior>
-        <a className={styles.imageLink}>
+    <Link href={`/UniquePost/${_id}`} className={styles.itemLink}>
+      <div className={`${styles.item} ${isDeleted ? styles.deleted : ''}`}>
+        <div className={styles.imageContainer}>
           {image && <img src={image} alt={title} className={styles.image} />}
-        </a>
-      </Link>
-      <div className={styles.content}>
-        <div className={styles.textContainer}>
-          <div className={styles.createdAt}>
-            {new Date(createdAt).toLocaleDateString()}
-          </div>
-          <div className={styles.title}>
-            {title}
-          </div>
-          <div className={styles.summary}>
-            {summary}
-          </div>
         </div>
-        <Link className={styles.readMoreButton} href={`/UniquePost/${_id}`}>
-          המשך קריאה
-        </Link>
-        {isAuthenticated && (
-          <div className={styles.buttonContainer}>
-            <button onClick={handleDeactivate} className={styles.deactivateButton}>מחק פוסט</button>
-            <button onClick={() => setIsModalOpen(true)} className={styles.editButton}>ערוך פוסט</button>
+        <div className={styles.content}>
+          <div className={styles.textContainer}>
+            <div className={styles.title}>
+              {title}
+            </div>
+            <div className={styles.summary}>
+              {summary}
+            </div>
+            <div className={styles.createdAt}>
+              {new Date(createdAt).toLocaleDateString()}
+            </div>
           </div>
+          {isAuthenticated && (
+            <div className={styles.buttonContainer}>
+              <button
+                onClick={handleDeactivate}
+                className={styles.deactivateButton}
+              >
+                מחק פוסט
+              </button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsModalOpen(true);
+                }}
+                className={styles.editButton}
+              >
+                ערוך פוסט
+              </button>
+            </div>
+          )}
+        </div>
+        {isModalOpen && (
+          <EditPostModal post={post} closeModal={() => setIsModalOpen(false)} />
         )}
       </div>
-      {isModalOpen && (
-        <EditPostModal post={post} closeModal={() => setIsModalOpen(false)} />
-      )}
-    </div>
+    </Link>
   );
 }
