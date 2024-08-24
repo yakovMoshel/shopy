@@ -155,36 +155,29 @@
     align-items: center;
     border-radius: 20px;
     font-size: 16px;
-    height: 50px;
-    border: none;
-    background-color: var(--midColor);
+    font-weight: 500;
+    background-color: var(--secColor);
     color: var(--mainColor);
-    border-radius: 20px;
+    border: none;
     text-decoration: none;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 1.3s ease;
+    height: 50px;
+
+
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     &:hover {
-      cursor: pointer;
-      background-color: var(--midColorHover);
-      box-shadow: none;
+      filter: brightness(120%);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     }
 
     &:active {
-      transform: scale(0.95);
+      filter: brightness(120%);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
   }
 }
-
-
-@media (max-width: 1268px) {
-
-  .separator{
-    display: none;
-  }
-  }
 
 @media (max-width: 768px) {
   .ItemPage {

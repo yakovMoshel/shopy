@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import styles from './style.module.scss';
-import ProductsList from '@/Componnets/ProductsList';
+import ProductsList from '@/Components/ProductsList';
 
 export default function Favorites() {
   const [favoritedProducts, setFavoritedProducts] = useState([]);

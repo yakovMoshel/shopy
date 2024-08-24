@@ -1,13 +1,13 @@
 import { getProductsByIds } from '@/server/BL/productService';
-import ProductItem from '@/Componnets/ProductItem';
+import ProductItem from '@/Components/ProductItem';
 import React from 'react'
 import styles from './style.module.scss'
 import { connectToMongo } from '@/server/DL/connectToMongo';
-import ProductsList from '@/Componnets/ProductsList';
-import AddProductForm from '@/Componnets/AddProductForm';
+import ProductsList from '@/Components/ProductsList';
+import AddProductForm from '@/Components/AddProductForm';
 import { getAllCategories } from '@/server/BL/categoryService';
-import AddPostForm from '@/Componnets/AddPostForm';
-import AddCategoryForm from '@/Componnets/AddCategoryForm';
+import AddPostForm from '@/Components/AddPostForm';
+import AddCategoryForm from '@/Components/AddCategoryForm';
 
 export default async function Admin() {
 

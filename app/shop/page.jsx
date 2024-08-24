@@ -1,8 +1,8 @@
 'use client'
 import { useState, useEffect, useMemo } from 'react';
 import styles from './style.module.scss';
-import SideBar from '@/Componnets/SideBar';
-import ProductsList from '@/Componnets/ProductsList';
+import SideBar from '@/Components/SideBar';
+import ProductsList from '@/Components/ProductsList';
 import { getProducts } from '@/server/actions/getProdacts.actions';
 
 export default function Shop() {

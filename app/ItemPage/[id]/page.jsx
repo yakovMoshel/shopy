@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './style.module.scss';
-import Link from 'next/link';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 import { getProduct } from '@/server/BL/productService';
-import { FaShareAlt, FaRuler, FaIceCream, FaCheckCircle } from 'react-icons/fa';
-import ImageGallery from '@/Componnets/ImageGallery';
+import { FaRuler, FaIceCream, FaCheckCircle } from 'react-icons/fa';
+import ImageGallery from '@/Components/ImageGallery';
+import OrderButton from '@/Components/OrderButton';
 
 export default async function ItemPage({ params }) {
-    await connectToMongo();
+    await connectToMongo(); // בדיקה אם החיבור קיים או התחברות מחדש
 
     const productId = params.id;
 
@@ -21,7 +21,7 @@ export default async function ItemPage({ params }) {
         return <div>Product not found</div>;
     }
 
-    const { _id, name, price, images, description, subtitle, colors } = item;
+    const { name, price, images, description, colors } = item;
 
     const colorMap = {
         'ורוד': '#FFB6C1',
@@ -60,7 +60,6 @@ export default async function ItemPage({ params }) {
                         <div className={styles.infoItem}>
                             <FaCheckCircle /> חלבי
                         </div>
-                        <div className={styles.separator}></div>
                         <div className={styles.colorsContainer}>
                             {colors.map((color, index) => {
                                 const backgroundColor = colorMap[color] || '#ffffff';
@@ -69,16 +68,13 @@ export default async function ItemPage({ params }) {
                                 );
                             })}
                         </div>
-                        <div className={styles.separator}></div>
-
                         <div className={styles.price}>
                             {price} ₪
                         </div>
                     </div>
-                    <div className={styles.orderButton}>
-                        <Link href={`/Order/${_id}`}>הזמנה</Link>
-                    </div>
+                   <OrderButton item={item} />
                 </div>
+                
             </div>
         </div>
     );

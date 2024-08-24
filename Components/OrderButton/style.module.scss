@@ -1,0 +1,27 @@
+.orderButton  {
+    padding: 10px 20px;
+    height: 50px;
+    width: 100%;
+    border: none;
+    background-color: var(--midColor);
+    color: var(--mainColor);
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--midColorHover);
+      box-shadow: none;
+    }
+
+    &:active {
+      filter: brightness(120%);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }

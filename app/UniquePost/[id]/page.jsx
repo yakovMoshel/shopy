@@ -1,7 +1,7 @@
 import styles from './style.module.scss';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 import { getPost } from '@/server/BL/postService';
-import SinglePost from '@/Componnets/SinglePost';
+import SinglePost from '@/Components/SinglePost';
 
 export default async function Page({ params }) {
   await connectToMongo();
