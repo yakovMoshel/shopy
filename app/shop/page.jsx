@@ -1,12 +1,13 @@
 'use client'
 import { useState, useEffect, useMemo } from 'react';
 import styles from './style.module.scss';
-import SideBar from '@/Componnets/SideBar';
-import ProductsList from '@/Componnets/ProductsList';
+import SideBar from '@/Components/SideBar';
+import ProductsList from '@/Components/ProductsList';
 import { getProducts } from '@/server/actions/getProdacts.actions';
 
 export default function Shop() {
     const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const [category, setCategory] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -14,6 +15,7 @@ export default function Shop() {
         async function fetchProducts() {
             const fetchedProducts = await getProducts('');
             setProducts(fetchedProducts);
+            setIsLoading(false);
         }
         fetchProducts();
     }, []);
@@ -33,7 +35,7 @@ export default function Shop() {
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm} />
             <div className={styles.content}>
-                <ProductsList productByCat={filteredProducts} />
+                <ProductsList productByCat={filteredProducts} isLoading={isLoading} />
             </div>
         </div>
     );

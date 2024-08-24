@@ -5,9 +5,17 @@ import styles from './style.module.scss';
 
 export default function ImageGallery({ images }) {
   const [selectedImage, setSelectedImage] = useState(images[0]);
+  const [isEnlarged, setIsEnlarged] = useState(false);
+
+  const toggleEnlarged = () => {
+    setIsEnlarged(!isEnlarged);
+  };
 
   return (
     <div className={styles.gallery}>
+      <div className={styles.mainImage} onClick={toggleEnlarged}>
+        <img src={selectedImage} alt="Selected" />
+      </div>
       <div className={styles.thumbnails}>
         {images.map((image, index) => (
           <div
@@ -19,9 +27,11 @@ export default function ImageGallery({ images }) {
           </div>
         ))}
       </div>
-      <div className={styles.mainImage}>
-        <img src={selectedImage} alt="Selected" />
-      </div>
+      {isEnlarged && (
+        <div className={styles.enlargedView} onClick={toggleEnlarged}>
+          <img src={selectedImage} alt="Enlarged" />
+        </div>
+      )}
     </div>
   );
 }

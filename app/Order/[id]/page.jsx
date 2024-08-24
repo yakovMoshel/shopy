@@ -1,31 +1,31 @@
-import styles from './style.module.scss';
+// import styles from './style.module.scss';
 
-import { connectToMongo } from '@/server/DL/connectToMongo';
-import { getProduct } from '@/server/BL/productService';
-import SizeOptions from '@/Componnets/OrderSettings';
+// import { connectToMongo } from '@/server/DL/connectToMongo';
+// import { getProduct } from '@/server/BL/productService';
+// import SizeOptions from '@/Components/OrderSettings';
 
-export default async function Page({ params }) {
+// export default async function Page({ params }) {
 
-    await connectToMongo();
+//     await connectToMongo();
 
-    const product = await getProduct({ _id: params.id });
+//     const product = await getProduct({ _id: params.id });
 
-    return (
-        <div className={styles.OrderPage}>
-            <div className={styles.optionsContainer}>
-                <div className={styles.productImage}>
-                    <h2>{product.name}</h2>
-                    <p>{product.category}</p>
-                    <p>מחיר: {product.price}₪</p>
-                    <p>{product.description}</p>
-                    <p>במלאי: {product.stock}</p>
-                    <img src={product.images[0]} alt={product.name} />
-                </div>
+//     return (
+//         <div className={styles.OrderPage}>
+//             <div className={styles.optionsContainer}>
+//                 <div className={styles.productImage}>
+//                     <h2>{product.name}</h2>
+//                     <p>{product.category}</p>
+//                     <p>מחיר: {product.price}₪</p>
+//                     <p>{product.description}</p>
+//                     <p>במלאי: {product.stock}</p>
+//                     <img src={product.images[0]} alt={product.name} />
+//                 </div>
 
-                <div className={styles.productDetails}>
-                    <SizeOptions product={product} />
-                </div>
-            </div>
-        </div>
-    );
-}
+//                 <div className={styles.productDetails}>
+//                     <SizeOptions product={product} />
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// }

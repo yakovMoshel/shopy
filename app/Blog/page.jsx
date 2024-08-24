@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './style.module.scss'
-import SideBar from '@/Componnets/SideBar';
-import PostItem from '@/Componnets/PostItem';
+import SideBar from '@/Components/SideBar';
+import PostItem from '@/Components/PostItem';
 import { getAllPosts } from '@/server/BL/postService';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 

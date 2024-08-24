@@ -1,0 +1,190 @@
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  width: 800px;
+  height: 80%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.5s ease;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.orderForm {
+  margin-top: 20px;
+  background-color: var(--grayColor);
+  padding: 20px;
+  height: 100%;
+  border-radius: 20px;
+  animation: fadeIn 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h3 {
+    color: var(--secColor);
+    margin-bottom: 15px;
+  }
+
+  .formRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .formGroup {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 15px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--darkGrayColor);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font);
+    }
+
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+  }
+
+  .checkboxGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      input[type="checkbox"] {
+        margin: 0;
+      }
+    }
+  }
+
+  .submitButton {
+    border: none;
+    background-color: var(--midColor);
+    color: var(--mainColor);
+    padding: 10px 40px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    &:hover {
+      cursor: pointer;
+      background-color: var(--midColorHover);
+      box-shadow: none;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: var(--secColorHover);
+    }
+  }
+
+  .loader {
+    margin-top: 20px;
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid var(--secColor);
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+}
+
+.messageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.popupMessage {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--secColor);
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+@media (max-width: 768px) {
+  .popupContent {
+    width: 90%;
+    max-height: 90vh;
+    padding: 20px;
+  }
+
+  .orderForm {
+    padding: 10px;
+    height: auto;
+    .formRow {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+
+
+
+  .formGroup {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom:0;
+
+    label {
+      display: block;
+      margin-bottom: 0x;
+      color: var(--darkGrayColor);
+    }
+  }
+}
+

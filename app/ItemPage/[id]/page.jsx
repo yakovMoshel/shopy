@@ -1,15 +1,13 @@
 import React from 'react';
 import styles from './style.module.scss';
-import Link from 'next/link';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 import { getProduct } from '@/server/BL/productService';
-import { FaShareAlt, FaRuler, FaIceCream, FaCheckCircle } from 'react-icons/fa';
-import ImageGallery from '@/Componnets/ImageGallery';
-import OrderSettings from '@/Componnets/OrderSettings';
-import OrderButton from '@/Componnets/OrderButton';
+import { FaRuler, FaIceCream, FaCheckCircle } from 'react-icons/fa';
+import ImageGallery from '@/Components/ImageGallery';
+import OrderButton from '@/Components/OrderButton';
 
 export default async function ItemPage({ params }) {
-    await connectToMongo();
+    await connectToMongo(); // בדיקה אם החיבור קיים או התחברות מחדש
 
     const productId = params.id;
 
@@ -23,7 +21,7 @@ export default async function ItemPage({ params }) {
         return <div>Product not found</div>;
     }
 
-    const { _id, name, price, images, description, subtitle, colors } = item;
+    const { name, price, images, description, colors } = item;
 
     const colorMap = {
         'ורוד': '#FFB6C1',

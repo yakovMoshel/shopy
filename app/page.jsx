@@ -1,9 +1,9 @@
 import { connectToMongo } from '@/server/DL/connectToMongo';
 import styles from "./style.module.scss"
-import BelieveLine from '@/Componnets/BelieveLine';
-import ProductItem from '@/Componnets/ProductItem';
+import BelieveLine from '@/Components/BelieveLine';
+import ProductItem from '@/Components/ProductItem';
 import { getAllProducts, getProductsByCategory } from '@/server/BL/productService';
-import Testimonial from '@/Componnets/Testimonial/Index';
+import Testimonial from '@/Components/Testimonial/Index';
 import Link from 'next/link';
 
 

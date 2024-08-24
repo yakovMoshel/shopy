@@ -1,5 +1,7 @@
+@import '/app/mixins.scss';
+
 .singlePost {
-  padding: 50px 10vw;
+  padding: 50px;
   margin: auto;
   border-radius: 10px;
   animation: fadeIn 0.5s ease;
@@ -8,43 +10,40 @@
   font-family: 'Poppins', sans-serif;
   color: #333;
   max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
   .title {
-    font-size: 2.5rem;
+
+    @include subtitle;
     font-weight: 600;
-    color: var(--secColor);
-    margin-bottom: 10px;
-    text-align: center;
   }
 
   .author {
-    font-size: 1rem;
-    color: var(--darkGrayColor);
-    margin-bottom: 20px;
-    text-align: center;
+    font-size: 14px;
+    color: var(--midColor);
   }
 
   .image {
     width: 100%;
     height: 250px;
-    border-radius: 15px;
-    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
     object-fit: cover;
   }
 
   .summary {
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #5f5f5f;
-    margin-bottom: 20px;
-    text-align: justify;
+
+    font-size: 20px;
+    color: var(--text-color);
+    font-weight: 300;
   }
 
   .content {
-    font-size: 1rem;
-    color: #333;
-    text-align: justify;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-color);
 
     p {
       margin-bottom: 20px;
@@ -54,7 +53,7 @@
 
 @media (max-width: 768px) {
   .singlePost {
-    padding: 15px;
+    padding: 20px;
     max-width: 100%;
 
     .title {
