@@ -63,7 +63,7 @@
       animation: fadeInUp 1s ease;
   
       .firstLine {
-          font-weight: 500;
+          font-weight:400;
           margin-bottom: 10px;
       }
   
@@ -75,8 +75,8 @@
       }
   
       li {
-          margin-bottom: 5px; // מרווח בין הפריטים ברשימה
-          list-style-type: disc; // סימן ה-bullets כנקודה
+          margin-bottom: 5px;
+          list-style-type: disc;
       }
   }
   
