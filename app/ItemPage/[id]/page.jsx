@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './style.module.scss';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 import { getProduct } from '@/server/BL/productService';
-import { FaRuler, FaIceCream, FaCheckCircle } from 'react-icons/fa';
 import ImageGallery from '@/Components/ImageGallery';
 import OrderButton from '@/Components/OrderButton';
 
 export default async function ItemPage({ params }) {
-    await connectToMongo(); // בדיקה אם החיבור קיים או התחברות מחדש
+
+    await connectToMongo();
 
     const productId = params.id;
 
@@ -20,23 +20,38 @@ export default async function ItemPage({ params }) {
     if (!item) {
         return <div>Product not found</div>;
     }
+    const plainItem = JSON.parse(JSON.stringify(item));
 
-    const { name, price, images, description, colors } = item;
+    const {
+        name,
+        description,
+        price,
+        images,
+        colors,
+        flavors,
+        glutenFreeOption,
+        notDairyOption,
+        diameter,
+        height,
+        filling,
+    } = item;
 
     const colorMap = {
         'ורוד': '#FFB6C1',
-        'לבן': '#FFFFFF',
+        'לבן': '#fafafa',
         'ירוק': '#98FB98',
         'צהוב': '#FFFFE0',
-        'אדום': '#FFA07A',
+        'אדום': '#de3737',
         'קרם': '#FFFDD0',
         'כחול': '#ADD8E6',
         'שחור': '#000000',
         'תכלת': '#E0FFFF',
         'כתום': '#FFDAB9',
         'אפרסק': '#FFE5B4',
+        'סגול': '#ce52ff',
+        'חום': '#452c22',
+        'זהב': '#c78a4a',
     };
-
 
     const formattedDescription = description.split('\n').map((line, index) => {
         if (index === 0) {
@@ -51,8 +66,6 @@ export default async function ItemPage({ params }) {
             );
         }
     });
-    
-    
 
     return (
         <div className={styles.ItemPage}>
@@ -64,19 +77,10 @@ export default async function ItemPage({ params }) {
                     {name}
                 </div>
                 <div className={styles.details}>
-<div>{formattedDescription}</div>                </div>
-                <div className={styles.infoAndOrder}>
-                    <div className={styles.additionalInfo}>
-                        <div className={styles.infoItem}>
-                            <FaRuler /> 10*6 ס"מ
-                        </div>
-                        <div className={styles.infoItem}>
-                            <FaIceCream /> וניל/שוקולד
-                        </div>
-                        <div className={styles.infoItem}>
-                            <FaCheckCircle /> חלבי
-                        </div>
-                        <div className={styles.colorsContainer}>
+                    <div>{formattedDescription}</div>                
+                </div>
+                <div className={styles.colorsContainer}>
+                    אופציות צבעים:
                             {colors.map((color, index) => {
                                 const backgroundColor = colorMap[color] || '#ffffff';
                                 return (
@@ -84,13 +88,29 @@ export default async function ItemPage({ params }) {
                                 );
                             })}
                         </div>
+                <div className={styles.infoAndOrder}>
+                    <div className={styles.additionalInfo}>
+                        <div className={styles.infoItem}>
+                            קוטר: {diameter} ס"מ
+                        </div>
+                        <div className={styles.infoItem}>
+                            גובה: {height} ס"מ
+                        </div>
+                        <div className={styles.infoItem}>
+                            טעמים: {flavors.join(', ')}
+                        </div>
+                        <div className={styles.infoItem}>
+                            {glutenFreeOption === true ? 'אופציה ללא גלוטן' : ''}
+                        </div>
+                        <div className={styles.infoItem}>
+                            {notDairyOption === true ? ' ' : 'אופציה לפרווה'}
+                        </div>
                         <div className={styles.price}>
                             {price} ₪
                         </div>
                     </div>
-                   <OrderButton item={item} />
+                    <OrderButton item={plainItem} />
                 </div>
-                
             </div>
         </div>
     );

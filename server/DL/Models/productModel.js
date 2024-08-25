@@ -39,20 +39,25 @@ const productSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   },
-  glutenContent: {
-    type: String,
-    enum: ['מכיל גלוטן', 'ללא גלוטן'],
+  glutenFreeOption: {
+    type: Boolean,
+    default: false,
+  },
+  notDairyOption: {
+    type: Boolean,
+    default: false,
+  },
+  diameter: {
+    type: Number,
     required: true
   },
-  dairyContent: {
-    type: String,
-    enum: ['חלבי', 'פרווה'],
+  height: {
+    type: Number,
     required: true
   },
-  measurements: {
-    type: String,
-    required: true
-  }
+  filling: [{
+    type: String
+  }],
 });
 
 export const productModel = mongoose.models.Product || mongoose.model('Product', productSchema);
