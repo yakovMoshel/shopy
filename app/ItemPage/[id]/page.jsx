@@ -37,6 +37,23 @@ export default async function ItemPage({ params }) {
         'אפרסק': '#FFE5B4',
     };
 
+
+    const formattedDescription = description.split('\n').map((line, index) => {
+        if (index === 0) {
+            return <p key={index} className={styles.firstLine}>{line}</p>;
+        } else if (line.trim() === '') {
+            return null;
+        } else {
+            return (
+                <ul key={index} className={styles.bulletPoint}>
+                    <li>{line}</li>
+                </ul>
+            );
+        }
+    });
+    
+    
+
     return (
         <div className={styles.ItemPage}>
             <div className={styles.leftSide}>
@@ -47,8 +64,7 @@ export default async function ItemPage({ params }) {
                     {name}
                 </div>
                 <div className={styles.details}>
-                    {description}
-                </div>
+<div>{formattedDescription}</div>                </div>
                 <div className={styles.infoAndOrder}>
                     <div className={styles.additionalInfo}>
                         <div className={styles.infoItem}>
