@@ -34,6 +34,7 @@ export default function OrderPopup({ item, onClose }) {
         setLoader(true);
         try {
             const response = await axios.post('/api/send-email', {
+                type: 'contact',
                 orderDetails: { ...formData, productName: item.name }
             });
             if (response.data.success) {

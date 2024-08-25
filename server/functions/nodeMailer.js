@@ -16,7 +16,7 @@ export const sendEmail = async ({ MemberMail, subject = "", message = "" }) => {
     });
 
     const mailOptions = {
-        from: MAIL,
+        from: MAIL, 
         to: MemberMail,
         subject: subject,
         text: message,
