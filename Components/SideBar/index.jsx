@@ -12,7 +12,7 @@ const categories = [
   { label: 'עוגת בנטו', icon: <SiCakephp />, value: 'עוגות בנטו' },
   { label: 'עוגת מוס', icon: <FaCookie />, value: 'עוגת מוס' },
   { label: 'מארזים', icon: <LuCroissant />, value: 'מארזים' },
-  { label: 'עוגה מעוצבת', icon: <LuWheatOff />, value: 'עוגה מעוצבת' },
+  { label: 'עוגה מעוצבת', icon: <LuWheatOff />, value: 'עוגות מעוצבות' },
 ];
 
 export default function SideBar({ setCategory, searchTerm, setSearchTerm }) {
