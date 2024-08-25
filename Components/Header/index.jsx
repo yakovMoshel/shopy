@@ -73,7 +73,7 @@ export default function Header() {
                 {isOpen ? renderMobileMenu() : renderDesktopMenu()}
                 <Link href="/" className={path === '/' ? styles.active : ''}>
                     <div className={styles.logo}>
-                        <img src="AYALA CAKES LOGO.png" alt="AYALA CAKES LOGO" />
+                    <img src="/AYALA CAKES LOGO.png" alt="AYALA CAKES LOGO" />
                     </div>
                 </Link>
             </div>
