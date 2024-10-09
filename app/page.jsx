@@ -5,6 +5,7 @@ import ProductItem from '@/Components/ProductItem';
 import { getAllProducts, getProductsByCategory } from '@/server/BL/productService';
 import Testimonial from '@/Components/Testimonial/Index';
 import Link from 'next/link';
+import Head from 'next/head';
 
 
 const Home = async () => {
@@ -15,6 +16,11 @@ const Home = async () => {
 
   return (
     <div className={styles.home}>
+        <Head>
+        <title>אילה - קונדיטורית | עוגות מעוצבות, סדנאות ועוד בקריות</title>
+        <meta name="description" content="היי, אני אילה, קונדיטורית מוסמכת שמעצבת עוגות ייחודיות וקסומות לכל אירוע. כל עוגה נבנית בהתאמה אישית כדי להפוך את האירוע שלכם לבלתי נשכח." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <div className={styles.top}>
         <div className={styles.image}>
           <img src="aya.png" alt="" />

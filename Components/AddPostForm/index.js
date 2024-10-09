@@ -10,6 +10,13 @@ export default function AddPostForm() {
     content: '',
     author: '',
     image: '',
+    slug: '',
+    focusKeyword: '',
+    secondaryKeywords: '',
+    seoTitle: '',
+    metaDescription: '',
+    callToAction: '',
+    socialImage: ''
   });
 
   const handleChange = (e) => {
@@ -106,6 +113,82 @@ export default function AddPostForm() {
                 name="image"
                 value={formData.image}
                 placeholder="תמונה (URL)"
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          {/* שדות נוספים ללא REQUIRED */}
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <input
+                type="text"
+                name="slug"
+                value={formData.slug}
+                placeholder="Slug"
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <input
+                type="text"
+                name="focusKeyword"
+                value={formData.focusKeyword}
+                placeholder="מילת מפתח"
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <input
+                type="text"
+                name="secondaryKeywords"
+                value={formData.secondaryKeywords}
+                placeholder="מילות מפתח משניות"
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <input
+                type="text"
+                name="seoTitle"
+                value={formData.seoTitle}
+                placeholder="כותרת SEO"
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <textarea
+                name="metaDescription"
+                value={formData.metaDescription}
+                placeholder="Meta Description"
+                onChange={handleChange}
+              ></textarea>
+            </div>
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <textarea
+                name="callToAction"
+                value={formData.callToAction}
+                placeholder="קריאה לפעולה"
+                onChange={handleChange}
+              ></textarea>
+            </div>
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <input
+                type="text"
+                name="socialImage"
+                value={formData.socialImage}
+                placeholder="תמונה לרשתות חברתיות"
                 onChange={handleChange}
               />
             </div>

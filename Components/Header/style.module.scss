@@ -3,15 +3,25 @@
 .Header {
     background-color: var(--mainColor);
     height: 80px;
-    width: calc(100% - 60px);
+    width: 100%;
     border-radius: 20px;
     color: var(--secColor);
     padding: 10px 20px;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     @include shadow;
+
+    position: sticky;
+    top: -10px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+
+    &.sticky {
+        margin-top: 20px;
+        transform: translateY(10px);
+        border-radius: 0 0 20px 20px;
+    }
 
     .burger {
         display: none;
@@ -39,6 +49,8 @@
 
             .menuItem {
                 margin-right: 1rem;
+                position: relative;
+
 
                 a {
                     color: var(--secColor);
@@ -50,12 +62,12 @@
                     justify-content: center;
                     align-items: center;
                     text-align: center;
-                    border-radius: 20px;
+                    border-radius: 10px;
                     transition: background-color 0.2s ease-in, color 0.2s ease-in, transform 0.3s ease-in;
                 }
 
                 a:hover {
-                    border-radius: 20px;
+                    border-radius: 10px;
                     background-color: var(--midColor);
                     color: var(--mainColor);
                 }
@@ -63,6 +75,18 @@
                 .active {
                     background-color: var(--midColor);
                     color: var(--mainColor);
+                }
+
+                &.favorites {
+                    a {
+                        transition: transform 0.3s ease;
+                        display: inline-flex; // שינינו ל-inline-flex
+
+
+                        &.pulse {
+                            animation: pulseAnimation 0.5s ease;
+                        }
+                    }
                 }
             }
         }
@@ -107,6 +131,17 @@
                 .active {
                     background-color: var(--midColor);
                     color: var(--mainColor);
+                }
+
+                &.favorites {
+                    a {
+                        display: inline-block;
+                        transition: transform 0.3s ease;
+
+                        &.pulse {
+                            animation: pulseAnimation 0.5s ease;
+                        }
+                    }
                 }
             }
         }
@@ -158,4 +193,11 @@
             }
         }
     }
+}
+
+
+@keyframes pulseAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }

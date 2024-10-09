@@ -24,9 +24,36 @@ const PostSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  slug: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  focusKeyword: {
+    type: String,
+    required: false
+  },
+  secondaryKeywords: [{
+    type: String,
+    required: false
+  }],
+  seoTitle: {
+    type: String,
+    required: false
+  },
+  metaDescription: {
+    type: String,
+    required: false
+  },
+  callToAction: {
+    type: String,
+    required: false
+  },
+  socialImage: {
+    type: String,
+    required: false
   }
 });
 
-
 export const postModel = mongoose.models.Post || mongoose.model('Post', PostSchema);
-

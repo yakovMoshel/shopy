@@ -4,6 +4,7 @@ import { connectToMongo } from '@/server/DL/connectToMongo';
 import { getProduct } from '@/server/BL/productService';
 import ImageGallery from '@/Components/ImageGallery';
 import OrderButton from '@/Components/OrderButton';
+import Head from 'next/head';
 
 export default async function ItemPage({ params }) {
 
@@ -69,6 +70,11 @@ export default async function ItemPage({ params }) {
 
     return (
         <div className={styles.ItemPage}>
+            <Head>
+                <title>{name}</title>
+                <meta name="description" content={`הזמינו  ${name} -  בעיצוב אישי במגוון טעמים וסגנונות לבחירה`} />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
             <div className={styles.leftSide}>
                 <ImageGallery images={images} />
             </div>
@@ -77,39 +83,48 @@ export default async function ItemPage({ params }) {
                     {name}
                 </div>
                 <div className={styles.details}>
-                    <div>{formattedDescription}</div>                
+                    <div>{formattedDescription}</div>
                 </div>
                 <div className={styles.colorsContainer}>
                     אופציות צבעים:
-                            {colors.map((color, index) => {
-                                const backgroundColor = colorMap[color] || '#ffffff';
-                                return (
-                                    <div key={index} className={styles.colorCircle} style={{ backgroundColor }}></div>
-                                );
-                            })}
-                        </div>
+                    {colors.map((color, index) => {
+                        const backgroundColor = colorMap[color] || '#ffffff';
+                        return (
+                            <div key={index} className={styles.colorCircle} style={{ backgroundColor }}></div>
+                        );
+                    })}
+                </div>
                 <div className={styles.infoAndOrder}>
                     <div className={styles.additionalInfo}>
                         <div className={styles.infoItem}>
                             קוטר: {diameter} ס"מ
                         </div>
+                        <div className={styles.separator}></div>
+
                         <div className={styles.infoItem}>
                             גובה: {height} ס"מ
                         </div>
+                        <div className={styles.separator}></div>
+
                         <div className={styles.infoItem}>
                             טעמים: {flavors.join(', ')}
                         </div>
+                        <div className={styles.separator}></div>
+
                         <div className={styles.infoItem}>
                             {glutenFreeOption === true ? 'אופציה ללא גלוטן' : ''}
                         </div>
-                        <div className={styles.infoItem}>
-                            {notDairyOption === true ? ' ' : 'אופציה לפרווה'}
-                        </div>
+
+                        <div className={styles.separator}></div>
                         <div className={styles.price}>
                             {price} ₪
                         </div>
                     </div>
+
                     <OrderButton item={plainItem} />
+                </div>
+                <div className={styles.customization}> ניתן לבחור צבע כיתוב, צבע עיטוף, צבע עוגה, שם, גיל
+                    שתפו אותי בחלומות שלכם בשדה ההערות, ואני אעצב עבורכם {name} מושלמת
                 </div>
             </div>
         </div>

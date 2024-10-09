@@ -16,7 +16,7 @@
   padding: 20px;
   border-radius: 20px;
   width: 800px;
-  height: 80%;
+  // height: 80%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   position: relative;
   animation: fadeIn 0.5s ease;
@@ -159,7 +159,7 @@
 @media (max-width: 768px) {
   .popupContent {
     width: 90%;
-    max-height: 90vh;
+    // max-height: 90vh;
     padding: 20px;
   }
 

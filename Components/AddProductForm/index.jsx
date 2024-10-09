@@ -16,8 +16,10 @@ export default function AddProductForm({ categories }) {
     isActive: true,
     glutenContent: '',
     dairyContent: '',
-    measurements: ''
+    height: '',
+    diameter: ''
   });
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,21 +31,27 @@ export default function AddProductForm({ categories }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
     const formattedData = {
       ...formData,
       price: parseFloat(formData.price),
-      images: formData.images.split(','),
-      colors: formData.colors.split(','),
-      flavors: formData.flavors.split(','),
+      images: formData.images.split(',').map(img => img.trim()),
+      colors: formData.colors.split(',').map(color => color.trim()),
+      flavors: formData.flavors.split(',').map(flavor => flavor.trim()),
       isActive: formData.isActive === 'true',
-      glutenContent: formData.glutenContent,
-      dairyContent: formData.dairyContent,
-      measurements: formData.measurements
+      height: parseFloat(formData.height),
+      diameter: parseFloat(formData.diameter),
+      notDairyOption: formData.dairyContent === 'כן'
     };
 
     try {
+      console.log('Sending data:', JSON.stringify(formattedData, null, 2));
       const response = await axios.post('/api/product', formattedData);
+      console.log('Server response:', response.data);
+      // Handle success (e.g., clear form, show success message)
     } catch (error) {
+      console.error('Error submitting form:', error.response?.data || error.message);
+      setError(error.response?.data?.error || 'An error occurred while submitting the form.');
     }
   };
 
@@ -178,24 +186,35 @@ export default function AddProductForm({ categories }) {
                 onChange={handleChange}
                 required
               >
-                <option value="">חלבי?</option>
-                <option value="חלבי">חלבי</option>
-                <option value="פרווה">פרווה</option>
+                <option value="">אופציה לפרווה?</option>
+                <option value="כן">כן</option>
+                <option value="לא">לא</option>
               </select>
             </div>
           </div>
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
               <input
-                type="text"
-                name="measurements"
-                value={formData.measurements}
-                placeholder="מידות"
+                type="number"
+                name="height"
+                value={formData.height}
+                placeholder="גובה"
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <input
+                type="number"
+                name="diameter"
+                value={formData.diameter}
+                placeholder="קוטר"
                 onChange={handleChange}
                 required
               />
             </div>
           </div>
+          {error && <div className={styles.error}>{error}</div>}
           <button type="submit" className={styles.submitButton}>הוסף מוצר</button>
         </form>
       </div>

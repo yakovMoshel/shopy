@@ -14,12 +14,11 @@ import ContactForm from '../ContactForm';
 export default function Footer() {
   const path = usePathname();
   const links = [
-    { name: "דף הבית", path: "/" },
+    { name: "בית", path: "/" },
     { name: "אודות", path: "/about" },
     { name: "חנות", path: "/shop" },
     { name: "בלוג", path: "/blog" },
-    { name: "צור קשר", path: "/contact" },
-    { name: "מועדפים", path: "/favorites" }
+    { name: "מועדפים", path: "/Favorites" }
   ];
 
   return (
@@ -65,7 +64,15 @@ export default function Footer() {
         </div>
 
         <div className={styles.column}>
-          <h3 className={styles.title}>עקבו אחריי ברשתות</h3>
+          <h3 className={styles.title}>יצירת קשר</h3>
+          <div className={styles.contactInfo}>
+            <a href="tel:+972587990503" className={styles.link}>058-7990503</a>
+            <a href="mailto:ayalapastry@gmail.com" className={styles.link}>Ayalapastry@gmail.com</a>
+          </div>
+        </div>
+
+        <div className={styles.column}>
+          <h3 className={styles.title}>רשתות חברתיות</h3>
           <div className={styles.socialIcons}>
             <Link href="https://www.facebook.com" target="_blank" className={styles.icon}><FaFacebookF /></Link>
             <Link href="https://api.whatsapp.com/send?phone=972587995083&text=%D7%94%D7%99%D7%99%20%D7%90%D7%A0%D7%99%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%99%D7%A0%D7%A1%D7%98%D7%92%D7%A8%D7%9D%20%D7%95%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%20%D7%91%D7%A7%D7%A9%D7%A8%20%D7%9C" target="_blank" className={styles.icon}><FaWhatsapp /></Link>

@@ -1,17 +1,20 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./style.module.scss";
 import axios from "axios";
 
 export default function ContactForm({ type = "line" }) {
-  const [popupMessage, setPopupMessage] = useState('');
-
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: "",
     email: "",
     phone: "",
     message: "",
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+  const [message, setMessage] = useState('');
 
   const formClassName = type === "square" ? styles.squareForm : styles.lineForm;
 
@@ -25,73 +28,110 @@ export default function ContactForm({ type = "line" }) {
 
   const sendContactForm = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await axios.post('/api/send-email', {
         type: 'contact',
         orderDetails: { ...formData }
       });
       if (response.data.success) {
-        alert('ההודעה שלך נשלחה ! ניצור איתך קשר בהקדם.');
+        setMessage('ההודעה שלך נשלחה ! ניצור איתך קשר בהקדם.');
+        setFormData(initialFormData);
+        setShowMessage(true);
+        
+        setTimeout(() => {
+          setShowMessage(false);
+          setMessage('');
+        }, 2000);
       } else {
-        alert('שגיאה בשליחת ההודעה. אנא נסה שוב.');
+        setMessage('שגיאה בשליחת ההודעה. אנא נסה שוב.');
+        setShowMessage(true);
+        
+        setTimeout(() => {
+          setShowMessage(false);
+          setMessage('');
+        }, 2000);
       }
     } catch (error) {
-      alert('שגיאה בשליחת ההזמנה. אנא נסה שוב.');
+      console.error("Error sending form:", error);
+      setMessage('שגיאה בשליחת ההודעה. אנא נסה שוב.');
+      setShowMessage(true);
+      
+      setTimeout(() => {
+        setShowMessage(false);
+        setMessage('');
+      }, 3000);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className={formClassName}>
-      <form onSubmit={sendContactForm}>
-        <div className={styles.formRow}>
-          <div className={styles.formGroup}>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="שם"
-              value={formData.name}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <input type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              placeholder="אימייל"
-              onChange={handleInputChange}
-              required />
-          </div>
-          <div className={styles.formGroup}>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              placeholder="טלפון"
-              value={formData.phone}
-              onChange={handleInputChange}
-              required
-            />
+      {showMessage ? (
+        <div className={styles.messageContainer}>
+          <div className={styles.popupMessage}>
+            {message}
           </div>
         </div>
-        <div className={styles.formRow}>
-          <div className={styles.formGroup}>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="הודעה"
-              value={formData.message}
-              onChange={handleInputChange}
-              required
-            ></textarea>
+      ) : (
+        <form onSubmit={sendContactForm}>
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="שם"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <input 
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                placeholder="אימייל"
+                onChange={handleInputChange}
+                required 
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="טלפון"
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
           </div>
-          <button type="submit" disabled={!formData.name || !formData.phone || !formData.message}>
-            שלח
-          </button>
-        </div>
-      </form>
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="הודעה"
+                value={formData.message}
+                onChange={handleInputChange}
+                required
+              ></textarea>
+            </div>
+            <button type="submit" className={styles.submitButton} disabled={isLoading || !formData.name || !formData.phone || !formData.message}>
+              {isLoading ? (
+                <div className={styles.loader}></div>
+              ) : (
+                'שליחה'
+              )}
+            </button>
+          </div>
+        </form>
+      )}
     </div>
   );
 }

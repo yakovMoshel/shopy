@@ -6,3 +6,5 @@ export const getAllPosts = async  () => {
 return await getPosts()    
 } 
 export const getPost = (id) => getOnePost(id);
+export const getPostBySlug = (slug) => getOnePostBySlug(slug);
+
