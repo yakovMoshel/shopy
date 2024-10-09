@@ -1,27 +1,31 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styles from "./style.module.scss";
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import useStore from '../../useStore';
 
 export default function FavButton({ productId }) {
-    const [isFav, setIsFav] = useState(false);
+    const { favorites, addFavorite, removeFavorite } = useStore();
 
     useEffect(() => {
-        const favorites = JSON.parse(localStorage.getItem('favProducts')) || [];
-        setIsFav(favorites.includes(productId));
-    }, [productId]);
+        // טוען את המועדפים מ-localStorage בעת טעינת הקומפוננטה
+        const savedFavs = JSON.parse(localStorage.getItem('favProducts')) || [];
+        savedFavs.forEach(addFavorite);
+    }, [addFavorite]);
+
+    const isFav = favorites.includes(productId);
 
     const handleFav = () => {
-        const savedFavs = JSON.parse(localStorage.getItem('favProducts')) || [];
         if (isFav) {
-            const updatedFavs = savedFavs.filter(favId => favId !== productId);
-            localStorage.setItem('favProducts', JSON.stringify(updatedFavs));
-            setIsFav(false);
+            removeFavorite(productId);
         } else {
-            savedFavs.push(productId);
-            localStorage.setItem('favProducts', JSON.stringify(savedFavs));
-            setIsFav(true);
+            addFavorite(productId);
         }
+        // עדכון ה-localStorage
+        const updatedFavs = isFav 
+            ? favorites.filter(id => id !== productId)
+            : [...favorites, productId];
+        localStorage.setItem('favProducts', JSON.stringify(updatedFavs));
     };
 
     return (

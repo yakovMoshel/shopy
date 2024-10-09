@@ -137,8 +137,8 @@
 
         .separator {
           width: 1px;
-          height: 100%;
-          background-color: var(--darkGrayColor);
+          height: 80%;
+          background-color: var(--brightGrayColor);
           align-self: center;
         }
 
@@ -186,6 +186,12 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
   }
+}
+
+.customization {
+  font-weight: 100;
+      color: var(--darkGrayColor);
+      font-size: 14px;
 }
 
 @media (max-width: 768px) {

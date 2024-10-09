@@ -5,8 +5,8 @@ import ProductsList from '@/Components/ProductsList';
 
 export default function Favorites() {
   const [favoritedProducts, setFavoritedProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // הוספת מצב טעינה
-  const [hasFavorites, setHasFavorites] = useState(true); // מצב לבדוק אם יש מוצרים מועדפים
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasFavorites, setHasFavorites] = useState(true);
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -46,7 +46,10 @@ export default function Favorites() {
         ) : hasFavorites ? (
           <ProductsList productByCat={favoritedProducts} />
         ) : (
-          <div className={styles.noFavorites}>לא נוספו מוצרים מועדפים</div>
+          <div className={styles.messageContainer}>
+            <div className={styles.popupMessage}>
+              סמנו מוצרים מועדפים כדי לראות אותם כאן  </div>
+          </div>
         )}
       </div>
     </div>

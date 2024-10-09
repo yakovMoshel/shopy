@@ -26,7 +26,7 @@ The website is built using the following modern technologies:
 
 
 ### Live Demo
-For a quick and easy way to explore the website, you can view the live demo without any installation or setup by visiting [here](https://ayala-cakes.vercel.app/).
+For a quick and easy way to explore the website, you can view the live demo without any installation or setup by visiting [here](https://www.ayacakes.biz/).
 ### Installation
 
 If you prefer to run the project locally, you can follow these steps:

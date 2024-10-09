@@ -5,3 +5,9 @@ export const getPosts = async  () => {
    return posts
 }
 export const getOnePost = (id) => postModel.findById(id);
+
+
+export const getOnePostBySlug = (slug) => postModel.findOne(slug);
+
+
+

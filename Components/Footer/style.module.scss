@@ -27,6 +27,15 @@
     flex-direction: column;
     gap: 10px;
 
+.contactInfo{
+  display: flex;
+  flex-direction: column;
+  display: block;
+  text-decoration: none;
+  font-size: larger;
+  color: white;
+  font-size: 16px;
+}
     .linkWrapper {
       display: flex;
       gap: 20px;
@@ -44,14 +53,12 @@
   font-size: 20px;
   font-weight: 500;
   color: var(--mainColor);
-  margin-bottom: 10px;
 }
 
 .link {
   display: block;
   text-decoration: none;
   font-size: larger;
-  font-weight: 800;
   color: white;
   font-size: 16px;
   font-weight: 300;

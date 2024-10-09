@@ -51,6 +51,9 @@
       height: 100px;
       resize: none;
     }
+    &:focus {
+      outline: none;
+    }
   }
 
   button {
@@ -77,6 +80,7 @@
 
 .lineForm {
   width: 100%;
+  height: 150px;
   padding: 20px;
   border-radius: 20px;
   text-align: center;
@@ -91,18 +95,12 @@
   .formRow {
     display: flex;
     justify-content: space-between;
-
-    .formGroup {
-      flex: 1;
-
-      &:first-child {
-        margin-left: 10px;
-      }
-    }
+    gap: 15px;
+    margin-bottom: 15px;
   }
 
   .formGroup {
-    margin-bottom: 15px;
+    flex: 1;
     text-align: right;
 
     label {
@@ -128,26 +126,65 @@
     }
   }
 
-  button {
+  .submitButton {
     padding: 10px 20px;
     height: 50px;
+    min-width: 80px;
     border: none;
-    border-radius: 10px;
     background-color: var(--midColor);
     color: var(--mainColor);
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
     font-family: var(--font);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: #532d34;
-
-      &:disabled {
-        cursor: not-allowed;
-        background-color: var(--midColorHover);
-      }
+      cursor: pointer;
+      box-shadow: none;
+      background-color: transparent;
+      outline: 1.5px solid var(--midColor);
+      color: var(--mainColor);
     }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .loader {
+    border: 3px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 3px solid var(--mainColor);
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .messageContainer {
+    margin-top: 15px;
+  }
+
+  .popupMessage {
+    margin-top: 10px;
+    height: 150px;
+    padding: 10px;
+    background-color: var(--secColor);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
   }
 }
 
@@ -156,6 +193,7 @@
   .lineForm {
     padding: 10px;
     width: 100%;
+    height: 350px;
 
     .formRow {
       flex-direction: column;
@@ -178,5 +216,9 @@
 
   .textarea {
     height: 300px;
+  }
+
+  .popupMessage {
+    height: 150px;
   }
 }
