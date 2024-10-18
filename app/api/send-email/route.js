@@ -9,7 +9,6 @@ export async function POST(req) {
     let message = '';
 
     if (type === 'order') {
-      // הזמנת מוצר
       subject = `הזמנה חדשה: ${orderDetails.productName}`;
       message = `
         <h1>הזמנה חדשה: ${orderDetails.productName}</h1>
@@ -26,7 +25,6 @@ export async function POST(req) {
           <div><strong>מספר טלפון:</strong> ${orderDetails.phoneNumber}</div>
         </div>`;
     } else if (type === 'contact') {
-      // שליחת הודעה
       subject = `הודעה חדשה מ: ${orderDetails.name}`;
       message = `
         <h1>הודעה חדשה מ: ${orderDetails.name}</h1>

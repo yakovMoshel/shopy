@@ -7,9 +7,7 @@ const useStore = create((set) => ({
   setAuthenticated: (status) => set({ isAuthenticated: status }),
   addFavorite: (productId) => set((state) => {
     const newFavorites = [...state.favorites, productId];
-    // מפעיל את ההבהוב
     set({ isFavBlinking: true });
-    // מפסיק את ההבהוב אחרי 3 שניות
     setTimeout(() => set({ isFavBlinking: false }), 3000);
     return { favorites: newFavorites };
   }),

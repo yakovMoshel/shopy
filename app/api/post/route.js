@@ -3,8 +3,21 @@ import { postModel } from "@/server/DL/Models/postModel";
 import { connectToMongo } from "@/server/DL/connectToMongo";
 
 export const GET = async () => {
-  return NextResponse.json({ success: true });
-}
+  await connectToMongo();
+  const posts = await postModel.find();
+
+  const headers = new Headers({
+    "Cache-Control": "no-store",
+  });
+
+  return NextResponse.json({ success: true, data: posts }, { headers });
+};
+
+
+// export const GET = async () => {
+//   return NextResponse.json({ success: true });
+// }
+
 
 export async function POST(req) {
   await connectToMongo();

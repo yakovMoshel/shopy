@@ -8,7 +8,6 @@ export default function FavButton({ productId }) {
     const { favorites, addFavorite, removeFavorite } = useStore();
 
     useEffect(() => {
-        // טוען את המועדפים מ-localStorage בעת טעינת הקומפוננטה
         const savedFavs = JSON.parse(localStorage.getItem('favProducts')) || [];
         savedFavs.forEach(addFavorite);
     }, [addFavorite]);
@@ -21,7 +20,6 @@ export default function FavButton({ productId }) {
         } else {
             addFavorite(productId);
         }
-        // עדכון ה-localStorage
         const updatedFavs = isFav 
             ? favorites.filter(id => id !== productId)
             : [...favorites, productId];

@@ -1,7 +1,6 @@
 import { getProductsByIds } from '@/server/BL/productService';
 import { connectToMongo } from '@/server/DL/connectToMongo';
 
-// הפונקציה שתטפל בבקשת ה-POST
 export async function POST(req, res) {
     await connectToMongo();
 
