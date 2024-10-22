@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { postModel } from "@/server/DL/Models/postModel";
 import { connectToMongo } from "@/server/DL/connectToMongo";
+import { revalidatePath } from 'next/cache';
 
 export async function PUT(req, { params }) {
     await connectToMongo();
@@ -9,6 +10,7 @@ export async function PUT(req, { params }) {
 
     try {
         const product = await postModel.findByIdAndUpdate(id, data, { new: true });
+        revalidatePath('/Blog');
         return NextResponse.json({ success: true, data: product });
     } catch (error) {
         return NextResponse.json({ success: false, error: error.message }, { status: 400 });
