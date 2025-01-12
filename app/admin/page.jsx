@@ -1,26 +1,34 @@
-import { getProductsByIds } from '@/server/BL/productService';
-import ProductItem from '@/Components/ProductItem';
 import React from 'react'
 import styles from './style.module.scss'
 import { connectToMongo } from '@/server/DL/connectToMongo';
-import ProductsList from '@/Components/ProductsList';
-import AddProductForm from '@/Components/AddProductForm';
 import { getAllCategories } from '@/server/BL/categoryService';
-import AddPostForm from '@/Components/AddPostForm';
-import AddCategoryForm from '@/Components/AddCategoryForm';
+import Link from 'next/link';
 
-export default async function Admin() {
+export default async function Admin({ children }) {
 
   await connectToMongo();
   const categories = await getAllCategories();
   
   return (
     <div className={styles.shop}>
-      <div className={styles.content}>
+      <div className={styles.sidebar}>
         <h2>ממשק ניהול</h2>
-        <AddProductForm categories={categories} />
-        <AddPostForm />
-        <AddCategoryForm />
+        <nav>
+          <ul>
+            <li>
+              <Link href="/admin">דף ראשי</Link>
+            </li>
+            <li>
+              <Link href="/admin/addProduct">ניהול מוצרים</Link>
+            </li>
+            <li>
+              <Link href="/admin/addPost">ניהול פוסטים</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div className={styles.content}>
+        {children}
       </div>
     </div>
   )

@@ -5,6 +5,8 @@ import SideBar from '@/Components/SideBar';
 import ProductsList from '@/Components/ProductsList';
 import { getProducts } from '@/server/actions/getProdacts.actions';
 import Head from 'next/head';
+export const dynamic = 'force-dynamic'
+
 
 export default function Shop() {
     const [products, setProducts] = useState([]);
