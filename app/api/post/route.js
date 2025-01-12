@@ -14,8 +14,6 @@ export const GET = async () => {
   return NextResponse.json({ success: true, data: posts }, { headers });
 };
 
-import { revalidatePath } from 'next/cache';
-
 export async function POST(req) {
   await connectToMongo();
   const data = await req.json();
