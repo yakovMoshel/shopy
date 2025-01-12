@@ -14,15 +14,17 @@ export const GET = async () => {
   return NextResponse.json({ success: true, data: posts }, { headers });
 };
 
+import { revalidatePath } from 'next/cache';
+
 export async function POST(req) {
   await connectToMongo();
   const data = await req.json();
 
   try {
-    const post = await postModel.create(data);
-    revalidatePath('/Blog');
-    return NextResponse.json({ success: true, data: post });
+      const product = await productModel.create(data);
+      revalidatePath('/shop');
+      return NextResponse.json({ success: true, data: product });
   } catch (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 400 });
+      return NextResponse.json({ success: false, error: error.message }, { status: 400 });
   }
 }

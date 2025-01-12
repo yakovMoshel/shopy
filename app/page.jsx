@@ -23,10 +23,10 @@ const Home = async () => {
       </Head>
       <div className={styles.top}>
         <div className={styles.image}>
-          <img src="aya.png" alt="" />
+          <img src="אילה אברהם.png" alt="" />
         </div>
         <div className={styles.mobileImage}>
-        <img src="aya.png" alt="" />
+        <img src="אילה אברהם.png" alt="" />
 
         </div>
         <div className={styles.headTitle}>
