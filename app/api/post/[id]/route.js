@@ -9,9 +9,9 @@ export async function PUT(req, { params }) {
     const data = await req.json();
 
     try {
-        const product = await postModel.findByIdAndUpdate(id, data, { new: true });
+        const post = await postModel.findByIdAndUpdate(id, data, { new: true });
         revalidatePath('/Blog');
-        return NextResponse.json({ success: true, data: product });
+        return NextResponse.json({ success: true, data: post });
     } catch (error) {
         return NextResponse.json({ success: false, error: error.message }, { status: 400 });
     }
