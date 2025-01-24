@@ -135,6 +135,28 @@
   }
 }
 
+
+.formatButtons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  
+  button {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid var(--mainColor);
+    background: white;
+    cursor: pointer;
+    font-weight: bold;
+    
+    &:hover {
+      background: var(--mainColor);
+      color: white;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .topPosts {
     padding: 20px;

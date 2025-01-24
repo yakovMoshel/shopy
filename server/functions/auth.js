@@ -33,4 +33,15 @@ function authenticateToken(req, res, next) {
   });
 }
 
-module.exports = { login, authenticateToken };
+async function verifyToken(token) {
+  try {
+    const decoded = jwt.verify(token, process.env.SECRET_CODE);
+    return decoded;
+  } catch (error) {
+    return null;
+  }
+}
+
+
+
+module.exports = { login, authenticateToken,verifyToken };

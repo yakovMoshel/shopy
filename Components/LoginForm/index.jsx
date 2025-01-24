@@ -27,7 +27,7 @@ export default function LoginForm() {
     const data = await res.json();
     setLoading(false);
     if (data.success) {
-      localStorage.setItem('sessionToken', data.token);
+      document.cookie = `sessionToken=${data.token}; path=/; Secure; HttpOnly; SameSite=Strict`;
       setAuthenticated(true);
       setSuccessMessage('Login successful');
       setTimeout(() => {

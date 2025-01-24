@@ -18,6 +18,9 @@ export default function AddPostForm() {
     callToAction: '',
     socialImage: ''
   });
+
+
+  
   
   const [isLoading, setIsLoading] = useState(false);
   const [feedback, setFeedback] = useState({ type: '', message: '' });
@@ -51,16 +54,36 @@ export default function AddPostForm() {
     e.preventDefault();
     setIsLoading(true);
     setFeedback({ type: '', message: '' });
-
+  
+    const formatContent = (content) => {
+      return content
+        .split('\n')
+        .map(line => {
+          // Headers
+          if (line.startsWith('##')) {
+            const level = line.match(/^#+/)[0].length;
+            const text = line.replace(/^#+\s*/, '');
+            return `<h${level}>${text}</h${level}>`;
+          }
+          // Bullets
+          if (line.startsWith('*')) {
+            const text = line.replace(/^\*\s*/, '');
+            return `<li>${text}</li>`;
+          }
+          // Bold text
+          const boldText = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+          // Regular paragraph
+          return `<p>${boldText}</p>`;
+        })
+        .join('');
+    };
+  
     const formattedData = {
       ...formData,
-      content: formData.content
-        .split('\n')
-        .map(paragraph => `<p>${paragraph}</p>`)
-        .join(''),
+      content: formatContent(formData.content),
       image: formData.image.trim(),
     };
-
+  
     try {
       const response = await axios.post('/api/post', formattedData, {
         headers: {
@@ -84,6 +107,32 @@ export default function AddPostForm() {
         behavior: 'smooth'
       });
     }
+  };
+
+
+  const formatSelection = (type) => {
+    const textarea = document.querySelector(`textarea[name="content"]`);
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = formData.content.substring(start, end);
+    
+    let newText;
+    switch(type) {
+      case 'bold':
+        newText = `**${selectedText}**`;
+        break;
+      case 'bullet':
+        newText = `* ${selectedText}`;
+        break;
+      case 'header':
+        newText = `# ${selectedText}`;
+        break;
+      default:
+        return;
+    }
+
+    const newContent = formData.content.substring(0, start) + newText + formData.content.substring(end);
+    setFormData(prev => ({ ...prev, content: newContent }));
   };
 
   return (
@@ -126,16 +175,21 @@ export default function AddPostForm() {
             </div>
 
             <div className={styles.formRow}>
-              <div className={styles.formGroup}>
-                <textarea
-                  name="content"
-                  value={formData.content}
-                  placeholder="תוכן"
-                  onChange={handleChange}
-                  required
-                  className={styles.contentTextarea}
-                ></textarea>
-              </div>
+            <div className={styles.formGroup}>
+        <div className={styles.formatButtons}>
+          <button type="button" onClick={() => formatSelection('bold')}>B</button>
+          <button type="button" onClick={() => formatSelection('bullet')}>•</button>
+          <button type="button" onClick={() => formatSelection('header')}>H</button>
+        </div>
+        <textarea
+          name="content"
+          value={formData.content}
+          placeholder="תוכן"
+          onChange={handleChange}
+          required
+          className={styles.contentTextarea}
+        ></textarea>
+      </div>
             </div>
           </div>
 
