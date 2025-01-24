@@ -40,15 +40,24 @@
     color: var(--text-color);
     font-weight: 300;
   }
-
+  
   .content {
     font-size: 16px;
     font-weight: 300;
     color: var(--text-color);
-
-    p {
-      margin-bottom: 20px;
+    h1 { font-size: 1.8em; margin-bottom: 0.5em; color: var(--secColor); }
+    h2 { font-size: 1.5em; margin-bottom: 0.5em; color: var(--secColor); }
+    h3 { font-size: 1.2em; margin-bottom: 0.5em; color: var(--secColor); }
+    
+    ul { margin: 1em 2em; }
+    li { list-style-type: disc; margin-bottom: 0.5em; }
+    
+    strong { 
+      color: var(--text-color);
+      font-weight: 600; 
     }
+    
+    p { margin-bottom: 1em; }
   }
 }
 
